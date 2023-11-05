@@ -1,11 +1,9 @@
-site_name: Mkdocs Template
-site_description: A website template for using mkdocs
-site_author: Qiusheng Wu
-site_url: https://giswqs.github.io/mkdocs-template
+site_name: EEFA Notebook
+site_description: Python scripts and Jupyter notebooks for the EEFA book
+site_author: EEFA Authors
+site_url: https://gee-community.github.io/eefa-notebook
 
-repo_url: https://github.com/giswqs/mkdocs-template
-
-copyright: "Copyright &copy; 2022 - 2023 Qiusheng Wu"
+repo_url: https://github.com/gee-community/eefa-notebook
 
 theme:
   palette:
@@ -42,7 +40,7 @@ plugins:
       # execute: True
       allow_errors: false
       ignore: ["name.ipynb"]
-      execute_ignore: "path/*.ipynb"
+      execute_ignore: ["path/*.ipynb"]
 
 markdown_extensions:
   - attr_list
