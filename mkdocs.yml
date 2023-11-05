@@ -39,8 +39,8 @@ plugins:
       ignore_h1_titles: True
       # execute: True
       allow_errors: false
-      ignore: ["name.ipynb"]
-      execute_ignore: ["path/*.ipynb"]
+      ignore: ["*.py", "*.js"]
+      execute_ignore: ["*.py"]
 
 markdown_extensions:
   - attr_list
@@ -55,3 +55,261 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Report Issues: https://github.com/gee-community/eefa-notebook/issues
+  - F1 - Programming and Remote Sensing Basics:
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.0 Javascript and the Earth Engine API/F10a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.0 Javascript and the Earth Engine API/F10b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.1 Exploring Images/F11a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.1 Exploring Images/F11b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.1 Exploring Images/F11c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.1 Exploring Images/F11s1 Assignment 4.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.1 Exploring Images/F11s2 Assignment 5.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.2 Survey of Imagery/F12a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.2 Survey of Imagery/F12b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.2 Survey of Imagery/F12c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.2 Survey of Imagery/F12d Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.2 Survey of Imagery/F12e Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.2 Survey of Imagery/F12f Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.2 Survey of Imagery/F12g Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.3 The Remote Sensing Vocabulary/F13a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.3 The Remote Sensing Vocabulary/F13b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.3 The Remote Sensing Vocabulary/F13c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.3 The Remote Sensing Vocabulary/F13d Checkpoint.ipynb
+      - book/Part F - Fundamentals/F1 - Programming and Remote Sensing Basics/F1.3 The Remote Sensing Vocabulary/F13e Checkpoint.ipynb
+  - F2 - Interpreting Images:
+      - book/Part F - Fundamentals/F2 - Interpreting Images/F2.0 Image Manipulation Bands Arithmetic Thresholds and Masks/F20a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F2 - Interpreting Images/F2.0 Image Manipulation Bands Arithmetic Thresholds and Masks/F20b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F2 - Interpreting Images/F2.1 Interpreting an Image - Classification/F21a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F2 - Interpreting Images/F2.1 Interpreting an Image - Classification/F21b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F2 - Interpreting Images/F2.1 Interpreting an Image - Classification/F21c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F2 - Interpreting Images/F2.1 Interpreting an Image - Classification/F21s1 Assignment 6.ipynb
+      - book/Part F - Fundamentals/F2 - Interpreting Images/F2.2 Accuracy Assessment/F22a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F2 - Interpreting Images/F2.2 Accuracy Assessment/F22b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F2 - Interpreting Images/F2.2 Accuracy Assessment/F22c Checkpoint.ipynb
+  - F3 - Advanced Image Processing:
+      - book/Part F - Fundamentals/F3 - Advanced Image Processing/F3.0 Interpreting an Image Regression/F30a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F3 - Advanced Image Processing/F3.0 Interpreting an Image Regression/F30b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F3 - Advanced Image Processing/F3.0 Interpreting an Image Regression/F30c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F3 - Advanced Image Processing/F3.1 Advanced Pixel-Based Image Transformations/F31a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F3 - Advanced Image Processing/F3.1 Advanced Pixel-Based Image Transformations/F31b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F3 - Advanced Image Processing/F3.1 Advanced Pixel-Based Image Transformations/F31c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F3 - Advanced Image Processing/F3.2 Neighborhood based Image Transformation/F32a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F3 - Advanced Image Processing/F3.2 Neighborhood based Image Transformation/F32b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F3 - Advanced Image Processing/F3.2 Neighborhood based Image Transformation/F32c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F3 - Advanced Image Processing/F3.2 Neighborhood based Image Transformation/F32d Checkpoint.ipynb
+  - F4 - Interpreting Image Series:
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.0 Functional Programming Concepts/F40a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.0 Functional Programming Concepts/F40b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.0 Functional Programming Concepts/F40c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.1 Exploring Image Collections/F41a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.1 Exploring Image Collections/F41b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.1 Exploring Image Collections/F41c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.1 Exploring Image Collections/F41d Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.2 Aggregating Time Series/F42a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.2 Aggregating Time Series/F42b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.2 Aggregating Time Series/F42c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.2 Aggregating Time Series/F42d Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.3 Clouds and Image Compositing/F43a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.3 Clouds and Image Compositing/F43b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.3 Clouds and Image Compositing/F43c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.3 Clouds and Image Compositing/F43d Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.4 Change Detection/F44a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.4 Change Detection/F44b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.4 Change Detection/vis/incheon.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.4 Change Detection/vis/mining.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.4 Change Detection/vis/mtStHelen.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.4 Change Detection/vis/paradise.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.5 LandTrendr/F45a LandTrendr Links and info.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.6 Fitting Functions to Time Series/F46a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.6 Fitting Functions to Time Series/F46b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.6 Fitting Functions to Time Series/F46c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.6 Fitting Functions to Time Series/F46d Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.6 Fitting Functions to Time Series/F46e Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.6 Fitting Functions to Time Series/F46s1 Synthesis.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.6 Fitting Functions to Time Series/F46s2 Synthesis.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.7 Interpreting Time Series with CCDC/F47a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.7 Interpreting Time Series with CCDC/F47b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.7 Interpreting Time Series with CCDC/F47c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.7 Interpreting Time Series with CCDC/F47d Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.7 Interpreting Time Series with CCDC/F47e Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.8 Data Fusion- Merging Classification Streams/F48a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.8 Data Fusion- Merging Classification Streams/F48b Checkpoint - BULC interface link.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.8 Data Fusion- Merging Classification Streams/F48c Checkpoint - BULC-D Interface Link.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.8 Data Fusion- Merging Classification Streams/F48s1 - Supplemental - BULC explainer.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.9 Exploring Lagged Effects in Time Series/F49a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.9 Exploring Lagged Effects in Time Series/F49b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.9 Exploring Lagged Effects in Time Series/F49c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F4 - Interpreting Image Series/F4.9 Exploring Lagged Effects in Time Series/F49d Checkpoint.ipynb
+  - F5 - Vectors and Tables:
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.0 Exploring Vectors/F50a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.0 Exploring Vectors/F50b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.0 Exploring Vectors/F50c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.0 Exploring Vectors/F50d Checkpoint.ipynb
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.0 Exploring Vectors/F50e Checkpoint.ipynb
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.1 Vector Raster Conversion/F51a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.1 Vector Raster Conversion/F51b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.1 Vector Raster Conversion/F51c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.1 Vector Raster Conversion/F51d Checkpoint.ipynb
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.1 Vector Raster Conversion/F51e Checkpoint.ipynb
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.2 Zonal Statistics/F52a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.2 Zonal Statistics/F52b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.2 Zonal Statistics/F52c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.3 Advanced Vector Operations/F53a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.3 Advanced Vector Operations/F53b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F5 - Vectors and Tables/F5.4 GEEDiT/F54a Checkpoint Links and Info.ipynb
+  - F6 - Advanced Topics:
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.0 Advanced Raster Visualizations/F60a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.0 Advanced Raster Visualizations/F60b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.0 Advanced Raster Visualizations/F60c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.0 Advanced Raster Visualizations/F60d Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.0 Advanced Raster Visualizations/F60e Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.0 Advanced Raster Visualizations/F60f Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.0 Advanced Raster Visualizations/F60g Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.0 Advanced Raster Visualizations/F60h Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.0 Advanced Raster Visualizations/F60i Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.0 Advanced Raster Visualizations/F60j Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.0 Advanced Raster Visualizations/F60s1 - Supplemental - Gallery View.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.2 Scaling Up/F62a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.2 Scaling Up/F62b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.2 Scaling Up/F62c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.2 Scaling Up/F62d Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.2 Scaling Up/F62e Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.2 Scaling Up/modules/s2cloudmask.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.3 Basic UI and Apps/A38s1 - Supplemental.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.3 Basic UI and Apps/F63a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.3 Basic UI and Apps/F63b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.3 Basic UI and Apps/F63c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.3 Basic UI and Apps/F63d Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.4 Combining R and Earth Engine/F64a Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.4 Combining R and Earth Engine/F64b Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.4 Combining R and Earth Engine/F64c Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.4 Combining R and Earth Engine/F64d Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.4 Combining R and Earth Engine/F64e Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.4 Combining R and Earth Engine/F64f Checkpoint.ipynb
+      - book/Part F - Fundamentals/F6 - Advanced Topics/F6.4 Combining R and Earth Engine/F64g Checkpoint.ipynb
+  - A1 - Human Applications:
+      - book/Part A - Applications/A1 - Human Applications/A1.1 Agricultural Environments/A11a Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.1 Agricultural Environments/A11b Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.1 Agricultural Environments/A11c Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.1 Agricultural Environments/A11d Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.2 Urban Environments/A12a Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.2 Urban Environments/A12b Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.2 Urban Environments/A12c Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.2 Urban Environments/A12d Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.2 Urban Environments/A12e Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.2 Urban Environments/A12f Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.2 Urban Environments/A12g Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.2 Urban Environments/A12h Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.3 Built Environments/A13a Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.3 Built Environments/A13b Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.3 Built Environments/A13c Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.3 Built Environments/A13d Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.3 Built Environments/A13e Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.3 Built Environments/A13f Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.3 Built Environments/A31s1 Exercise 1.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.3 Built Environments/A31s2 Exercise 2.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.4 Air Pollution/A14a Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.4 Air Pollution/A14b Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.4 Air Pollution/A14c Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.5 Heat Islands/A15a Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.5 Heat Islands/A15b Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.5 Heat Islands/A15c Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.5 Heat Islands/A15d Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.5 Heat Islands/A15e Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.5 Heat Islands/modules/ASTER_bare_emiss.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.5 Heat Islands/modules/Landsat_LST.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.5 Heat Islands/modules/NCEP_TPW.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.5 Heat Islands/modules/SMW_coefficients.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.5 Heat Islands/modules/SMWalgorithm.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.5 Heat Islands/modules/broadband_emiss.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.5 Heat Islands/modules/cloudmask.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.5 Heat Islands/modules/compute_FVC.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.5 Heat Islands/modules/compute_NDVI.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.5 Heat Islands/modules/compute_emissivity.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.6 Health Applications/A16a Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.6 Health Applications/A16b Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.6 Health Applications/A16c Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.6 Health Applications/A16d Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.6 Health Applications/A16e Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.6 Health Applications/A16f Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.6 Health Applications/A16g Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.6 Health Applications/A16h Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.7 Humanitarian Applications/A17a Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.7 Humanitarian Applications/A17b Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.7 Humanitarian Applications/A17c Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.7 Humanitarian Applications/A17d Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.8 Monitoring Gold Mining Activity Using SAR/A18a Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.8 Monitoring Gold Mining Activity Using SAR/A18b Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.8 Monitoring Gold Mining Activity Using SAR/A18c Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.8 Monitoring Gold Mining Activity Using SAR/A18d Checkpoint.ipynb
+      - book/Part A - Applications/A1 - Human Applications/A1.8 Monitoring Gold Mining Activity Using SAR/A18e Checkpoint.ipynb
+  - A2 - Aquatic and Hydrological Applications:
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.1 GRACE Groundwater/A21a Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.1 GRACE Groundwater/A21b Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.1 GRACE Groundwater/A21c Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.1 GRACE Groundwater/A21d Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.1 GRACE Groundwater/A21e Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.1 GRACE Groundwater/A21f Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.1 GRACE Groundwater/A21s1 - Supplemental.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.2 Benthic Habitats/A22a Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.2 Benthic Habitats/A22b Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.2 Benthic Habitats/A22c Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.2 Benthic Habitats/A22d Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.2 Benthic Habitats/A22e Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.3 Surface Water Mapping/A23a Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.3 Surface Water Mapping/A23b Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.3 Surface Water Mapping/A23c Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.4 River Morphology/A24a Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.4 River Morphology/A24b Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.4 River Morphology/A24c Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.4 River Morphology/A24d Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.4 River Morphology/A24e Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.4 River Morphology/A24f Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.5 Water Balance and Drought/A25a Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.5 Water Balance and Drought/A25b Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.5 Water Balance and Drought/A25c Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.5 Water Balance and Drought/A25d Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.5 Water Balance and Drought/A25s1 - Annual.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.5 Water Balance and Drought/A25s2 - PET.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.5 Water Balance and Drought/A25s3 - Monthly.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.5 Water Balance and Drought/A25s4 - Per Class Balance.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.6 First Date of No Snow/A26a Checkpoint.ipynb
+      - book/Part A - Applications/A2 - Aquatic and Hydrological Applications/A2.6 First Date of No Snow/A26b Checkpoint.ipynb
+  - A3 - Terrestrial Applications:
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.1 Active Fire Monitoring/A31a Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.1 Active Fire Monitoring/A31b Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.1 Active Fire Monitoring/A31c Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.1 Active Fire Monitoring/A31d Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.10 Conservation II - Mapping and Assessing Agricultural Intensification in Production Landscapes outside Protected Areas/A310a Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.10 Conservation II - Mapping and Assessing Agricultural Intensification in Production Landscapes outside Protected Areas/A310b Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.10 Conservation II - Mapping and Assessing Agricultural Intensification in Production Landscapes outside Protected Areas/A310c Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.2 Mangroves/A32a Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.2 Mangroves/A32s1 - Supplemental.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.3 Mangroves II - Change/A33a Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.3 Mangroves II - Change/A33s1 - Supplemental.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.4 Forest Degradation and Deforestation/A34a Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.4 Forest Degradation and Deforestation/A34b Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.4 Forest Degradation and Deforestation/A34c Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.4 Forest Degradation and Deforestation/A34d Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.4 Forest Degradation and Deforestation/A34e Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.4 Forest Degradation and Deforestation/modules/palettes.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.5 Deforestation Viewed from Multiple Sensors/A35a Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.5 Deforestation Viewed from Multiple Sensors/A35b Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.5 Deforestation Viewed from Multiple Sensors/A35c Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.5 Deforestation Viewed from Multiple Sensors/A35d Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.5 Deforestation Viewed from Multiple Sensors/A35e Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.5 Deforestation Viewed from Multiple Sensors/modules/FNRT_GUI.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.5 Deforestation Viewed from Multiple Sensors/modules/Inputs.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.5 Deforestation Viewed from Multiple Sensors/modules/slope_correction_lib.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.6 Working With GPS & Weather Data/A36a Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.6 Working With GPS & Weather Data/A36b Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.7 Creating Presence-Absence Points/A37a Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.7 Creating Presence-Absence Points/A37b Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.8 Detecting Land Cover Change in Rangelands/A38a Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.8 Detecting Land Cover Change in Rangelands/A38b Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.8 Detecting Land Cover Change in Rangelands/A38c Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.8 Detecting Land Cover Change in Rangelands/A38d Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.8 Detecting Land Cover Change in Rangelands/A38e Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.8 Detecting Land Cover Change in Rangelands/A38s1 - Supplemental.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.8 Detecting Land Cover Change in Rangelands/modules/calcResid.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.9 Conservation Applications/A39a Checkpoint.ipynb
+      - book/Part A - Applications/A3 - Terrestrial Applications/A3.9 Conservation Applications/A39b Checkpoint.ipynb
