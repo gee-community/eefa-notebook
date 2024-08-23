@@ -1,5 +1,5 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      F1.0 Exploring images
+//  Chapter:      F1.0 Javascript and the Earth Engine API
 //  Checkpoint:   F10a
 //  Author:       Ujaval Gandhi 
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
