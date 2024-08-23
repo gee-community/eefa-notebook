@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var point = 
+var point =
     /* color: #d63000 */
     /* shown: false */
     ee.Geometry.Point([-122.19174741047361, 46.20040199038881]);

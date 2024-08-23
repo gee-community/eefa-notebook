@@ -1,8 +1,8 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      F4.3 Clouds and Image Compositing
 //  Checkpoint:   F43b
-//  Authors:      Txomin Hermosilla, Saverio Francini, Andréa P. Nicolau, 
-//                Michael A. Wulder, Joanne C. White, Nicholas C. Coops, 
+//  Authors:      Txomin Hermosilla, Saverio Francini, Andréa P. Nicolau,
+//                Michael A. Wulder, Joanne C. White, Nicholas C. Coops,
 //                Gherardo Chirici
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -57,7 +57,7 @@ var compositeFiltClouds = landsat8FiltClouds.median().clip(country);
 
 Map.addLayer(compositeFiltClouds, visParams,
     'L8 Composite cloud filter');
-    
+
 // Print size of collections, for comparison.
 print('Size landsat8 collection', landsat8.size());
 print('Size landsat8FiltClouds collection', landsat8FiltClouds.size());
@@ -86,7 +86,7 @@ var landsat8compositeMasked = landsat8FiltMasked.median().clip(country);
 Map.addLayer(landsat8compositeMasked, visParams, 'L8 composite masked');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // ---------- Section 2 -----------------
@@ -146,9 +146,9 @@ var landsat78 = landsat7FiltMaskedRenamed
 print('Merged collections', landsat78);
 
 // Create Landsat 7 and 8 image composite and add to the Map.
-var landsat78composite = landsat78.median().clip(country); 
+var landsat78composite = landsat78.median().clip(country);
 Map.addLayer(landsat78composite, visParams, 'L7 and L8 composite');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

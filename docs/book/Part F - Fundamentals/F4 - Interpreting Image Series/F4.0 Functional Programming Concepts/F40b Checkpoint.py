@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -9,47 +9,54 @@ Map = geemap.Map()
 #  Author:       Jeff Cardille
 #  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-imgCol = ee.ImageCollection('LANDSAT/LT05/C02/T1_L2')
+imgCol = ee.ImageCollection("LANDSAT/LT05/C02/T1_L2")
 # How many Tier 1 Landsat 5 images have ever been collected?
-print("All images ever: ", imgCol.size()); # A very large number
+print("All images ever: ", imgCol.size())
+# A very large number
 
 # How many images were collected in the 2000s?
-startDate = '2000-01-01'
-endDate = '2010-01-01'
+startDate = "2000-01-01"
+endDate = "2010-01-01"
 
 imgColfilteredByDate = imgCol.filterDate(startDate, endDate)
 print("All images 2000-2010: ", imgColfilteredByDate.size())
 # A smaller (but still large) number
 
-ShanghaiImage = ee.Image(
-    'LANDSAT/LT05/C02/T1_L2/LT05_118038_20000606')
+ShanghaiImage = ee.Image("LANDSAT/LT05/C02/T1_L2/LT05_118038_20000606")
 Map.centerObject(ShanghaiImage, 9)
 
-imgColfilteredByDateHere = imgColfilteredByDate.filterBounds(Map \
-    .getCenter())
-print("All images here, 2000-2010: ", imgColfilteredByDateHere \
-.size()); 
+imgColfilteredByDateHere = imgColfilteredByDate.filterBounds(Map.getCenter())
+print("All images here, 2000-2010: ", imgColfilteredByDateHere.size())
 
-L5FilteredLowCloudImages = imgColfilteredByDateHere \
-    .filterMetadata('CLOUD_COVER', 'less_than', 50)
-print("Less than 50% clouds in this area, 2000-2010",
-    L5FilteredLowCloudImages.size()); # A smaller number
+L5FilteredLowCloudImages = imgColfilteredByDateHere.filterMetadata(
+    "CLOUD_COVER", "less_than", 50
+)
+print("Less than 50% clouds in this area, 2000-2010", L5FilteredLowCloudImages.size())
+# A smaller number
 
-chainedFilteredSet = imgCol.filterDate(startDate, endDate) \
-    .filterBounds(Map.getCenter()) \
-    .filterMetadata('CLOUD_COVER', 'less_than', 50)
-print('Chained: Less than 50% clouds in this area, 2000-2010',
-    chainedFilteredSet.size())
+chainedFilteredSet = (
+    imgCol.filterDate(startDate, endDate)
+    .filterBounds(Map.getCenter())
+    .filterMetadata("CLOUD_COVER", "less_than", 50)
+)
+print(
+    "Chained: Less than 50% clouds in this area, 2000-2010", chainedFilteredSet.size()
+)
 
-efficientFilteredSet = imgCol.filterBounds(Map.getCenter()) \
-    .filterDate(startDate, endDate) \
-    .filterMetadata('CLOUD_COVER', 'less_than', 50)
-print('Efficient filtering: Less than 50% clouds in this area, 2000-2010',
-    efficientFilteredSet.size())
+efficientFilteredSet = (
+    imgCol.filterBounds(Map.getCenter())
+    .filterDate(startDate, endDate)
+    .filterMetadata("CLOUD_COVER", "less_than", 50)
+)
+print(
+    "Efficient filtering: Less than 50% clouds in this area, 2000-2010",
+    efficientFilteredSet.size(),
+)
 
 #  -----------------------------------------------------------------------
 #  CHECKPOINT
 #  -----------------------------------------------------------------------
+
 
 def makeLandsat5EVI(oneL5Image):
     # compute the EVI for any Landsat 5 image. Note it's specific to
@@ -57,32 +64,30 @@ def makeLandsat5EVI(oneL5Image):
     # function for images from sensors other than Landsat 5.
 
     # Extract the bands and divide by 1e4 to account for scaling done.
-    nirScaled = oneL5Image.select('SR_B4').divide(10000)
-    redScaled = oneL5Image.select('SR_B3').divide(10000)
-    blueScaled = oneL5Image.select('SR_B1').divide(10000)
+    nirScaled = oneL5Image.select("SR_B4").divide(10000)
+    redScaled = oneL5Image.select("SR_B3").divide(10000)
+    blueScaled = oneL5Image.select("SR_B1").divide(10000)
 
     # Calculate the numerator, note that order goes from left to right.
-    numeratorEVI = (nirScaled.subtract(redScaled)).multiply(
-        2.5)
+    numeratorEVI = (nirScaled.subtract(redScaled)).multiply(2.5)
 
     # Calculate the denominator
     denomClause1 = redScaled.multiply(6)
     denomClause2 = blueScaled.multiply(7.5)
-    denominatorEVI = nirScaled.add(denomClause1).subtract(
-        denomClause2).add(1)
+    denominatorEVI = nirScaled.add(denomClause1).subtract(denomClause2).add(1)
 
     # Calculate EVI and name it.
-    landsat5EVI = numeratorEVI.divide(denominatorEVI).rename(
-        'EVI')
-    return (landsat5EVI)
+    landsat5EVI = numeratorEVI.divide(denominatorEVI).rename("EVI")
+    return landsat5EVI
 
 
 L5EVIimages = efficientFilteredSet.map(makeLandsat5EVI)
-print('Verifying that the .map gives back the same number of images: ',
-    L5EVIimages.size())
+print(
+    "Verifying that the .map gives back the same number of images: ", L5EVIimages.size()
+)
 print(L5EVIimages)
 
-Map.addLayer(L5EVIimages, {}, 'L5EVIimages', 1, 1)
+Map.addLayer(L5EVIimages, {}, "L5EVIimages", 1, 1)
 
 #  -----------------------------------------------------------------------
 #  CHECKPOINT

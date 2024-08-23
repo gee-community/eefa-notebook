@@ -1,5 +1,5 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      F6.0 Advanced Raster Visualization 
+//  Chapter:      F6.0 Advanced Raster Visualization
 //  Checkpoint:   F60j
 //  Authors:      Gennadii Donchyts, Fedor Baart
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -53,11 +53,11 @@ var demRGB = dem.visualize({min: -5, max: 5, palette: palette});
 var castShadows = true;
 
 var rgb = utils.hillshadeRGB(
-  demRGB, dem, weight, exaggeration, azimuth, zenith, 
+  demRGB, dem, weight, exaggeration, azimuth, zenith,
   contrast, brightness, saturation, castShadows);
 
 Map.addLayer(rgb, {}, 'DEM colormap');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

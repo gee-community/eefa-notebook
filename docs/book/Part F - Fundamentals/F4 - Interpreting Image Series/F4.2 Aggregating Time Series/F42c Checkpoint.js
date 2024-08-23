@@ -21,7 +21,7 @@ print('Start date as timestamp', startDate.millis());
 print('End date as timestamp', endDate.millis());
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Aggregate this time series to compute monthly images.
@@ -55,6 +55,6 @@ var monthlyCollection = ee.ImageCollection.fromImages(monthlyImages);
 print(monthlyCollection);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 

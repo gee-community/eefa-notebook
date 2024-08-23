@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -33,11 +33,11 @@ bufferedBounds = pagirinya.buffer(bufferSize) \
 
 def addIndices(img):
     ndvi = img.normalizedDifference(['nir', 'red']) \
-        .rename('NDVI'); 
+        .rename('NDVI');
     ndbi = img.normalizedDifference(['swir1', 'nir']) \
-        .rename(['NDBI']); 
+        .rename(['NDBI']);
     nbr = img.normalizedDifference(['nir', 'swir2']) \
-        .rename(['NBR']); 
+        .rename(['NBR']);
     imgIndices = img.addBands(ndvi).addBands(ndbi).addBands(nbr)
     return imgIndices
 

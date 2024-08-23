@@ -5,8 +5,8 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Bobcat Fire in the Earth Engine app FIRMS Active Fires (
-  
+
   https://globalfires.earthengine.app/view/firms
-  
-). 
+
+).
 

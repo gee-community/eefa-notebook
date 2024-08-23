@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var geometry = 
+var geometry =
     /* color: #d63000 */
     /* shown: false */
     ee.Geometry.Point([114.26732477622326, 30.57603159263821]);
@@ -18,7 +18,7 @@ var geometry =
 var adminUnits = ee.FeatureCollection(
     'FAO/GAUL_SIMPLIFIED_500m/2015/level1');
 
-// Filter for the administrative unit that intersects 
+// Filter for the administrative unit that intersects
 // the geometry located at the top of this script.
 var adminSelect = adminUnits.filterBounds(geometry);
 
@@ -90,10 +90,10 @@ var no2Viz = {
 Map.addLayer(no2MedianClipped, no2Viz, 'median no2 Mar 2021');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
-/* 
+/*
  * Section 2: quantifying and vizualizing change
  */
 
@@ -159,12 +159,12 @@ rightMap.layers().reset([no2LockdownLayer]);
 rightMap.add(makeMapLab('Lockdown 2020', 'top-right'));
 
 // Reset the map interface (ui.root) with the split panel widget.
-// Note that the Map.addLayer() calls earlier on in Section 1 
-// will no longer be shown because we have replaced the Map widget 
+// Note that the Map.addLayer() calls earlier on in Section 1
+// will no longer be shown because we have replaced the Map widget
 // with the sliderPanel widget.
 ui.root.widgets().reset([sliderPanel]);
 
-// Create a function to get the mean NO2 for the study region 
+// Create a function to get the mean NO2 for the study region
 // per image in the NO2 collection.
 function getConc(collectionLabel, img) {
     return function(img) {
@@ -187,7 +187,7 @@ function getConc(collectionLabel, img) {
     };
 }
 
-// Get the concentrations for a baseline and lockdown collection 
+// Get the concentrations for a baseline and lockdown collection
 // and merge for plotting.
 var no2AggChange_forPlotting = no2
     .filterDate('2020-03-01', '2020-04-01')
@@ -210,5 +210,5 @@ var chart1 = ui.Chart.feature.groups(
 print('Baseline vs lockdown NO2 for the study region by DOY', chart1);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

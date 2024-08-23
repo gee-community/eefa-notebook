@@ -1,5 +1,5 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      Chapter A3.10 Conservation II - Assessing Agricultural 
+//  Chapter:      Chapter A3.10 Conservation II - Assessing Agricultural
 //                Intensification Near Protected Areas
 //  Checkpoint:   A310a
 //  Authors:      Pradeep Koulgi, MD Madhusudan
@@ -41,7 +41,7 @@ var regressionY = maxNDVIBandname;
 var surfaceWaterExtent = ee.Image('JRC/GSW1_3/GlobalSurfaceWater')
     .select('max_extent');
 
-// 1.5. Average annual precipitation layer     
+// 1.5. Average annual precipitation layer
 var rainfall = ee.Image('WORLDCLIM/V1/BIO').select('bio12');
 
 // 1.6. Visualization parameters

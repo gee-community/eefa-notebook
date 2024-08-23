@@ -93,7 +93,7 @@ function zonalStats(ic, fc, params) {
     return results;
 }
 
-// Creating points that will be used for the rest of the chapter. 
+// Creating points that will be used for the rest of the chapter.
 // Alternatively, you could load your own points.
 var pts = ee.FeatureCollection([
     ee.Feature(ee.Geometry.Point([-118.6010, 37.0777]), {
@@ -116,5 +116,5 @@ var pts = ee.FeatureCollection([
 print('Points of interest', pts);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

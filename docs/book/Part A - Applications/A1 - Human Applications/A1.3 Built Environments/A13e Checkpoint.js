@@ -54,7 +54,7 @@ var transmissionAfricaRaster = empty.paint({
 });
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Add roads and transmission lines together into one image.
@@ -117,5 +117,5 @@ Map.setCenter(19.8638, -34.5705, 10);
 Map.addLayer(gearysStar.focalMax(1), visParams, 'local Gearys C*');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

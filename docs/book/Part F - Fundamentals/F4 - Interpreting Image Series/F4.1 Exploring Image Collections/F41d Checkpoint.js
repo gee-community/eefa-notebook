@@ -3,21 +3,21 @@
 //  Checkpoint:   F41d
 //  Author:       Gennadii Donchyts
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 
+
 // Define a region of interest as a point in Lisbon, Portugal.
 var lisbonPoint = ee.Geometry.Point(-9.179473, 38.763948);
 
 // Center the map at that point.
 Map.centerObject(lisbonPoint, 16);
 
-// filter the large ImageCollection to be just images from 2020 
+// filter the large ImageCollection to be just images from 2020
 // around Lisbon. From each image, select true-color bands to draw
 var filteredIC = ee.ImageCollection('LANDSAT/LC08/C02/T1_TOA')
     .filterDate('2020-01-01', '2021-01-01')
     .filterBounds(lisbonPoint)
     .select(['B6', 'B5', 'B4']);
 
-// Add the filtered ImageCollection so that we can inspect values 
+// Add the filtered ImageCollection so that we can inspect values
 // via the Inspector tool
 Map.addLayer(filteredIC, {}, 'TOA image collection');
 
@@ -33,7 +33,7 @@ var chart = ui.Chart.image.series({
 print(chart);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // compute and show the number of observations in an image collection
@@ -41,7 +41,7 @@ var count = ee.ImageCollection('LANDSAT/LC08/C02/T1_TOA')
     .filterDate('2020-01-01', '2021-01-01')
     .select(['B6'])
     .count();
- 
+
 // add white background and switch to HYBRID basemap
 Map.addLayer(ee.Image(1), {
     palette: ['white']
@@ -60,7 +60,7 @@ Map.addLayer(count, {
 Map.centerObject(lisbonPoint, 5);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Zoom to an informative scale for the code that follows.
@@ -77,7 +77,7 @@ Map.addLayer(medianFilteredIC, {},
     'Median values within image collection');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // compute a single 30% percentile
@@ -100,7 +100,7 @@ percentiles.map(function(p) {
 });
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 

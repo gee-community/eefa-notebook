@@ -1,5 +1,5 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      Chapter A3.10 Conservation II - Assessing Agricultural 
+//  Chapter:      Chapter A3.10 Conservation II - Assessing Agricultural
 //                Intensification Near Protected Areas
 //  Checkpoint:   A310c
 //  Authors:      Pradeep Koulgi, MD Madhusudan
@@ -41,7 +41,7 @@ var regressionY = maxNDVIBandname;
 var surfaceWaterExtent = ee.Image('JRC/GSW1_3/GlobalSurfaceWater')
     .select('max_extent');
 
-// 1.5. Average annual precipitation layer     
+// 1.5. Average annual precipitation layer
 var rainfall = ee.Image('WORLDCLIM/V1/BIO').select('bio12');
 
 // 1.6. Visualization parameters
@@ -73,9 +73,9 @@ var regressionSummaryChartingOptions = {
 
 // 2. Raster processing for change analysis
 
-// Defining functions to be used in this script	
+// Defining functions to be used in this script
 
-// 2.1. Annual dry season maxima of NDVI	
+// 2.1. Annual dry season maxima of NDVI
 
 function annualDrySeasonMaximumNDVIAndTime(y) {
     // Convert year y to a date object
@@ -86,7 +86,7 @@ function annualDrySeasonMaximumNDVIAndTime(y) {
         .filter(ee.Filter.date(yDate, yDate.advance(1, 'year')))
         // Compute max value
         .max()
-        // Apply appropriate scale, as per the dataset's 
+        // Apply appropriate scale, as per the dataset's
         // technical description for NDVI band.
         .multiply(ndviValuesScaling)
         // rename the band to be more comprehensible
@@ -99,8 +99,8 @@ function annualDrySeasonMaximumNDVIAndTime(y) {
     return ee.Image.cat([yMaxNdvi, yTime]).set('year', y);
 }
 
-// Create a collection of annual dry season maxima 
-// for the years of interest.  Select the NDVI band and 
+// Create a collection of annual dry season maxima
+// for the years of interest.  Select the NDVI band and
 // filter to the collection of dry season observations.
 var drySeasonNdviColl = modis_veg.select([ndviBandName])
     .filter(ee.Filter.calendarRange(drySeasonStart_doy,

@@ -1,5 +1,5 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      Chapter A3.9 Conservation Applications - Assessing the 
+//  Chapter:      Chapter A3.9 Conservation Applications - Assessing the
 //                spatial relationship between burned area and precipitation
 //  Checkpoint:   A39a
 //  Authors:      Harriet Branson, Chelsea Smith

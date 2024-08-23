@@ -1,5 +1,5 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      A2.5 Water Balance and Drought 
+//  Chapter:      A2.5 Water Balance and Drought
 //  Checkpoint:   A25b
 //  Authors:      Ate Poortinga, Quyen Nguyen, Nyein Soe Thwal, Andréa Puzzi Nicolau
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -34,12 +34,12 @@ var mod16 = ee.ImageCollection('MODIS/006/MOD16A2').select('ET');
 // Filter for the relevant time period.
 mod16 = mod16.filterDate(startDate, endDate);
 
-// We apply a nested loop where we first map over 
-// the relevant years and then map over the relevant 
+// We apply a nested loop where we first map over
+// the relevant years and then map over the relevant
 // months. The function returns an image with the total (sum)
 // evapotranspiration for each month. A flatten is applied to convert a
 // collection of collections into a single collection.
-// We multiply by 0.1 because of the ET scaling factor. 
+// We multiply by 0.1 because of the ET scaling factor.
 var monthlyEvap = ee.ImageCollection.fromImages(
     years.map(function(y) {
         return months.map(function(m) {

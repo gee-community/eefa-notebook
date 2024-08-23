@@ -10,7 +10,7 @@ var landsat8 = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
         ['SR_B2', 'SR_B3', 'SR_B4', 'SR_B5', 'SR_B6', 'SR_B7'],
         ['blue', 'green', 'red', 'nir', 'swir1', 'swir2']
     );
-    
+
 var point = ee.Geometry.Point([-123.64, 42.96]);
 Map.centerObject(point, 11);
 
@@ -19,7 +19,7 @@ var preImage = landsat8
     .filterDate('2013-06-01', '2013-06-30')
     .sort('CLOUD_COVER', true)
     .first();
-    
+
 var postImage = landsat8
     .filterBounds(point)
     .filterDate('2020-06-01', '2020-06-30')
@@ -39,11 +39,11 @@ var nbrPre = preImage.normalizedDifference(['nir', 'swir2'])
     .rename('nbr_pre');
 var nbrPost = postImage.normalizedDifference(['nir', 'swir2'])
     .rename('nbr_post');
-    
+
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
- 
+
 // 2-date change.
 var diff = nbrPost.subtract(nbrPre).rename('change');
 
@@ -58,7 +58,7 @@ var visParams = {
 };
 Map.addLayer(diff, visParams, 'change');
 
-// Classify change 
+// Classify change
 var thresholdGain = 0.10;
 var thresholdLoss = -0.10;
 
@@ -78,6 +78,5 @@ Map.addLayer(diffClassified.selfMask(),
     'change classified by threshold');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
- 

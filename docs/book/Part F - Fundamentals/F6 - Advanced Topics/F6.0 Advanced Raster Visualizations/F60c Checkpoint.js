@@ -1,5 +1,5 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      F6.0 Advanced Raster Visualization 
+//  Chapter:      F6.0 Advanced Raster Visualization
 //  Checkpoint:   F60c
 //  Authors:      Gennadii Donchyts, Fedor Baart
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -19,7 +19,7 @@ var landcover = nlcd2016.select('landcover');
 Map.addLayer(landcover, null, 'NLCD Landcover');
 
 
-// Now suppose we want to change the color palette. 
+// Now suppose we want to change the color palette.
 var newPalette = ['466b9f', 'd1def8', 'dec5c5',
     'ab0000', 'ab0000', 'ab0000',
     'b3ac9f', '68ab5f', '1c5f2c',
@@ -59,5 +59,5 @@ var colorized = landcover.remap(values, indexes)
 Map.addLayer(colorized, {}, 'NLCD Remapped Colors');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

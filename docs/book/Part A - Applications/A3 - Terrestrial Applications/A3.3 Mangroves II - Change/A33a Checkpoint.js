@@ -12,7 +12,7 @@ var mangrove2000 = ee.Image(
 var mangrove2020 = ee.Image(
     'projects/gee-book/assets/A3-3/MangroveGuinea2020_v2');
 
-Map.setCenter(-13.6007, 9.6295, 10); 
+Map.setCenter(-13.6007, 9.6295, 10);
 // Sets the map center to Conakry, Guinea
 Map.addLayer(areaOfstudy, {}, 'Area of Study');
 Map.addLayer(mangrove2000, {

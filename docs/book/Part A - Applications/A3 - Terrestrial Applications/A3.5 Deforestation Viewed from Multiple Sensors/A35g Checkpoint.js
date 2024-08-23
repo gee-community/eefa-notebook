@@ -445,7 +445,7 @@ print('lstScores', lstScores);
 
 var fused = lstScores.merge(s2Scores).merge(s1Scores)
     .sort('system:time_start');
-    
+
 var monitorChange = function(changeScores, nrtParam) {
     // Initialize an empty image.
     var zeros = ee.Image(0).addBands(ee.Image(0))

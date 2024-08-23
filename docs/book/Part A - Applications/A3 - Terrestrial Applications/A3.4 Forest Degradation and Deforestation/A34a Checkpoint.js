@@ -1,7 +1,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      A3.4 Forest Degradation and Deforestation
 //  Checkpoint:   A34a
-//  Author:       Carlos Souza Jr., Karis Tenneson, John Dilger, 
+//  Author:       Carlos Souza Jr., Karis Tenneson, John Dilger,
 //                Crystal Wespestad, Eric Bullock
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -29,7 +29,7 @@ Map.centerObject(image, 10);
 var bands = ['SR_B1', 'SR_B2', 'SR_B3', 'SR_B4', 'SR_B5', 'SR_B7'];
 image = image.select(bands);
 
-// Unmixing image using Singular Value Decomposition. 
+// Unmixing image using Singular Value Decomposition.
 var getSMAFractions = function(image, endmembers) {
     var unmixed = ee.Image(image)
         .select([0, 1, 2, 3, 4,
@@ -63,7 +63,7 @@ var GVs = sma.select('GV')
 // Add the new bands to the SMA image variable.
 sma = sma.addBands([Shade, GVs]);
 
-// Calculate the NDFI using image expression.	
+// Calculate the NDFI using image expression.
 var NDFI = sma.expression(
     '(GVs - (NPV + Soil))  / (GVs + NPV + Soil)', {
         'GVs': sma.select('GVs'),

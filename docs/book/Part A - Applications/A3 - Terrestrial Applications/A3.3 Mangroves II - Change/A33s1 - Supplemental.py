@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -9086,7 +9086,7 @@ occurrence = globalwater.select('occurrence'); # Select the occurrence band.
 # For our mask, we want to make sure we are selecting permanent water. We want to filter the dataset for water pixels that occurred more than 50% of the time over the 35 years time spam.
 
 waterMask = occurrence.lt(50) # Selects lower than 50%. Automatically, values above 90% are set to 0 \
-                          .unmask(1); 
+                          .unmask(1);
 
 Map.addLayer(waterMask, {}, 'Water Mask')
 
@@ -9243,10 +9243,10 @@ RandomForest2 = ee.Classifier.smileRandomForest(200,5).train({
 # Classify the Landsat 8 Composite using the two classifiers to produce 2 land cover maps
 
 classifiedrf1 = composite.select(bands)           # select the predictors \
-                            .classify(RandomForest1); 
+                            .classify(RandomForest1);
 
 classifiedrf2 = composite.select(bands)           # select the predictors \
-                            .classify(RandomForest2); 
+                            .classify(RandomForest2);
 
 # Color palette for the classification outputs
 paletteMAP = [

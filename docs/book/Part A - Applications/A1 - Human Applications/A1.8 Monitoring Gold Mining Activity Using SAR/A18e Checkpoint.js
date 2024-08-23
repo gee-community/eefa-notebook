@@ -1,7 +1,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      A1.6 Monitoring Gold Mining Activity using SAR
 //  Checkpoint:   A16e
-//  Authors:      Lucio Villa, Sidney Novoa, Milagros Becerra, 
+//  Authors:      Lucio Villa, Sidney Novoa, Milagros Becerra,
 //                Andréa Puzzi Nicolau, Karen Dyson, Karis Tenneson, John Dilger
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

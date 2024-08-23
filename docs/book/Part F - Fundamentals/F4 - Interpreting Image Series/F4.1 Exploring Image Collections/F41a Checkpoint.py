@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -17,22 +17,26 @@ Map.centerObject(lisbonPoint, 16)
 
 # filter the large ImageCollection to be just images from 2020
 # around Lisbon. From each image, select True-color bands to draw
-filteredIC = ee.ImageCollection('LANDSAT/LC08/C02/T1_TOA') \
-    .filterDate('2020-01-01', '2021-01-01') \
-    .filterBounds(lisbonPoint) \
-    .select(['B6', 'B5', 'B4'])
+filteredIC = (
+    ee.ImageCollection("LANDSAT/LC08/C02/T1_TOA")
+    .filterDate("2020-01-01", "2021-01-01")
+    .filterBounds(lisbonPoint)
+    .select(["B6", "B5", "B4"])
+)
 
 # Add the filtered ImageCollection so that we can inspect values
 # via the Inspector tool
-Map.addLayer(filteredIC, {}, 'TOA image collection')
+Map.addLayer(filteredIC, {}, "TOA image collection")
 
 # Construct a chart using values queried from image collection.
-chart = ui.Chart.image.series({
-    'imageCollection': filteredIC,
-    'region': lisbonPoint,
-    'reducer': ee.Reducer.first(),
-    'scale': 10
-})
+chart = ui.Chart.image.series(
+    {
+        "imageCollection": filteredIC,
+        "region": lisbonPoint,
+        "reducer": ee.Reducer.first(),
+        "scale": 10,
+    }
+)
 
 # Show the chart in the Console.
 print(chart)

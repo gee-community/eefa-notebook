@@ -10,7 +10,7 @@ var aoi = ee.FeatureCollection(
 Map.centerObject(aoi, 11);
 Map.addLayer(aoi, {}, 'Subset of Naiman Banner');
 
-// Filter the MODIS Collection 
+// Filter the MODIS Collection
 var MODIS_LC = ee.ImageCollection('MODIS/006/MCD12Q1').select(
     'LC_Type1');
 
@@ -107,7 +107,7 @@ Map.addLayer(res1, {
 // -----------------------------------------------------------------------
 
 //---- DEFINE RUN PARAMETERS---//
-// LandTrendr run parameters 
+// LandTrendr run parameters
 var runParams = {
     maxSegments: 6,
     spikeThreshold: 0.9, //
@@ -116,10 +116,10 @@ var runParams = {
     recoveryThreshold: 0.25, //
     pvalThreshold: 0.05, //
     bestModelProportion: 0.75,
-    minObservationsNeeded: 10 //    
+    minObservationsNeeded: 10 //
 };
 
-// Append the image collection to the LandTrendr run parameter dictionary 
+// Append the image collection to the LandTrendr run parameter dictionary
 var srCollection = residualColl;
 runParams.timeSeries = srCollection;
 
@@ -151,7 +151,7 @@ var numYears = endYear_Num - startYear_Num;
 var startMonth = '-01-01';
 var endMonth = '-12-31';
 
-// Extract fitted residual value per year, per pixel and aggregate into an Image with one band per year 
+// Extract fitted residual value per year, per pixel and aggregate into an Image with one band per year
 var years = [];
 for (var i = startYear_Num; i <= endYear_Num; ++i) years.push(i
     .toString());
@@ -167,7 +167,7 @@ Map.addLayer(fittedStack, {
     palette: ['red', 'white', 'green']
 }, 'Fitted Residuals 1985');
 
-// Extract boolean 'Is Vertex?' value per year, per pixel and aggregate into image w/ boolean band per year 
+// Extract boolean 'Is Vertex?' value per year, per pixel and aggregate into image w/ boolean band per year
 var years = [];
 for (var i = startYear_Num; i <= endYear_Num; ++i) years.push(i
     .toString());
@@ -181,7 +181,7 @@ print(vertexStack.getInfo(), 'vertex Stack');
 // Load an Asset that has the booleans converted to Collection
 var booleanColl = ee.ImageCollection(
     'projects/gee-book/assets/A3-8/BooleanCollection');
-    
+
 var chartBooleanMean = ui.Chart.image
     .series({
         imageCollection: booleanColl.select('bools'),
@@ -235,7 +235,7 @@ var trained_clusterer = ee.Clusterer.wekaKMeans(maxclus).train(
 // Cluster the input using the trained clusterer
 var cluster_result = vertexStack.cluster(trained_clusterer);
 
-// Remap result_totalChange so that class 0 is class 10 
+// Remap result_totalChange so that class 0 is class 10
 cluster_result = cluster_result.remap(
         [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
         [10, 1, 2, 3, 4, 5, 6, 7, 8, 9])
@@ -248,7 +248,7 @@ Map.addLayer(cluster_result.randomVisualizer(), {}, maxclus
 // CHECKPOINT
 // -----------------------------------------------------------------------
 
-// GOAL: Find Median Greenness for each cluster per year in the image 
+// GOAL: Find Median Greenness for each cluster per year in the image
 // define a function to add the cluster number band to each Image in the collection
 var addClusters = function(img) {
     return img.addBands(cluster_result);
@@ -260,7 +260,7 @@ var ObvGreen_wClusters = greennessColl.map(addClusters);
 //---Select and mask pixels by cluster number
 var cluster_num = 1; // change this to the class of interest
 
-// Mask all pixels but the selected cluster number 
+// Mask all pixels but the selected cluster number
 // Define a function so we can map it over the entire collection
 var maskSelCluster = function(img) {
     var selCluster = img.select('cluster').eq(cluster_num);
@@ -306,7 +306,7 @@ var fittedresidColl = ee.ImageCollection(
 // add the cluster number band to each (function defined above, just use again here)
 var fittedresid_wClusters = fittedresidColl.map(addClusters);
 
-//Mask all pixels but the selected cluster number 
+//Mask all pixels but the selected cluster number
 // again, function defined above, just call it here
 var selFRClusterColl = fittedresid_wClusters.map(maskSelCluster);
 

@@ -143,7 +143,7 @@ var independents = ee.List(['constant', 't']);
 // Name of the dependent variable.
 var dependent = ee.String('TWSa');
 
-// Compute a linear trend.  This will have two bands: 'residuals' and 
+// Compute a linear trend.  This will have two bands: 'residuals' and
 // a 2x1 band called coefficients (columns are for dependent variables).
 var trend = cvTWSa.select(independents.add(dependent))
     .reduce(ee.Reducer.linearRegression(independents.length(), 1));
@@ -155,7 +155,7 @@ var coefficients = trend.select('coefficients')
 
 // Create a layer of the TWSa slope to add to the map.
 var slope = coefficients.select('t');
-// Set visualization parameters to represent positive (blue) 
+// Set visualization parameters to represent positive (blue)
 // & negative (red) trends.
 var slopeParams = {
     min: -3.5,

@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -54,7 +54,7 @@ def func_tar(image):
             'scale': scale
         }).filter(ee.Filter.NotNull(
         bandsWanted)) # drop rows with no data \
-        .map(function(f) { 
+        .map(function(f) {
             time_start = image.get(
                 'system:time_start')
             dte = ee.Date(time_start).format(

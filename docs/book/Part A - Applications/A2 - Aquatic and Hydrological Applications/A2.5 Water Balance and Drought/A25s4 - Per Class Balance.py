@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -182,7 +182,7 @@ def func_hao(image):
     quality = image.select('StateQA')
     mask = image.And(quality.bitwiseAnd(1).eq(
             0)) # No clouds. \
-        .And(quality.bitwiseAnd(2).eq(0)); 
+        .And(quality.bitwiseAnd(2).eq(0));
 
     return image.updateMask(mask)
 

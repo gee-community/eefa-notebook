@@ -10,7 +10,7 @@ var aoi = ee.FeatureCollection(
 Map.centerObject(aoi, 11);
 Map.addLayer(aoi, {}, 'Subset of Naiman Banner');
 
-// Filter the MODIS Collection 
+// Filter the MODIS Collection
 var MODIS_LC = ee.ImageCollection('MODIS/006/MCD12Q1').select(
     'LC_Type1');
 
@@ -107,7 +107,7 @@ Map.addLayer(res1, {
 // -----------------------------------------------------------------------
 
 //---- DEFINE RUN PARAMETERS---//
-// LandTrendr run parameters 
+// LandTrendr run parameters
 var runParams = {
     maxSegments: 6,
     spikeThreshold: 0.9, //
@@ -116,10 +116,10 @@ var runParams = {
     recoveryThreshold: 0.25, //
     pvalThreshold: 0.05, //
     bestModelProportion: 0.75,
-    minObservationsNeeded: 10 //    
+    minObservationsNeeded: 10 //
 };
 
-// Append the image collection to the LandTrendr run parameter dictionary 
+// Append the image collection to the LandTrendr run parameter dictionary
 var srCollection = residualColl;
 runParams.timeSeries = srCollection;
 
@@ -151,7 +151,7 @@ var numYears = endYear_Num - startYear_Num;
 var startMonth = '-01-01';
 var endMonth = '-12-31';
 
-// Extract fitted residual value per year, per pixel and aggregate into an Image with one band per year 
+// Extract fitted residual value per year, per pixel and aggregate into an Image with one band per year
 var years = [];
 for (var i = startYear_Num; i <= endYear_Num; ++i) years.push(i
     .toString());
@@ -167,7 +167,7 @@ Map.addLayer(fittedStack, {
     palette: ['red', 'white', 'green']
 }, 'Fitted Residuals 1985');
 
-// Extract boolean 'Is Vertex?' value per year, per pixel and aggregate into image w/ boolean band per year 
+// Extract boolean 'Is Vertex?' value per year, per pixel and aggregate into image w/ boolean band per year
 var years = [];
 for (var i = startYear_Num; i <= endYear_Num; ++i) years.push(i
     .toString());
@@ -181,7 +181,7 @@ print(vertexStack.getInfo(), 'vertex Stack');
 // Load an Asset that has the booleans converted to Collection
 var booleanColl = ee.ImageCollection(
     'projects/gee-book/assets/A3-8/BooleanCollection');
-    
+
 var chartBooleanMean = ui.Chart.image
     .series({
         imageCollection: booleanColl.select('bools'),

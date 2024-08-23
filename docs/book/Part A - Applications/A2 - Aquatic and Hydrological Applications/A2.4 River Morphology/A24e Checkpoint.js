@@ -1,6 +1,6 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var jrcYearly = ee.ImageCollection("JRC/GSW1_3/YearlyHistory"),
-    aoi = 
+    aoi =
     /* color: #d63000 */
     /* shown: false */
     /* displayProperties: [
@@ -16,13 +16,13 @@ var jrcYearly = ee.ImageCollection("JRC/GSW1_3/YearlyHistory"),
     sword = ee.FeatureCollection("projects/gee-book/assets/A2-4/SWORD");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      A2.4 River Morphology 
+//  Chapter:      A2.4 River Morphology
 //  Checkpoint:   A24e
 //  Authors:      Xiao Yang, Theodore Langhorst, Tamlin M. Pavelsky
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 var getUTMProj = function(lon, lat) {
-    // Given longitude and latitude in decimal degrees, 
+    // Given longitude and latitude in decimal degrees,
     // return EPSG string for the corresponding UTM projection. See:
     // https://apollomapping.com/blog/gtm-finding-a-utm-zone-number-easily
     // https://sis.apache.org/faq.html

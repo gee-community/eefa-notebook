@@ -1,7 +1,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      A1.8 Monitoring Gold Mining Activity using SAR
 //  Checkpoint:   A18b
-//  Authors:      Lucio Villa, Sidney Novoa, Milagros Becerra, 
+//  Authors:      Lucio Villa, Sidney Novoa, Milagros Becerra,
 //                Andréa Puzzi Nicolau, Karen Dyson, Karis Tenneson, John Dilger
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -18,7 +18,7 @@ Map.centerObject(aoi, 9);
 // Create an empty image.
 var empty = ee.Image().byte();
 
-// Convert the area of study to an EE image object 
+// Convert the area of study to an EE image object
 // so we can visualize only the boundary.
 var aoiOutline = empty.paint({
     featureCollection: aoi,
@@ -34,7 +34,7 @@ Map.addLayer(aoiOutline, {
     palette: 'red'
 }, 'Area of Study');
 
-// Function to mask the SAR images acquired with an incidence angle 
+// Function to mask the SAR images acquired with an incidence angle
 // lower equal than 31 and greater equal than 45 degrees.
 function maskAngle(image) {
     var angleMask = image.select('angle');

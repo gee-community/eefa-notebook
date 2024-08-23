@@ -1,11 +1,11 @@
 /*
 Author: Sofia Ermida (sofia.ermida@ipma.pt; @ermida_sofia)
 
-This code is free and open. 
-By using this code and any data derived with it, 
-you agree to cite the following reference 
+This code is free and open.
+By using this code and any data derived with it,
+you agree to cite the following reference
 in any publications derived from them:
-Ermida, S.L., Soares, P., Mantas, V., Göttsche, F.-M., Trigo, I.F., 2020. 
+Ermida, S.L., Soares, P., Mantas, V., Göttsche, F.-M., Trigo, I.F., 2020.
     Google Earth Engine open-source code for Land Surface Temperature estimation from the Landsat series.
     Remote Sensing, 12 (9), 1471; https://doi.org/10.3390/rs12091471
 
@@ -39,22 +39,22 @@ INPUTS:
                     region of interest
         - use_ndvi: <boolean>
                 if true, NDVI values are used to obtain a
-                dynamic emissivity; if false, emissivity is 
+                dynamic emissivity; if false, emissivity is
                 obtained directly from ASTER
 OUTPUTS:
         - <ee.ImageCollection>
           image collection with bands:
-          - landsat original bands: all from SR excpet the TIR bands (from TOA) 
+          - landsat original bands: all from SR excpet the TIR bands (from TOA)
           - cloud masked
           - 'NDVI': normalized vegetation index
           - 'FVC': fraction of vegetation cover [0-1]
           - 'TPW': total precipitable water [mm]
           - 'EM': surface emissvity for TIR band
           - 'LST': land surface temperature
-          
-  14-08-2020: update to avoid using the getInfo() and if() 
+
+  14-08-2020: update to avoid using the getInfo() and if()
     (Thanks Tyler Erickson for the suggestion)
-  
+
   11-07-2022: update to use collection 2
 */
 
@@ -63,8 +63,8 @@ OUTPUTS:
 //
 // As off 11.07.2022 a new version of the code is released:
 //      - update to use collection 2 data
-//      - emissivities of water and snow surfaces are now prescribed 
-// 
+//      - emissivities of water and snow surfaces are now prescribed
+//
 // the previous version of the code will still be available; the replaced code
 // is commented
 //
@@ -72,7 +72,7 @@ OUTPUTS:
 //////////////////////////////////////////////////////////////////////////////
 
 // MODULES DECLARATION -----------------------------------------------------------
-// Total Precipitable Water 
+// Total Precipitable Water
 var NCEP_TPW = require('users/sofiaermida/landsat_smw_lst:modules/NCEP_TPW.js')
 //cloud mask
 var cloudmask = require('users/sofiaermida/landsat_smw_lst:modules/cloudmask.js')
@@ -148,7 +148,7 @@ exports.collection = function(landsat, date_start, date_end, geometry, use_ndvi)
                 .filter(ee.Filter.date(date_start, date_end))
                 .filterBounds(geometry)
                 //.map(cloudmask.toa);
-              
+
   // load Surface Reflectance collection for NDVI
   var landsatSR = ee.ImageCollection(collection_dict.get('SR'))
                 .filter(ee.Filter.date(date_start, date_end))
@@ -171,7 +171,7 @@ exports.collection = function(landsat, date_start, date_end, geometry, use_ndvi)
     .add('TPWpos')
     .add('EM');
   var landsatALL = (landsatSR.select(visw).combine(landsatTOA.select(tir), true));
-  
+
   // compute the LST
   var landsatLST = landsatALL.map(LST.addBand(landsat));
 

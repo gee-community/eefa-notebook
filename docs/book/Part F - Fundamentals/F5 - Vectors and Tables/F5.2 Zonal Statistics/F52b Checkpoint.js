@@ -93,12 +93,12 @@ function zonalStats(ic, fc, params) {
     return results;
 }
 
-// Creating points that will be used for the rest of the chapter. 
+// Creating points that will be used for the rest of the chapter.
 // Alternatively, you could load your own points.
 var pts = ee.FeatureCollection([
     ee.Feature(ee.Geometry.Point([-118.6010, 37.0777]), {
         plot_id: 1
-    }), 
+    }),
     ee.Feature(ee.Geometry.Point([-118.5896, 37.0778]), {
         plot_id: 2
     }),
@@ -116,7 +116,7 @@ var pts = ee.FeatureCollection([
 print('Points of interest', pts);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Example 1: Topographic variables
@@ -263,7 +263,7 @@ var tmCol = ee.ImageCollection('LANDSAT/LT05/C02/T1_L2')
     .filterBounds(ptsLandsat)
     .map(prepEtm);
 
-// Merge the sensor collections  
+// Merge the sensor collections
 var landsatCol = oliCol.merge(etmCol).merge(tmCol);
 
 // Define parameters for the zonalStats function.
@@ -301,7 +301,7 @@ Export.table.toDrive({
 });
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 

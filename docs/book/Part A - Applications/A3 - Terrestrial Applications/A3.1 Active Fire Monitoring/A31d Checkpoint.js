@@ -6,7 +6,7 @@
 
 
 the Earth Engine app U.S. Fire Dashboard (
-  
+
   https://globalfires.earthengine.app/view/us-fire-dashboard
-  
-). 
+
+).

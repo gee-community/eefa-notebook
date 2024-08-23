@@ -10,7 +10,7 @@ var aoi = ee.FeatureCollection(
 Map.centerObject(aoi, 11);
 Map.addLayer(aoi, {}, 'Subset of Naiman Banner');
 
-// Filter the MODIS Collection 
+// Filter the MODIS Collection
 var MODIS_LC = ee.ImageCollection('MODIS/006/MCD12Q1').select(
     'LC_Type1');
 
@@ -77,7 +77,7 @@ Map.addLayer(greenness2019, greennessParams, 'Greenness 2019', false);
 
 
 
-// Load a function that will combine the Precipitation and Greenness collections, 
+// Load a function that will combine the Precipitation and Greenness collections,
 // run a regression, then predict NDVI and calculate the residuals.
 
 // Load the module

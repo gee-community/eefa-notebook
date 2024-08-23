@@ -1,5 +1,5 @@
 // Fusion Near Real-time (Lite).
-// Near real-time monitoring of forest disturbance by fusion of 
+// Near real-time monitoring of forest disturbance by fusion of
 // multi-sensor data.  @author Xiaojing Tang (xjtang@bu.edu).
 
 // Utility functions.
@@ -36,7 +36,7 @@ var runCCD = function(col, period, band) {
 };
 
 var convertDateFormat = function(date, format) {
-  if (format == 0) { 
+  if (format == 0) {
     var epoch = 719529;
     var days = date.difference(ee.Date('1970-01-01'), 'day');
     return days.add(epoch);
@@ -71,7 +71,7 @@ var getImage = function(region, date, sensor) {
 
 var harmonicFit = function(t, coef, dateFormat) {
   var PI2 = 2.0 * Math.PI;
-  var OMEGAS = [PI2 / 365.25, PI2, 
+  var OMEGAS = [PI2 / 365.25, PI2,
     PI2 / (1000 * 60 * 60 * 24 * 365.25)];
   var omega = OMEGAS[dateFormat];
   return coef.get([0])
@@ -137,12 +137,12 @@ var addSynthetic = function(data, ccd, band, sensor) {
       .addBands(img, [band])
       .rename(['synt', band])
       .set({
-        'sensor': sensor, 
-        'system:time_start': img.get('system:time_start'), 
+        'sensor': sensor,
+        'system:time_start': img.get('system:time_start'),
         'dateString': dateString
       });
   };
-  
+
   return ee.ImageCollection(data.map(function(img){
     return genSyntImg(ccd, img, band, sensor);
   }));
@@ -156,14 +156,14 @@ var getResiduals = function(data, band) {
       .subtract(img.select(band))
       .rename('residual')
       .set({
-        'sensor': img.get('sensor'), 
+        'sensor': img.get('sensor'),
         'system:time_start': img.get('system:time_start'),
         'dateString': img.get('dateString')
       });
-  })); 
+  }));
 };
 
-var getChangeScores = function(data, rmse, mean, 
+var getChangeScores = function(data, rmse, mean,
   minSTD, threshold, strikeOnly) {
   var mask = ee.Image(0);
   if (strikeOnly) {mask = ee.Image(1)}
@@ -173,11 +173,11 @@ var getChangeScores = function(data, rmse, mean,
     var zStack = ee.Image.cat(z, strike)
       .rename(['z', 'strike'])
       .set({
-        'sensor': img.get('sensor'), 
+        'sensor': img.get('sensor'),
         'system:time_start': img.get('system:time_start')
       });
     return zStack.updateMask(strike.gt(0).or(mask));
-  })); 
+  }));
 };
 
 var monitorChange = function(zScores, nrtParam) {
@@ -225,8 +225,8 @@ var getLandsatImage = function(region, date) {
   var aftDate = imDate.advance(1, 'day');
   var selectedImage = colNoClouds.filterDate(befDate, aftDate);
   return ee.Algorithms.If(
-    selectedImage.size().gt(0), 
-    selectedImage.first(), 
+    selectedImage.size().gt(0),
+    selectedImage.first(),
     null
   );
 };
@@ -247,11 +247,11 @@ var getLandsatTS = function(region, params) {
 var c2ToSR = function(img) {
   return img
     .addBands(
-      img.multiply(0.0000275).add(-0.2).multiply(10000), 
-      img.bandNames(), 
+      img.multiply(0.0000275).add(-0.2).multiply(10000),
+      img.bandNames(),
       true
     );
-};  
+};
 
 var maskL7 = function(img) {
   var sr = c2ToSR(img
@@ -279,7 +279,7 @@ var maskL8 = function(img) {
   return sr.updateMask(mask1.and(mask2).and(mask3));
 };
 
-var unmixing = function(col) { 
+var unmixing = function(col) {
   var gv = [500, 900, 400, 6100, 3000, 1000];
   var npv = [1400, 1700, 2200, 3000, 5500, 3000];
   var soil = [2000, 3000, 3400, 5800, 6000, 5800];
@@ -294,7 +294,7 @@ var unmixing = function(col) {
     var maskCloud = unmixed.select('Cloud').lt(cfThreshold);
     var maskShade = unmixed.select('Shade').lt(1);
     var NDFI = unmixed.expression(
-          '10000 * ((GV / (1 - SHADE)) - (NPV + SOIL)) / ((GV / (1 - SHADE)) + (NPV + SOIL))', 
+          '10000 * ((GV / (1 - SHADE)) - (NPV + SOIL)) / ((GV / (1 - SHADE)) + (NPV + SOIL))',
           {
             'GV': unmixed.select('GV'),
             'SHADE': unmixed.select('Shade'),
@@ -302,7 +302,7 @@ var unmixing = function(col) {
             'SOIL': unmixed.select('Soil')
           }).rename('NDFI');
     var maskNDFI = unmixed.expression(
-        '(GV / (1 - SHADE)) + (NPV + SOIL)', 
+        '(GV / (1 - SHADE)) + (NPV + SOIL)',
         {
           'GV': unmixed.select('GV'),
           'SHADE': unmixed.select('Shade'),
@@ -339,7 +339,7 @@ var getSen2TS = function(region, params) {
       primary: S2,
       secondary: S2Cloud,
       condition:ee.Filter.equals({
-        leftField: 'system:index', 
+        leftField: 'system:index',
         rightField: 'system:index'
       })
     }));
@@ -364,13 +364,13 @@ var getSen2Img = function(region, date) {
       primary: S2,
       secondary: S2Cloud,
       condition: ee.Filter.equals({
-        leftField: 'system:index', 
+        leftField: 'system:index',
         rightField: 'system:index'
       })
-    }));  
+    }));
   return ee.Algorithms.If(
-    S2Joined.size().gt(0), 
-    maskSen2Img(S2Joined.first()), 
+    S2Joined.size().gt(0),
+    maskSen2Img(S2Joined.first()),
     null
   );
 };
@@ -412,14 +412,14 @@ var getSen1TS = function(region, params){
       .addBands(angle)
       .set('timeStamp', st);
   };
-  
+
   var slopeCorrection = function(col){
     var model = 'volume';
     var elevation = ee.Image('USGS/SRTMGL1_003');
     var buffer = 0;
     var ninetyRad = ee.Image.constant(90)
       .multiply(Math.PI/180);
-    
+
     function _volume_model(theta_iRad, alpha_rRad) {
       var nominator = (ninetyRad.subtract(theta_iRad)
         .add(alpha_rRad))
@@ -428,7 +428,7 @@ var getSen1TS = function(region, params){
         .tan();
       return nominator.divide(denominator);
     }
-    
+
     function _surface_model(theta_iRad, alpha_rRad, alpha_azRad) {
       var nominator = (ninetyRad.subtract(theta_iRad)).cos();
       var denominator = alpha_azRad
@@ -437,7 +437,7 @@ var getSen1TS = function(region, params){
           .add(alpha_rRad)).cos());
       return nominator.divide(denominator);
     }
-    
+
     function _erode(img, distance) {
       var d = img
         .not()
@@ -447,8 +447,8 @@ var getSen1TS = function(region, params){
         .multiply(ee.Image.pixelArea()
         .sqrt());
       return img.updateMask(d.gt(distance));
-    }    
-    
+    }
+
     function _masking(alpha_rRad, theta_iRad, proj, buffer) {
       var layover = alpha_rRad.lt(theta_iRad).rename('layover');
       var shadow = alpha_rRad
@@ -458,7 +458,7 @@ var getSen1TS = function(region, params){
       if (buffer > 0) {mask = _erode(mask, buffer)}
       return mask.rename('no_data_mask');
     }
-  
+
     function _correct(image) {
       var geom = image.geometry();
       var proj = image.select(1).projection();
@@ -500,7 +500,7 @@ var getSen1TS = function(region, params){
     }
     return col.map(_correct);
   };
-  
+
   var S1 = ee.ImageCollection('COPERNICUS/S1_GRD')
     .filterBounds(region)
     .filterDate(params.get('start'), params.get('end'))
@@ -517,7 +517,7 @@ var getSen1TS = function(region, params){
     .keys()
     .get(passCount.values().indexOf(higherCount));
   var S1Filtered = S1.filter(ee.Filter.eq(
-    'orbitProperties_pass', 
+    'orbitProperties_pass',
     maxOrbitalPass
   ));
   var S1Corrected = slopeCorrection(S1Filtered);
@@ -551,8 +551,8 @@ var getSen1Img = function(region, date) {
   var aftDate = imDate.advance(1, 'day');
   var col = S1.filterDate(befDate, aftDate);
   return ee.Algorithms.If(
-    col.size().gt(0), 
-    addRatio(col.first()), 
+    col.size().gt(0),
+    addRatio(col.first()),
     null
   );
 };
@@ -562,8 +562,8 @@ var getTimeSeries = function(train, monitor, ccd, geometry, band, padding) {
   var dateFormat = 1;
   var proj = ee.Projection('EPSG:4326').atScale(10);
   var ccdFits = ccd.reduceRegion({
-    reducer: ee.Reducer.first(), 
-    geometry: geometry, 
+    reducer: ee.Reducer.first(),
+    geometry: geometry,
     crs: proj});
   var coef = ccdFits.getArray(band + '_coefs').project([1]);
   var rmse = ccdFits.getArray(band + '_rmse').get([0]);
@@ -574,8 +574,8 @@ var getTimeSeries = function(train, monitor, ccd, geometry, band, padding) {
       var first = collection.first();
       var last = collection.sort('system:time_start', false).first();
       var fakeDates = ee.List.sequence(
-        first.date().get('year'), 
-        last.date().get('year'), 
+        first.date().get('year'),
+        last.date().get('year'),
         padding
       ).map(function(t) {
         var fYear = ee.Number(t);
@@ -583,25 +583,25 @@ var getTimeSeries = function(train, monitor, ccd, geometry, band, padding) {
         return  ee.Date.fromYMD(year, 1, 1)
           .advance(fYear.subtract(year), 'year');
       });
-      fakeDates = fakeDates.map(function(d) { 
+      fakeDates = fakeDates.map(function(d) {
         return ee.Image()
           .rename(band)
           .set('system:time_start', ee.Date(d).millis());
       });
       collection = collection.merge(fakeDates);
-    }    
+    }
     collection = collection.sort('system:time_start');
     var timeSeries = collection.map(function(img) {
       var time = convertDateFormat(img.date(), dateFormat);
       var value = img.select(band).reduceRegion({
-        reducer: ee.Reducer.first(), 
+        reducer: ee.Reducer.first(),
         geometry: geometry,
         crs: proj
       }).getNumber(band);
       var fit = harmonicFit(time, ee.Array(coef), dateFormat);
       var residual = ee.Algorithms.If(
-        value, 
-        fit.subtract(value), 
+        value,
+        fit.subtract(value),
         value
       );
       return ee.Feature(geometry).set({
@@ -619,40 +619,40 @@ var getTimeSeries = function(train, monitor, ccd, geometry, band, padding) {
     });
     return timeSeries;
   }
-  
+
   function produceMonitorSeries(collection, geometry, band) {
     if (padding) {
       collection = collection.sort('system:time_start');
       var first = collection.first();
       var last = collection.sort('system:time_start', false).first();
       var fakeDates = ee.List.sequence(
-        first.date().get('year'), 
-        last.date().get('year'), 
+        first.date().get('year'),
+        last.date().get('year'),
         padding
       ).map(function(t) {
         var fYear = ee.Number(t);
         var year = fYear.floor();
         return ee.Date.fromYMD(year, 1, 1)
           .advance(fYear.subtract(year), 'year')});
-      fakeDates = fakeDates.map(function(d) { 
+      fakeDates = fakeDates.map(function(d) {
         return ee.Image()
           .rename(band)
           .set('system:time_start', ee.Date(d).millis());
       });
       collection = collection.merge(fakeDates);
-    }    
+    }
     collection = collection.sort('system:time_start');
     return collection.map(function(img) {
       var time = convertDateFormat(img.date(), dateFormat);
       var value = img.select(band).reduceRegion({
-        reducer: ee.Reducer.first(), 
+        reducer: ee.Reducer.first(),
         geometry: geometry,
         crs: proj
       }).getNumber(band);
       var fit = harmonicFit(time, ee.Array(coef), dateFormat);
       var residual = ee.Algorithms.If(
-        value, 
-        fit.subtract(value), 
+        value,
+        fit.subtract(value),
         value
       );
       return ee.Feature(geometry).set({
@@ -668,7 +668,7 @@ var getTimeSeries = function(train, monitor, ccd, geometry, band, padding) {
       });
     });
   }
-  
+
   return produceTrainSeries(train, geometry, band)
     .merge(produceMonitorSeries(monitor, geometry, band));
 };
@@ -727,7 +727,7 @@ var addPixelZScore = function(timeSeries, maxZ, minRMSE){
     var residual = img.get('residual');
     var train = img.get('trainFitTime');
     return ee.Algorithms.If(
-      train, 
+      train,
       img.set({Z_train: ee.Number(
         ee.Algorithms.If(
           ee.Number(residual).divide(rmse).gt(maxZ),

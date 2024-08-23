@@ -1,5 +1,5 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      Chapter A3.9 Conservation Applications - Assessing the 
+//  Chapter:      Chapter A3.9 Conservation Applications - Assessing the
 //                spatial relationship between burned area and precipitation
 //  Checkpoint:   A39c
 //  Authors:      Harriet Branson, Chelsea Smith
@@ -119,7 +119,7 @@ var Pchirps = chirps.filterDate(startdate, enddate)
         false) // Sort chronologically in descending order.
     .filterBounds(AOI) // Filter to AOI
     .select('precipitation'); // Select precipitation band
-    
+
 // Calculate the precipitation per month.
 var MonthlyRainfall = ee.ImageCollection.fromImages(
     years.map(function(

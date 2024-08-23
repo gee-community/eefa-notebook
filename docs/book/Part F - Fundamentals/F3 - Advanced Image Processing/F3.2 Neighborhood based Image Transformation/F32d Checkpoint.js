@@ -102,9 +102,9 @@ Map.addLayer(sharpened, {
 }, 'DoG edge enhancement');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
- 
+
 // Begin median example.
 // Pass a median neighborhood filter using our uniformKernel.
 var median = imageNAIP.reduceNeighborhood({
@@ -138,7 +138,7 @@ var mode = veg.reduceNeighborhood({
 Map.addLayer(mode, binaryVis, 'Mode Neighborhood Filter on Vegetation categorical image');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Begin Dilation example.
@@ -178,7 +178,7 @@ var closedVeg = max.reduceNeighborhood({
 Map.addLayer(closedVeg, binaryVis, 'Closed image');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Begin Standard Deviation example.
@@ -210,7 +210,7 @@ Map.addLayer(entropy, {
     min: 1,
     max: 3
 }, 'entropy');
- 
+
 // Begin GLCM example.
 // Use the GLCM to compute a large number of texture measures.
 var glcmTexture = intNAIP.glcmTexture(7);
@@ -253,10 +253,10 @@ var gearys = maxBands.subtract(neighBands).pow(2).reduce(ee.Reducer
 Map.addLayer(gearys, {
     min: 20,
     max: 2500
-}, "Geary's C"); 
+}, "Geary's C");
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 

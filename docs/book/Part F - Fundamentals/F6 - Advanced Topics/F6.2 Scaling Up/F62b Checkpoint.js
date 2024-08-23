@@ -1,7 +1,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      F6.2 Scaling Up in Earth Engine
 //  Checkpoint:   F62b
-//  Authors:      Jillian M. Deines, Stefania Di Tommaso, Nicholas Clinton, Noel Gorelick    
+//  Authors:      Jillian M. Deines, Stefania Di Tommaso, Nicholas Clinton, Noel Gorelick
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // Load county dataset.
@@ -32,7 +32,7 @@ var filenameBase = 'Gridmet_counties_IN_IL_IA_' + scale + 'm_';
 
 // Initiate a loop, in which the variable i takes on values of each year.
 for (var i = startYear; i <= endYear; i++) {        // for each year....
-  
+
   // Load climate collection for that year.
   var startDate = i + '-01-01';
 
@@ -48,10 +48,10 @@ for (var i = startYear; i <= endYear; i++) {        // for each year....
   var sampledFeatures = imageCollection.map(function(image) {
     return image.reduceRegions({
       collection: featColl,
-      reducer: ee.Reducer.mean(),         
+      reducer: ee.Reducer.mean(),
       tileScale: 1,
       scale: scale
-    }).filter(ee.Filter.notNull(bandsWanted))  // remove rows without data 
+    }).filter(ee.Filter.notNull(bandsWanted))  // remove rows without data
       .map(function(f) {                  // add date property
         var time_start = image.get('system:time_start');
         var dte = ee.Date(time_start).format('YYYYMMdd');
@@ -62,7 +62,7 @@ for (var i = startYear; i <= endYear; i++) {        // for each year....
   // Prepare export: specify properties and filename.
   var columnsWanted = [uniqueID].concat(['date_ymd'], bandsWanted);
   var filename = filenameBase + i;
- 
+
   Export.table.toDrive({
     collection: sampledFeatures,
     description: filename,
@@ -70,10 +70,10 @@ for (var i = startYear; i <= endYear; i++) {        // for each year....
     fileFormat: 'CSV',
     selectors: columnsWanted
   });
-  
+
 }
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 

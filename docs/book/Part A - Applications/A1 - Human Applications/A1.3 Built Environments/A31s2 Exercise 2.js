@@ -18,7 +18,7 @@ var grip4_africaLength = grip4_africa.map(addLength)
 var empty = ee.Image().float();
 
 var grip4_africaRaster = empty.paint({
-  featureCollection: grip4_africaLength, 
+  featureCollection: grip4_africaLength,
   color: 'lengthKm'
 });
 
@@ -40,7 +40,7 @@ var transmissionAfricaLength = transmissionAfrica.map(addLength)
 
 // Convert to transmission lines to raster
 var transmissionAfricaRaster = empty.paint({
-  featureCollection: transmissionAfricaLength, 
+  featureCollection: transmissionAfricaLength,
   color: 'lengthKm'
 });
 
@@ -101,8 +101,8 @@ basemap.addCustomBasemap('BlackAndWhite')
 
 // Display
 Map.setCenter(3.6, 32.5, 11)
-Map.addLayer(gearysStar.focalMax(1), 
-             visParams, 
+Map.addLayer(gearysStar.focalMax(1),
+             visParams,
              'local Gearys C*')
 
 // LGTM (nclinton)

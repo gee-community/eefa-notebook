@@ -1,9 +1,9 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var geometryLabel = 
+var geometryLabel =
     /* color: #d63000 */
     /* shown: false */
     ee.Geometry.Point([-104.81854696562625, 38.291704822204]),
-    geometryGallery = 
+    geometryGallery =
     /* color: #98ff00 */
     /* shown: false */
     /* displayProperties: [
@@ -25,7 +25,7 @@ Map.centerObject(geometryGallery, 12);
 var images = ee.ImageCollection('COPERNICUS/S2')
     .filterDate('2020-01-01', '2022-01-01')
     .filterBounds(geometryLabel);
- 
+
 var imagesMonthly = ee.List.sequence(0, 11).map(function(month) {
   month = ee.Number(month);
   return images.filter(ee.Filter.calendarRange(month, month.add(1), 'month'))
@@ -37,14 +37,14 @@ var imagesMonthly = ee.List.sequence(0, 11).map(function(month) {
 });
 
 imagesMonthly = ee.ImageCollection(imagesMonthly);
-  
+
 // Render monthly images + label.
 var imagesRGB = imagesMonthly.map(function(i) {
   var label = text.draw(i.get('label'), geometryLabel, Map.getScale(), {
-      fontSize: 24, 
-      textColor: 'ffffff', 
-      outlineColor: '000000', 
-      outlineWidth: 3, 
+      fontSize: 24,
+      textColor: 'ffffff',
+      outlineColor: '000000',
+      outlineWidth: 3,
       outlineOpacity: 0.6
   });
   return i.visualize({min: 300, max: 3500}).blend(label);

@@ -18,7 +18,7 @@ Map.addLayer(pagirinya, {}, 'Pagirinya Refugee Settlement');
 Map.centerObject(pagirinya, 14);
 
 // Create buffered settlement boundary geometry.
-// 500 meter buffer size is arbitrary but large enough 
+// 500 meter buffer size is arbitrary but large enough
 // to capture area outside of the study settlement.
 var bufferSize = 500; // (in meters)
 
@@ -280,7 +280,7 @@ var postBandsChart = ui.Chart.image
       reducer: ee.Reducer.median(),
       scale: 30,
       classLabels: ['Settlement', 'Road', 'Forest', 'Agriculture'],
-      xLabels: chartBands 
+      xLabels: chartBands
     })
     .setChartType('ScatterChart')
     .setOptions({
@@ -431,7 +431,7 @@ Map.addLayer(pagirinyaOutline,
     },
     'Pagirinya Refugee Settlement boundary');
 
-// Intersect K-means polygons with UNHCR settlement boundary and 
+// Intersect K-means polygons with UNHCR settlement boundary and
 // return intersection area as a feature property.
 var kMeansIntersect = kMeansCleanedPolygon.map(function(feat) {
     var boundaryIsect = pagirinya.intersection(feat, ee

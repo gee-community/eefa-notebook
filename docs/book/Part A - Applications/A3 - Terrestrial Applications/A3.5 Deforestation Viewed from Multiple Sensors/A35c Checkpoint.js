@@ -13,7 +13,7 @@ var testArea = ee.Geometry.Polygon(
             [-66.44867083538912, -8.662236005089952]
         ]
     ]);
-    
+
 Map.centerObject(testArea);
 
 // Start and end of the training and monitoring period.
@@ -136,7 +136,7 @@ var forestMask = hansen.select('treecover2000')
         .eq(20))
     .gt(0)
     .clip(testArea);
-    
+
 var maskVis = {
     min: 0,
     max: 1,

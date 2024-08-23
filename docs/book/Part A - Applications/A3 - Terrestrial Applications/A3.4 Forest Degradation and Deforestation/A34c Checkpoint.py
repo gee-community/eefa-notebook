@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -10,8 +10,8 @@ Map = geemap.Map()
 #                Crystal Wespestad, Eric Bullock
 #  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-api = require('users/bullocke/coded:CODED/api')
-utils = require('projects/GLANCE:ccdcUtilities/api')
+api = require("users/bullocke/coded:CODED/api")
+utils = require("projects/GLANCE:ccdcUtilities/api")
 
 # ------------------------------------------------------------------------
 # CHECKPOINT

@@ -4,7 +4,7 @@
 //  Author:       TC Chakraborty
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// Load feature collection of New Haven's census tracts from user assets. 
+// Load feature collection of New Haven's census tracts from user assets.
 var regionInt = ee.FeatureCollection(
     'projects/gee-book/assets/A1-5/TC_NewHaven');
 
@@ -54,7 +54,7 @@ Map.addLayer(lstNewHaven, {
     'LST_MODIS');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Function to filter out cloudy pixels.
@@ -93,7 +93,7 @@ Map.addLayer(thermal, {
     },
     'Landsat_BT');
 
-// Calculate Normalized Difference Vegetation Index (NDVI) 
+// Calculate Normalized Difference Vegetation Index (NDVI)
 // from Landsat surface reflectance.
 var ndvi = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
     .filterBounds(regionInt)
@@ -162,5 +162,5 @@ Map.addLayer(lstLandsat, {
     'LST_Landsat');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

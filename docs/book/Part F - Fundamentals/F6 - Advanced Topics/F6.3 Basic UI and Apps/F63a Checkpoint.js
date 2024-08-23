@@ -3,7 +3,7 @@
 //  Checkpoint:   F63a
 //  Author:       Qiusheng Wu
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 
+
 // Get an NLCD image by year.
 var getNLCD = function(year) {
     // Import the NLCD collection.
@@ -19,7 +19,7 @@ var getNLCD = function(year) {
     return ui.Map.Layer(landcover, {}, year);
 };
 
-// Create a dictionary with each year as the key 
+// Create a dictionary with each year as the key
 // and its corresponding NLCD image layer as the value.
 var images = {
     '2001': getNLCD('2001'),
@@ -46,7 +46,7 @@ var rightMap = ui.Map();
 rightMap.setControlVisibility(true);
 var rightSelector = addLayerSelector(rightMap, 7, 'top-right');
 
-// Adds a layer selection widget to the given map, to allow users to 
+// Adds a layer selection widget to the given map, to allow users to
 // change which image is displayed in the associated map.
 function addLayerSelector(mapToChange, defaultValue, position) {
     var label = ui.Label('Select a year:');
@@ -57,7 +57,7 @@ function addLayerSelector(mapToChange, defaultValue, position) {
     }
 
     // Configure a selection dropdown to allow the user to choose
-    // between images, and set the map to update when a user 
+    // between images, and set the map to update when a user
     // makes a selection.
     var select = ui.Select({
         items: Object.keys(images),
@@ -208,7 +208,7 @@ var linker = ui.Map.Linker([leftMap, rightMap]);
 leftMap.setCenter(-100, 40, 4);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 

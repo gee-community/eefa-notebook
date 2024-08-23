@@ -1,4 +1,4 @@
-import ee 
+import ee
 import math
 import geemap
 
@@ -91,7 +91,7 @@ barPolys = watermask.Not().selfMask() \
         'scale': 30,
         'eightConnected': True
     }) \
-    .filter(ee.Filter.lte('count', MIN_SIZE)); 
+    .filter(ee.Filter.lte('count', MIN_SIZE));
 filled = watermask.paint(barPolys, 1)
 
 Map.addLayer(rpj(filled), {

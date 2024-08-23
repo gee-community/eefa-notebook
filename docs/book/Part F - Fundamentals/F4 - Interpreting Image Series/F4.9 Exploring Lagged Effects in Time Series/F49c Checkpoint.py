@@ -1,4 +1,4 @@
-import ee 
+import ee
 import math
 import geemap
 
@@ -137,7 +137,7 @@ def merge(image):
     # Function to be passed to iterate.
     def merger(current, previous):
         return ee.Image(previous).addBands(current)
-    
+
     return ee.ImageCollection.fromImages(image.get('images')) \
         .iterate(merger, image)
 

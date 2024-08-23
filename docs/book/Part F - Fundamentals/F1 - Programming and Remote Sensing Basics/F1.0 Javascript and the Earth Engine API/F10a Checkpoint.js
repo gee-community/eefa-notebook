@@ -1,7 +1,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      F1.0 Javascript and the Earth Engine API
 //  Checkpoint:   F10a
-//  Author:       Ujaval Gandhi 
+//  Author:       Ujaval Gandhi
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 print('Hello World');
@@ -9,7 +9,7 @@ print('Hello World');
 var city = 'San Francisco';
 print(city);
 
-var population = 873965; 
+var population = 873965;
 print(population);
 
 var cities = ['San Francisco', 'Los Angeles', 'New York', 'Atlanta'];
@@ -31,7 +31,7 @@ print(greet('Readers'));
 // This is a comment!
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 

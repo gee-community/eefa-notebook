@@ -1,7 +1,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      A3.4 Forest Degradation and Deforestation
 //  Checkpoint:   A34e
-//  Author:       Carlos Souza Jr., Karis Tenneson, John Dilger, 
+//  Author:       Carlos Souza Jr., Karis Tenneson, John Dilger,
 //                Crystal Wespestad, Eric Bullock
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -12,7 +12,7 @@ var utils = require('projects/GLANCE:ccdcUtilities/api');
 // CHECKPOINT
 // ------------------------------------------------------------------------
 
-// We will use the geometry of the image from the previous section as 
+// We will use the geometry of the image from the previous section as
 // the study area.
 var studyArea = ee.Image(
         'LANDSAT/LT05/C02/T1_L2/LT05_226068_19840411')

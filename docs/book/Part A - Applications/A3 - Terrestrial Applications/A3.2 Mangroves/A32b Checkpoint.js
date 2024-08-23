@@ -64,15 +64,15 @@ print(data_stack);
 // CHECKPOINT
 // -----------------------------------------------------------------------
 
-/*** 
- * This script computes surface water mask using 
+/***
+ * This script computes surface water mask using
  * Canny Edge detector and Otsu thresholding.
- * See the following paper for details: 
+ * See the following paper for details:
  * http://www.mdpi.com/2072-4292/8/5/386
- * 
- * Author: Gennadii Donchyts 
- * Contributors: Nicholas Clinton 
- * 
+ *
+ * Author: Gennadii Donchyts
+ * Contributors: Nicholas Clinton
+ *
  */
 
 /***
@@ -237,7 +237,7 @@ Map.addLayer(image_to_classify,
     },
     'Masked Data Stack',
     false);
-    
+
 // -----------------------------------------------------------------------
 // CHECKPOINT
 // -----------------------------------------------------------------------

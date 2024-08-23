@@ -76,7 +76,7 @@ dataTable.evaluate(function(dataTableClient) {
     var chart = ui.Chart(dataTableClient)
         .setChartType('AreaChart')
         .setOptions({
-            title: band + ' Global Histogram', 
+            title: band + ' Global Histogram',
             hAxis: {
                 title: 'Backscatter [dB]',
                 viewWindow: {
@@ -209,9 +209,9 @@ Map.addLayer(globalWater.selfMask(),
         palette: 'blue'
     },
     'Water (global threshold)');
-    
+
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // *** Section 2 ***
@@ -379,7 +379,7 @@ Map.addLayer(localWater.selfMask(),
         palette: 'darkblue'
     },
     'Water (adaptive threshold)');
-    
+
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

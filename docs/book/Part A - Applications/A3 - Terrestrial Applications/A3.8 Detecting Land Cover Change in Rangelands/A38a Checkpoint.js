@@ -10,7 +10,7 @@ var aoi = ee.FeatureCollection(
 Map.centerObject(aoi, 11);
 Map.addLayer(aoi, {}, 'Subset of Naiman Banner');
 
-// Filter the MODIS Collection 
+// Filter the MODIS Collection
 var MODIS_LC = ee.ImageCollection('MODIS/006/MCD12Q1').select(
     'LC_Type1');
 

@@ -115,7 +115,7 @@ var elevationSamples = elevation.sample({
 
 Map.addLayer(elevationSamples, {}, 'Points extracted');
 
-// Add three properties to the output table: 
+// Add three properties to the output table:
 // 'Elevation', 'Longitude', and 'Latitude'.
 elevationSamples = elevationSamples.map(function(feature) {
     var geom = feature.geometry().coordinates();
@@ -146,5 +146,5 @@ var elevationSamplesStratified = zones.stratifiedSample({
 Map.addLayer(elevationSamplesStratified, {}, 'Stratified samples');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

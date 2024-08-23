@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -10,18 +10,22 @@ Map = geemap.Map()
 #                Eidan Willis, Flavie Pelletier
 #  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-events = ee.ImageCollection(
-    'projects/gee-book/assets/F4-8/cleanEvents')
-print(events, 'List of Events')
-print('Number of events:', events.size())
+events = ee.ImageCollection("projects/gee-book/assets/F4-8/cleanEvents")
+print(events, "List of Events")
+print("Number of events:", events.size())
 
-print(ui.Thumbnail(events, {
-    'min': 0,
-    'max': 3,
-    'palette': ['black', 'green', 'blue', 'yellow'],
-    'framesPerSecond': 1,
-    'dimensions': 1000
-}))
+print(
+    ui.Thumbnail(
+        events,
+        {
+            "min": 0,
+            "max": 3,
+            "palette": ["black", "green", "blue", "yellow"],
+            "framesPerSecond": 1,
+            "dimensions": 1000,
+        },
+    )
+)
 
 #  -----------------------------------------------------------------------
 #  CHECKPOINT

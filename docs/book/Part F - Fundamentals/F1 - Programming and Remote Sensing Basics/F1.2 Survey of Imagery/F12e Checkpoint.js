@@ -40,7 +40,7 @@ var era5MonthlyTemp = era5Monthly.select('mean_2m_air_temperature')
     .filterDate('2018-01-01', '2018-01-31')
     .first();
 
-// Add the ERA dataset to the map.                  
+// Add the ERA dataset to the map.
 Map.addLayer(era5MonthlyTemp,
     {
         palette: ['yellow', 'red'],
@@ -48,7 +48,7 @@ Map.addLayer(era5MonthlyTemp,
         max: 320
     },
     'ERA5 Max Monthly Temp');
-    
+
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

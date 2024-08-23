@@ -9,7 +9,7 @@ var landsat8 = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
       ['blue', 'green', 'red', 'nir', 'swir1', 'swir2']);
 var landsat3 = ee.ImageCollection('LANDSAT/LM03/C01/T2')
     .select(['B4', 'B5', 'B6', 'B7'], ['green', 'red', 'nir1', 'nir2']);
-    
+
 var preImage = landsat3
     .filterBounds(point)
     .filterDate('1981-01-01', '1981-12-30')

@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -9,31 +9,23 @@ Map = geemap.Map()
 #  Authors:      Cesar Aybar, David Montero, Antony Barja, Fernando Herrera, Andrea Gonzales, and Wendy Espinoza
 #  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-LandsatLST = require(
-    'users/sofiaermida/landsat_smw_lst:modules/Landsat_LST.js')
+LandsatLST = require("users/sofiaermida/landsat_smw_lst:modules/Landsat_LST.js")
 
 geometry = ee.Geometry.Rectangle([-8.91, 40.0, -8.3, 40.4])
-satellite = 'L8'
-date_start = '2018-05-15'
-date_end = '2018-05-31'
+satellite = "L8"
+date_start = "2018-05-15"
+date_end = "2018-05-31"
 use_ndvi = True
 
-LandsatColl = LandsatLST.collection(satellite, date_start,
-    date_end, geometry, use_ndvi)
+LandsatColl = LandsatLST.collection(satellite, date_start, date_end, geometry, use_ndvi)
 
 exImage = LandsatColl.first()
 
-cmap = ['blue', 'cyan', 'green', 'yellow', 'red']
+cmap = ["blue", "cyan", "green", "yellow", "red"]
 
 Map.centerObject(geometry)
 
-Map.addLayer(exImage.select('LST'), {
-    'min': 290,
-    'max': 320,
-    'palette': cmap
-}, 'LST')
-
-
+Map.addLayer(exImage.select("LST"), {"min": 290, "max": 320, "palette": cmap}, "LST")
 
 
 #  -----------------------------------------------------------------------

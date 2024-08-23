@@ -1,10 +1,10 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      F4.9 Exploring Lagged Effects in Time Series 
+//  Chapter:      F4.9 Exploring Lagged Effects in Time Series
 //  Checkpoint:   F49a
 //  Authors:      Andréa Puzzi Nicolau, Karen Dyson, David Saah, Nicholas Clinton
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// Define function to mask clouds, scale, and add variables 
+// Define function to mask clouds, scale, and add variables
 // (NDVI, time and a constant) to Landsat 8 imagery.
 function maskScaleAndAddVariable(image) {
     // Bit 0 - Fill
@@ -71,7 +71,7 @@ var independents = ee.List(['constant', 't']);
 // Name of the dependent variable.
 var dependent = ee.String('NDVI');
 
-// Compute a linear trend.  This will have two bands: 'residuals' and 
+// Compute a linear trend.  This will have two bands: 'residuals' and
 // a 2x1 band called coefficients (columns are for dependent variables).
 var trend = landsat8sr.select(independents.add(dependent))
     .reduce(ee.Reducer.linearRegression(independents.length(), 1));
@@ -148,9 +148,9 @@ var lagBand = dependent.cat('_1');
 var covariance17 = ee.Image(covariance(merged17, dependent, lagBand))
     .clip(roi);
 
-// The output of the covariance reducer is an array image, 
-// in which each pixel stores a 2x2 variance-covariance array. 
-// The off diagonal elements are covariance, which you can map 
+// The output of the covariance reducer is an array image,
+// in which each pixel stores a 2x2 variance-covariance array.
+// The off diagonal elements are covariance, which you can map
 // directly using:
 Map.addLayer(covariance17.arrayGet([0, 1]),
     {
@@ -178,5 +178,5 @@ Map.addLayer(correlation17,
     'correlation (lag = 17 days)');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

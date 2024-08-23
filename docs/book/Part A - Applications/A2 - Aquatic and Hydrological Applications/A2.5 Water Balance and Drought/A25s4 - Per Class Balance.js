@@ -1,5 +1,5 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      A2.5 Water Balance and Drought 
+//  Chapter:      A2.5 Water Balance and Drought
 //  Checkpoint:   A25s4
 //  Author:       Ate Poortinga, Quyen Nguyen, Nyein Soe Thwal, Andréa Puzzi Nicolau
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -183,8 +183,8 @@ var MSI = mod09.map(function(image) {
     return msi;
 });
 
-// We apply a nested loop where we first iterate over 
-// the relevant years and then iterate over the relevant 
+// We apply a nested loop where we first iterate over
+// the relevant years and then iterate over the relevant
 // months. The function returns an image with the MSI and EVI
 // for each month. A flatten is applied to convert an
 // collection of collections into a single collection.

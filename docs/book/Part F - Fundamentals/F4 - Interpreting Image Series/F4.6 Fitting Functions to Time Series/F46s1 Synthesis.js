@@ -1,7 +1,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      F4.6 Fitting Functions to Time Series
 //  Checkpoint:   F46s1
-//  Authors:      Andréa Puzzi Nicolau, Karen Dyson, Biplov Bhandari, David Saah, 
+//  Authors:      Andréa Puzzi Nicolau, Karen Dyson, Biplov Bhandari, David Saah,
 //                Nicholas Clinton
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -23,7 +23,7 @@ var dependent = 'NDVI';
 // The number of cycles per year to model.
 var harmonics = 1;
 
-// Make a list of harmonic frequencies to model.  
+// Make a list of harmonic frequencies to model.
 // These also serve as band name suffixes.
 var harmonicFrequencies = ee.List.sequence(1, harmonics);
 
@@ -42,7 +42,7 @@ var sinNames = getNames('sin_', harmonicFrequencies);
 var independents = ee.List(['constant', 't'])
     .cat(cosNames).cat(sinNames);
 
-// Define function to mask clouds, scale, and add variables 
+// Define function to mask clouds, scale, and add variables
 // (NDVI, time and a constant) to Landsat 8 imagery.
 function maskScaleAndAddVariable(image) {
     // Bit 0 - Fill
@@ -108,7 +108,7 @@ var harmonicLandsat = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
     .filterBounds(roi)
     .map(maskScaleAndAddVariable)
     .map(addHarmonics(harmonicFrequencies));
-    
+
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

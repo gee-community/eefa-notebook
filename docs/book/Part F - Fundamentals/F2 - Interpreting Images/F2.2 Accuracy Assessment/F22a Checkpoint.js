@@ -21,7 +21,7 @@ var trainingSet = trainingTesting
     .filter(ee.Filter.lessThan('random', 0.8));
 var testingSet = trainingTesting
     .filter(ee.Filter.greaterThanOrEquals('random', 0.8));
-    
+
 // Train the Random Forest Classifier with the trainingSet.
 var RFclassifier = ee.Classifier.smileRandomForest(50).train({
     features: trainingSet,
@@ -29,7 +29,7 @@ var RFclassifier = ee.Classifier.smileRandomForest(50).train({
     inputProperties: predictionBands
 });
 
-// Now, to test the classification (verify model's accuracy), 
+// Now, to test the classification (verify model's accuracy),
 // we classify the testingSet and get a confusion matrix.
 var confusionMatrix = testingSet.classify(RFclassifier)
     .errorMatrix({
@@ -45,6 +45,6 @@ print('Consumers Accuracy:', confusionMatrix.consumersAccuracy());
 print('Kappa:', confusionMatrix.kappa());
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 

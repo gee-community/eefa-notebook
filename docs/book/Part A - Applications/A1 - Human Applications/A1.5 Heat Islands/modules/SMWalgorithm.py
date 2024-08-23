@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -87,7 +87,7 @@ def exports.addBand(landsat):
 
 
     return image.addBands(lst.rename('LST'))
-  
+
   return wrap
 
 Map

@@ -5,7 +5,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 var imgCol = ee.ImageCollection('LANDSAT/LT05/C02/T1_L2');
-// How many Tier 1 Landsat 5 images have ever been collected? 
+// How many Tier 1 Landsat 5 images have ever been collected?
 print("All images ever: ", imgCol.size()); // A very large number
 
 // How many images were collected in the 2000s?
@@ -27,21 +27,21 @@ print("All images here, 2000-2010: ", imgColfilteredByDateHere
 
 var L5FilteredLowCloudImages = imgColfilteredByDateHere
     .filterMetadata('CLOUD_COVER', 'less_than', 50);
-print("Less than 50% clouds in this area, 2000-2010", 
+print("Less than 50% clouds in this area, 2000-2010",
     L5FilteredLowCloudImages.size()); // A smaller number
-    
+
 var chainedFilteredSet = imgCol.filterDate(startDate, endDate)
     .filterBounds(Map.getCenter())
     .filterMetadata('CLOUD_COVER', 'less_than', 50);
 print('Chained: Less than 50% clouds in this area, 2000-2010',
     chainedFilteredSet.size());
-    
+
 var efficientFilteredSet = imgCol.filterBounds(Map.getCenter())
     .filterDate(startDate, endDate)
     .filterMetadata('CLOUD_COVER', 'less_than', 50);
 print('Efficient filtering: Less than 50% clouds in this area, 2000-2010',
     efficientFilteredSet.size());
-    
+
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

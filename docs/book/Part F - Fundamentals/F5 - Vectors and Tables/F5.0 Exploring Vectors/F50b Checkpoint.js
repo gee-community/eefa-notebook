@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var usf_building = 
+var usf_building =
     /* color: #bf04c2 */
     /* shown: false */
     ee.Geometry.Polygon(
@@ -13,7 +13,7 @@ var usf_building =
           [-122.45112053282251, 37.776789939269314],
           [-122.4506484640359, 37.776849299992314],
           [-122.45067528612604, 37.777014661755025]]]),
-    usf_campus = 
+    usf_campus =
     /* color: #ff0000 */
     /* shown: false */
     ee.Geometry.MultiPolygon(
@@ -32,7 +32,7 @@ var usf_building =
            [-122.45316568022264, 37.7761356745013],
            [-122.45350900297655, 37.77776385146553],
            [-122.45511832838548, 37.77756033130608]]]]),
-    usf_point = 
+    usf_point =
     /* color: #00ffff */
     /* shown: false */
     ee.Geometry.Point([-122.45124246920876, 37.77652242316423]);
@@ -54,7 +54,7 @@ Map.addLayer(tiger, {
 // Assign the feature collection to the variable sfNeighborhoods.
 var sfNeighborhoods = ee.FeatureCollection(
     'path/to/your/asset/assetname');
-    
+
 // Note: if you are unable to load the feature collection, you
 // can access the data by uncommenting out the following two lines:
 // var tablePath = 'projects/gee-book/assets/F5-0/SFneighborhoods';
@@ -68,5 +68,5 @@ Map.addLayer(sfNeighborhoods, {
 }, 'sfNeighborhoods');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

@@ -3,17 +3,17 @@
 //  Checkpoint:   F63c
 //  Author:       Qiusheng Wu
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  
+
 
 Enter the link below into your browser to see how your code should look at this point
 
-https://geemap.org/notebooks/nlcd_app 
+https://geemap.org/notebooks/nlcd_app
 
 
 
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 

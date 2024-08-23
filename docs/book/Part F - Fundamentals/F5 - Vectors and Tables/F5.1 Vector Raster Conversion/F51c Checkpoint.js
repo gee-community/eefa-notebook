@@ -8,7 +8,7 @@
 // Section 1.4 //
 //-------------//
 
-// Load required datasets. 
+// Load required datasets.
 var gfc = ee.Image('UMD/hansen/global_forest_change_2020_v1_8');
 var wdpa = ee.FeatureCollection('WCMC/WDPA/current/polygons');
 
@@ -69,7 +69,7 @@ wdpaSubset = wdpaSubset.map(
             .multiply(100)); // to percentage points
     });
 
-// Print to identify rates of change per protected area. 
+// Print to identify rates of change per protected area.
 // Which has the fastest rate of loss?
 print(wdpaSubset.reduceColumns({
     reducer: ee.Reducer.toList().repeat(2),
@@ -77,5 +77,5 @@ print(wdpaSubset.reduceColumns({
 }));
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

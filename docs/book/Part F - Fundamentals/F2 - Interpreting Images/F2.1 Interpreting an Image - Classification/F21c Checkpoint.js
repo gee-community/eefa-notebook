@@ -632,7 +632,7 @@ var visParams = {
 Map.addLayer(landsat, visParams, 'Landsat 8 image');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Combine training feature collections.
@@ -653,7 +653,7 @@ var classifierTraining = landsat.select(predictionBands)
         properties: ['class'],
         scale: 30
     });
-    
+
 //////////////// CART Classifier ///////////////////
 
 // Train a CART Classifier.
@@ -693,7 +693,7 @@ var RFclassified = landsat.select(predictionBands).classify(
 Map.addLayer(RFclassified, classificationVis, 'RF classified');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 //////////////// Unsupervised classification ////////////////
@@ -717,7 +717,7 @@ Map.addLayer(Kclassified.randomVisualizer(), {},
     'K-means classified - random colors');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 

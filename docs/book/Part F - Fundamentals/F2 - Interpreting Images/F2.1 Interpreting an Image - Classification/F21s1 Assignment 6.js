@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var forest = 
+var forest =
     /* color: #589400 */
     /* shown: false */
     ee.FeatureCollection(
@@ -603,7 +603,7 @@ var forest =
               "class": 0,
               "system:index": "99"
             })]),
-    developed = 
+    developed =
     /* color: #ff0000 */
     /* shown: false */
     ee.FeatureCollection(
@@ -1207,7 +1207,7 @@ var forest =
               "class": 1,
               "system:index": "99"
             })]),
-    water = 
+    water =
     /* color: #1a11ff */
     /* shown: false */
     ee.FeatureCollection(
@@ -1811,7 +1811,7 @@ var forest =
               "class": 2,
               "system:index": "99"
             })]),
-    herbaceous = 
+    herbaceous =
     /* color: #d0741e */
     /* shown: false */
     ee.FeatureCollection(
@@ -2438,7 +2438,7 @@ Map.centerObject(landsat, 8);
 var visParams = {bands: ['SR_B4', 'SR_B3', 'SR_B2'], min: 7000, max: 12000};
 Map.addLayer(landsat, visParams, 'Landsat 8 image');
 
-// Combine training feature collections. Here we are using 100 points per class. 
+// Combine training feature collections. Here we are using 100 points per class.
 // See imports at the top.
 var trainingFeatures = ee.FeatureCollection([
   forest, developed, water, herbaceous
@@ -2446,15 +2446,15 @@ var trainingFeatures = ee.FeatureCollection([
 
 // Define the prediction bands.
 var predictionBands = [
-  'SR_B1', 'SR_B2', 'SR_B3', 'SR_B4', 'SR_B5', 'SR_B6', 'SR_B7', 'ST_B10', 
+  'SR_B1', 'SR_B2', 'SR_B3', 'SR_B4', 'SR_B5', 'SR_B6', 'SR_B7', 'ST_B10',
   'ndvi', 'ndwi'
 ];
 
 // Sample training points.
 var classifierTraining = landsat.select(predictionBands)
     .sampleRegions({
-      collection: trainingFeatures, 
-      properties: ['class'], 
+      collection: trainingFeatures,
+      properties: ['class'],
       scale: 30
     });
 
@@ -2462,8 +2462,8 @@ var classifierTraining = landsat.select(predictionBands)
 
 // Train a CART Classifier.
 var classifier = ee.Classifier.smileCart().train({
-  features: classifierTraining, 
-  classProperty: 'class', 
+  features: classifierTraining,
+  classProperty: 'class',
   inputProperties: predictionBands
 });
 
@@ -2482,7 +2482,7 @@ Map.addLayer(classified, classificationVis, 'CART classified');
 
 // Train RF classifier.
 var RFclassifier = ee.Classifier.smileRandomForest(50).train({
-  features: classifierTraining, 
+  features: classifierTraining,
   classProperty: 'class',
   inputProperties: predictionBands
 });
@@ -2514,6 +2514,6 @@ Map.addLayer(Kclassified.randomVisualizer(), {}, 'K-means classified - random co
 
 // Display the clusters with same palette as supervised classification
 // herbaceous is 0, water is 1, forest is 2, developed is 3.
-Map.addLayer(Kclassified, 
-             {min: 0, max: 3, palette: ['d0741e','1a11ff','589400', 'ff0000']}, 
+Map.addLayer(Kclassified,
+             {min: 0, max: 3, palette: ['d0741e','1a11ff','589400', 'ff0000']},
              'K-means classified');

@@ -1,7 +1,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      F1.1 Exploring images
 //  Checkpoint:   F11a
-//  Author:       Jeff Howarth 
+//  Author:       Jeff Howarth
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // Load an image from its Earth Engine ID.
@@ -16,11 +16,11 @@ Map.addLayer(
     first_image, //  dataset to display
     {
         bands: ['SR_B1'], //  band to display
-        min: 8000, //  display range  
+        min: 8000, //  display range
         max: 17000
     },
     'Layer 1' //  name to show in Layer Manager
-);  
+);
 
 // Display band 2 as the second map layer.
 Map.addLayer(
@@ -49,7 +49,7 @@ Map.addLayer(
 );
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 

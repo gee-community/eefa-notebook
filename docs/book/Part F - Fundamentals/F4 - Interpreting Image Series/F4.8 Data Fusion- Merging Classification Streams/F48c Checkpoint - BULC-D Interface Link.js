@@ -4,10 +4,10 @@
 //  Authors:      Jeff Cardille, Rylan Boothman, Mary Villamor, Elijah Perez,
 //                Eidan Willis, Flavie Pelletier
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 
-// Access the BULC-D interface at the following link, 
+
+// Access the BULC-D interface at the following link,
 // by copy-pasting the line below into your browser.
-// Run the script that loads. 
+// Run the script that loads.
 
 
 Current link:
@@ -15,5 +15,5 @@ https://code.earthengine.google.com/?scriptPath=users/alemlakes/r-2909-BULC-Rele
 
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

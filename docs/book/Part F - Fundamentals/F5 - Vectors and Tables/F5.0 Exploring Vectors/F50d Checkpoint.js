@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var usf_building = 
+var usf_building =
     /* color: #bf04c2 */
     /* shown: false */
     ee.Geometry.Polygon(
@@ -13,7 +13,7 @@ var usf_building =
           [-122.45112053282251, 37.776789939269314],
           [-122.4506484640359, 37.776849299992314],
           [-122.45067528612604, 37.777014661755025]]]),
-    usf_campus = 
+    usf_campus =
     /* color: #ff0000 */
     /* shown: false */
     ee.Geometry.MultiPolygon(
@@ -32,7 +32,7 @@ var usf_building =
            [-122.45316568022264, 37.7761356745013],
            [-122.45350900297655, 37.77776385146553],
            [-122.45511832838548, 37.77756033130608]]]]),
-    usf_point = 
+    usf_point =
     /* color: #00ffff */
     /* shown: false */
     ee.Geometry.Point([-122.45124246920876, 37.77652242316423]);
@@ -70,9 +70,9 @@ Map.addLayer(sfNeighborhoods, {
 }, 'sfNeighborhoods');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
- 
+
 // Filter sfNeighborhoods by USF.
 var usfNeighborhood = sfNeighborhoods.filterBounds(usf_point);
 
@@ -101,10 +101,10 @@ var housing10_mean = usfTiger.reduceColumns({
   selectors: ['housing10']
 });
 
-print('housing10_mean', housing10_mean); 
+print('housing10_mean', housing10_mean);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Import the Landsat 8 TOA image collection.
@@ -145,6 +145,6 @@ Export.table.toDrive({
 });
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 

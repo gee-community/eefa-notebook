@@ -40,29 +40,29 @@ var countriesArea = countries.map(addArea);
 // Filter to largest country in Africa
 var Algeria = countriesArea.filter(ee.Filter.inList('country_na', ['Algeria']))
 
-// Display selected countries 
-Map.addLayer(Algeria.style({fillColor: 'b5ffb4', color: '00909F', width: 1.0}), 
+// Display selected countries
+Map.addLayer(Algeria.style({fillColor: 'b5ffb4', color: '00909F', width: 1.0}),
              {},
              'Algeria')
 
 // Calculate road length per country for the associated GRIP dataset.
 var roadLength4Country = function(country, grip4) {
-  
+
   // Join roads to countries
   var interesectsFilter = ee.Filter.intersects({
     leftField: '.geo',
     rightField: '.geo',
     maxError: 10
   });
-  
+
   var grip4Selected = grip4.filterBounds(country)
-  
+
   var countriesWithRds = ee.Join.saveAll('roads').apply({
     primary: country,
     secondary: grip4Selected,
     condition: interesectsFilter
   }).filter(ee.Filter.neq('roads', null));
-  
+
   // Return country with road length and roads per km square km set
   return countriesWithRds.map(function(country) {
     var roadsList = ee.List(country.get('roads'));
@@ -101,7 +101,7 @@ print(grip4_africaLength.limit(1))
 var grip4_Algeria = grip4_africaLength.filterBounds(Algeria);
 
 // Visualize the output
-Map.addLayer(grip4_Algeria.style({color: 'green', width: 2.0}), 
+Map.addLayer(grip4_Algeria.style({color: 'green', width: 2.0}),
              {},
              'Algeria roads')
 
@@ -120,12 +120,12 @@ print('Length of all roads in Algeria', sumLengthKmAlgeria);
 var empty = ee.Image().float();
 
 var grip4_africaRaster = empty.paint({
-  featureCollection: grip4_africaLength, 
+  featureCollection: grip4_africaLength,
   color: 'lengthKm'
 }).gt(0);
 
-Map.addLayer(grip4_africaRaster, 
-             {palette: ['orange'], max: 1}, 
+Map.addLayer(grip4_africaRaster,
+             {palette: ['orange'], max: 1},
              'Rasterized roads')
 
 // Add reducer output to the Features in the collection.
@@ -141,7 +141,7 @@ var AlgeriaRoadLength = ee.Image.pixelArea()
 });
 
 // Print the first feature, to illustrate the result.
-print('Length of all roads in Algeria calculated via rasters', 
+print('Length of all roads in Algeria calculated via rasters',
       ee.Number(AlgeriaRoadLength.first().get('length')));
 
 // Calculate line lengths for all roads in North America and Europe
@@ -156,7 +156,7 @@ var roadLengthMerge = grip4_africaLength.merge(grip4_north_americaLength)
 var empty = ee.Image().float();
 
 var roadLengthMergeRaster = empty.paint({
-  featureCollection: roadLengthMerge, 
+  featureCollection: roadLengthMerge,
   color: 'roadsPerArea'
 }).gt(0);
 
@@ -181,16 +181,16 @@ var countriesRoadLength = ee.Image.pixelArea()
 });
 
 // Compute totaled road lengths in km, grouped by country
-print('Length of all roads in Canada', 
+print('Length of all roads in Canada',
     countriesRoadLength.filter(ee.Filter.equals('country_na', 'Canada'))
         .aggregate_sum('length'));
-print('Length of all roads in France', 
+print('Length of all roads in France',
     countriesRoadLength.filter(ee.Filter.equals('country_na', 'France'))
         .aggregate_sum('length'));
 
 // Examine effect of scale on raster
-Map.addLayer(grip4_africaRaster.reproject({crs: 'EPSG:4326', scale: 100}), 
-             {palette: ['orange'], max: 1}, 
+Map.addLayer(grip4_africaRaster.reproject({crs: 'EPSG:4326', scale: 100}),
+             {palette: ['orange'], max: 1},
              'Rasterized roads 100 m')
 
 // LGTM (nclinton). Reformatted. Added a setCenter.

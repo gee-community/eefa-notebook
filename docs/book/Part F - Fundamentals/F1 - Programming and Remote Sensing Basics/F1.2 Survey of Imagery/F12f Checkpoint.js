@@ -3,7 +3,7 @@
 //  Checkpoint:   F12f
 //  Authors:      Andréa, Karen, Nick Clinton, David Saah
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 
+
 /////
 // Pre-classified Land Use Land Cover
 /////
@@ -46,5 +46,5 @@ var treeLossYearViz = {
 Map.addLayer(globalForest, treeLossYearViz, '2000-2020 Year of Loss');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

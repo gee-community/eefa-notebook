@@ -34,8 +34,8 @@ Map.addLayer(ee.FeatureCollection(grip4_europe).style({
 // Import simplified countries.
 var countries = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017');
 
-// Add a function to calculate the feature's geometry area. 
-// Add the function as a property. 
+// Add a function to calculate the feature's geometry area.
+// Add the function as a property.
 var addArea = function(feature) {
     return feature.set({
         areaKm: feature.geometry().area().divide(1000 *
@@ -51,7 +51,7 @@ var Algeria = countriesArea.filter(ee.Filter.inList('country_na', [
     'Algeria'
 ]));
 
-// Display the selected countries. 
+// Display the selected countries.
 Map.addLayer(Algeria.style({
     fillColor: 'b5ffb4',
     color: '00909F',
@@ -76,7 +76,7 @@ var roadLength4Country = function(country, grip4) {
         condition: intersectsFilter
     }).filter(ee.Filter.neq('roads', null));
 
-    // Return country with calculation of roadLength and roadsPerArea. 
+    // Return country with calculation of roadLength and roadsPerArea.
     return countriesWithRds.map(function(country) {
         var roadsList = ee.List(country.get('roads'));
         var roadLengths = roadsList.map(function(road) {
@@ -104,7 +104,7 @@ var roadLengthAlgeria = roadLength4Country(Algeria, grip4_africa);
 print('Roads statistics in Algeria', roadLengthAlgeria);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Export feature collection to drive.
@@ -156,7 +156,7 @@ var sumLengthKmAlgeria = ee.Number(
 print('Length of all roads in Algeria', sumLengthKmAlgeria);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Repeat the analysis again to calculate length of all roads using rasters.
@@ -236,5 +236,5 @@ print('Length of all roads in France', countriesRoadLength.filter(ee
     'length'));
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

@@ -3,11 +3,11 @@
 //  Checkpoint:   F33s1 - Supplemental
 //  Authors:      Morgan A. Crowley, Jeffrey Cardille, Noel Gorelick
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  
+
 ////////////////////////////////////////////////////////////
-// The purpose of this script is to compare segmented and 
+// The purpose of this script is to compare segmented and
 // per-pixel unsupervised classifications for the same image.
-// In particular, this script uses SNIC segmentation to grow 
+// In particular, this script uses SNIC segmentation to grow
 // superpixels, basing the segmentation on multiple bands.
 ////////////////////////////////////////////////////////////
 
@@ -16,12 +16,12 @@
 ////////////////////////////////////////////////////////////
 
 // SNIC stands for 'Simple Non-Iterative Clustering.'
-// Segmentation algorithms like SNIC create pixel clusters 
-// using imagery information such as texture, color or pixel 
-// values, shape, and size.  SNIC is a bottom-up, seed-based 
-// segmentation approach that groups neighboring pixels together 
-// into clusters based on input data and parameters such as 
-// compactness, connectivity, and neighborhood size. 
+// Segmentation algorithms like SNIC create pixel clusters
+// using imagery information such as texture, color or pixel
+// values, shape, and size.  SNIC is a bottom-up, seed-based
+// segmentation approach that groups neighboring pixels together
+// into clusters based on input data and parameters such as
+// compactness, connectivity, and neighborhood size.
 
 ////////////////////////////////////////////////////////////
 // 1. Functions to be used in this script.
@@ -31,15 +31,15 @@
 
 // This function does unsupervised clustering classification .
 //  input = any image. All bands will be used for clustering.
-//  numberOfUnsupervisedClusters = tuneable parameter for how 
+//  numberOfUnsupervisedClusters = tuneable parameter for how
 //    many clusters to create.
 var afn_Kmeans = function(input,
     numberOfUnsupervisedClusters,
     defaultStudyArea,
     nativeScaleOfImage) {
 
-    // Make a new sample set on the input. Here the sample set is 
-    // randomly selected spatially. 
+    // Make a new sample set on the input. Here the sample set is
+    // randomly selected spatially.
     var training = input.sample({
         region: defaultStudyArea,
         scale: nativeScaleOfImage,
@@ -50,7 +50,7 @@ var afn_Kmeans = function(input,
             numberOfUnsupervisedClusters)
         .train(training);
 
-    // Now apply that clusterer to the raw image that was also passed in. 
+    // Now apply that clusterer to the raw image that was also passed in.
     var toexport = input.cluster(cluster);
 
     // The first item is the unsupervised classification. Name the band.
@@ -100,7 +100,7 @@ var afn_addMeanToBandName = (function(i) {
 var numberOfUnsupervisedClusters = 4;
 
 // 2.2. Visualization and Saving parameters
-// For different images, you might want to change the min and max 
+// For different images, you might want to change the min and max
 // values to stretch. Useful for images 2 and 3, the normalized images.
 var centerObjectYN = true;
 
@@ -108,7 +108,7 @@ var centerObjectYN = true;
 // Adjustable Superpixel Seed and SNIC segmentation Parameters:
 // The superpixel seed location spacing, in pixels.
 var SNIC_SuperPixelSize = 16;
-// Larger values cause clusters to be more compact (square/hexagonal). 
+// Larger values cause clusters to be more compact (square/hexagonal).
 // Setting this to 0 disables spatial distance weighting.
 var SNIC_Compactness = 0;
 // Connectivity. Either 4 or 8.
@@ -117,7 +117,7 @@ var SNIC_Connectivity = 4;
 var SNIC_SeedShape = 'square';
 
 // 2.4 Parameters that can stay the same.
-// Tile neighborhood size (to avoid tile boundary artifacts). 
+// Tile neighborhood size (to avoid tile boundary artifacts).
 // Defaults to 2 * size.
 var SNIC_NeighborhoodSize = 2 * SNIC_SuperPixelSize;
 
@@ -125,7 +125,7 @@ var SNIC_NeighborhoodSize = 2 * SNIC_SuperPixelSize;
 // 3. Statements
 //////////////////////////////////////////////////////////
 
-// 3.1  Selecting an Image to Classify 
+// 3.1  Selecting an Image to Classify
 
 // NOTE: If you're unsure which bands to use for your image, check out:
 // Sentinel-2:  https://forum.step.esa.int/t/list-of-band-combinations-for-sentinel-2/1156
@@ -337,7 +337,7 @@ if (whichImage == 6) {
 }
 
 ////////////////////////////////////////////////////////////
-// 4. Image Preprocessing 
+// 4. Image Preprocessing
 ////////////////////////////////////////////////////////////
 
 //4.1 You can use the geometry of image to clip by using the following line:
@@ -353,8 +353,8 @@ var ImageToUse = afn_normalize_by_maxes(clippedImageSelectedBands,
 // 5. SNIC Clustering
 ////////////////////////////////////////////////////////////
 
-// This function returns a multi-banded image that has had 
-// SNIC applied to it. It automatically determines the new names 
+// This function returns a multi-banded image that has had
+// SNIC applied to it. It automatically determines the new names
 // of the bands that will be returned from the segmentation.
 
 print('5.1 Execute SNIC');
@@ -423,5 +423,5 @@ if (centerObjectYN === true) {
 }
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

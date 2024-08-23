@@ -18,7 +18,7 @@ Map.addLayer(pagirinya, {}, 'Pagirinya Refugee Settlement');
 Map.centerObject(pagirinya, 14);
 
 // Create buffered settlement boundary geometry.
-// 500 meter buffer size is arbitrary but large enough 
+// 500 meter buffer size is arbitrary but large enough
 // to capture area outside of the study settlement.
 var bufferSize = 500; // (in meters)
 

@@ -4,10 +4,10 @@
 //  Author:       Aurélie Shapiro
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// Index functions - many sources for Sentinel-2 are here: 
-// https://www.indexdatabase.de/db/s-single.php?id=96 
+// Index functions - many sources for Sentinel-2 are here:
+// https://www.indexdatabase.de/db/s-single.php?id=96
 
-// Various NDVI calculations.  
+// Various NDVI calculations.
 var NDVI = S2.normalizedDifference(['nir', 'red'])
     .rename('NDVI');
 var NDVI_red = S2.normalizedDifference(['red', 'green'])

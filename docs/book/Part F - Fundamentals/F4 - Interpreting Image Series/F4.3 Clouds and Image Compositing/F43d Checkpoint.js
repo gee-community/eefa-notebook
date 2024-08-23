@@ -1,8 +1,8 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      F4.3 Clouds and Image Compositing
 //  Checkpoint:   F43d
-//  Authors:      Txomin Hermosilla, Saverio Francini, Andréa P. Nicolau, 
-//                Michael A. Wulder, Joanne C. White, Nicholas C. Coops, 
+//  Authors:      Txomin Hermosilla, Saverio Francini, Andréa P. Nicolau,
+//                Michael A. Wulder, Joanne C. White, Nicholas C. Coops,
 //                Gherardo Chirici
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -35,7 +35,7 @@ var BAPCS = library.BAP(null, targetDay, daysRange, cloudsTh,
 BAPCS = library.despikeCollection(despikeTh, despikeNbands, BAPCS,
     1984, 2021, true);
 
-// Infill datagaps. 
+// Infill datagaps.
 BAPCS = library.infill(BAPCS, 1984, 2021, false, true);
 
 // Visualize the image.
@@ -45,5 +45,5 @@ library.ShowCollection(BAPCS, startYear, endYear, colombia, false,
 library.AddSLider(startYear, endYear);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

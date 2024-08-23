@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -54,7 +54,7 @@ def exports.addBand(image):
     return image.set('DateDist',
       ee.Number(image.get('system:time_start')) \
       .subtract(date.millis()).abs())
-  
+
 
   # load atmospheric data collection
   TPWcollection = ee.ImageCollection('NCEP_RE/surface_wv') \

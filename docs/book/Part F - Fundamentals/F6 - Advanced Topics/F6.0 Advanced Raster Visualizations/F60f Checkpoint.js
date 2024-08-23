@@ -1,9 +1,9 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      F6.0 Advanced Raster Visualization 
+//  Chapter:      F6.0 Advanced Raster Visualization
 //  Checkpoint:   F60f
 //  Authors:      Gennadii Donchyts, Fedor Baart
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 
+
 var text = require('users/gena/packages:text');
 
 var geometry = ee.Geometry.Polygon(
@@ -19,7 +19,7 @@ var geometry = ee.Geometry.Polygon(
 Map.centerObject(geometry, 6);
 
 function annotate(image) {
-    // Annotates an image by adding outline border and cloudiness 
+    // Annotates an image by adding outline border and cloudiness
     // Cloudiness is shown as a text string rendered at the image center.
 
     // Add an edge around the image.
@@ -80,5 +80,5 @@ Map.onChangeZoom(function(zoom) {
 });
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

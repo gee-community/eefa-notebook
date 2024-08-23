@@ -1,21 +1,21 @@
 // ****************************************
-// Modules for sequential omnibus algorithm  
-// **************************************** 
+// Modules for sequential omnibus algorithm
+// ****************************************
 var util = require('projects/gee-edu/book:Part A - Applications/A1 - Human Applications/A1.8 Monitoring Gold Mining Activity Using SAR/modules/utilities_v1.1');
 //get 'VV' and 'VH' bands from sentinel-1 imageCollection and restore linear signal from db-values
-exports.get_vvvh = function(image){ 
+exports.get_vvvh = function(image){
     var nbands = image.bandNames().length();
     return  image.select(['VV','VH']).multiply(ee.Image.constant(Math.log(10.0)/10.0)).exp();
 };
 //get 'VV' and 'VH' bands from sentinel-1 imageCollection from ASF RTC data
-exports.get_vvvh_asfRTC = function(image){ 
+exports.get_vvvh_asfRTC = function(image){
     var nbands = image.bandNames().length();
     return  image.select(['VV','VH'])
 };
 // clip a list of images
 exports.clipList = function(current,prev){
     var imlist = ee.List(ee.Dictionary(prev).get('imlist'));
-    var geometry = ee.Dictionary(prev).get('geom');    
+    var geometry = ee.Dictionary(prev).get('geom');
     var imlist1 = imlist.add(ee.Image(current).clip(geometry));
     return ee.Dictionary({imlist:imlist1,geom:geometry});
 };
@@ -28,39 +28,39 @@ function log_det_sum(imList,j){
     imList = ee.List(imList);
     var nbands = ee.Image(imList.get(0)).bandNames().length();
     var sumj = ee.ImageCollection(imList.slice(0,j)).reduce(ee.Reducer.sum());
-    return ee.Algorithms.If( nbands.eq(2),                         
+    return ee.Algorithms.If( nbands.eq(2),
         sumj.expression('b(0)*b(1)').log(),
         sumj.log() );
-}        
+}
 function log_det(imList,j){
 // return the log of the the determinant of the jth image in imList
     var im = ee.Image(ee.List(imList).get(j.subtract(1)));
     var nbands = im.bandNames().length();
-    return ee.Algorithms.If(nbands.eq(2),  
+    return ee.Algorithms.If(nbands.eq(2),
         im.expression('b(0)*b(1)').log(),
         im.log() );
-}        
+}
 function pv(imList,p,median,j){
-// calculate -2log(R_ell,j) and return P-value 
+// calculate -2log(R_ell,j) and return P-value
     imList = ee.List(imList);
     p = ee.Number(p);
     j = ee.Number(j);
     var f = p;
     var one = ee.Number(1.0);
-// 1 - (1. + 1./(j*(j-1)))/(6.*p*n)    
+// 1 - (1. + 1./(j*(j-1)))/(6.*p*n)
     var rhoj = one.subtract(one.add(one.divide(j.multiply(j.subtract(one)))).divide(6*4.9));
-// -(f/4.)*(1.-1./rhoj)**2'    
+// -(f/4.)*(1.-1./rhoj)**2'
     var omega2j = one.subtract(one.divide(rhoj)).pow(2.0).multiply(f.divide(-4.0));
-    var Z = ee.Image(ee.Image(log_det_sum(imList,j.subtract(1)))).multiply(j.subtract(1)) 
-                 .add(log_det(imList,j))  
-                 .add(p.multiply(j).multiply(ee.Number(j).log())) 
-                 .subtract(p.multiply(j.subtract(1)).multiply(j.subtract(1).log())) 
-                 .subtract(ee.Image(log_det_sum(imList,j)).multiply(j)) 
-                 .multiply(rhoj) 
+    var Z = ee.Image(ee.Image(log_det_sum(imList,j.subtract(1)))).multiply(j.subtract(1))
+                 .add(log_det(imList,j))
+                 .add(p.multiply(j).multiply(ee.Number(j).log()))
+                 .subtract(p.multiply(j.subtract(1)).multiply(j.subtract(1).log()))
+                 .subtract(ee.Image(log_det_sum(imList,j)).multiply(j))
+                 .multiply(rhoj)
                  .multiply(-2*4.9);
-// (1.-omega2j)*stats.chi2.cdf(Z,[f])+omega2j*stats.chi2.cdf(Z,[f+4])                 
+// (1.-omega2j)*stats.chi2.cdf(Z,[f])+omega2j*stats.chi2.cdf(Z,[f+4])
     var P = ee.Image( util.chi2cdf(Z,f).multiply(one.subtract(omega2j)).add(util.chi2cdf(Z,f.add(4)).multiply(omega2j)) );
-// 3x3 median filter    
+// 3x3 median filter
     return ee.Algorithms.If(median, P.focal_median(), P);
 }
 function js_iter(current,prev){
@@ -69,7 +69,7 @@ function js_iter(current,prev){
     var median = prev.get('median');
     var p = prev.get('p');
     var imList = prev.get('imList');
-    var pvs = ee.List(prev.get('pvs'));  
+    var pvs = ee.List(prev.get('pvs'));
     return ee.Dictionary({'median':median,'p':p,'imList':imList,'pvs':pvs.add(pv(imList,p,median,j))});
 }
 function ells_iter(current,prev){
@@ -83,7 +83,7 @@ function ells_iter(current,prev){
     var imList_ell = imList.slice(ell.subtract(1));
     var js = ee.List.sequence(2,k.subtract(ell).add(1));
     var first = ee.Dictionary({'median':median,'p':p,'imList':imList_ell,'pvs':ee.List([])});
-// list of P-values for R_ell,j, j = 2...k-ell+1    
+// list of P-values for R_ell,j, j = 2...k-ell+1
     var pvs = ee.List(ee.Dictionary(js.iterate(js_iter,first)).get('pvs'));
     return ee.Dictionary({'k':k,'p':p,'median':median,'imList':imList,'pv_arr':pv_arr.add(pvs)});
 }
@@ -105,12 +105,12 @@ function filter_j(current,prev){
     smap = ee.Algorithms.If(ell.eq(1),smap.where(tst,cmapj),smap);
     var idx = ell.add(j).subtract(2);
     var tmp = bmap.select(idx);
-    var bname = bmap.bandNames().get(idx); 
+    var bname = bmap.bandNames().get(idx);
     tmp = tmp.where(tst,cmap1);
     tmp = tmp.rename([bname]);
     bmap = bmap.addBands(tmp,[bname],true);
     return ee.Dictionary({'ell':ell,'j':j.add(1),'threshold':threshold,'cmap':cmap,'smap':smap,'fmap':fmap,'bmap':bmap});
-}    
+}
 function filter_ell(current,prev){
     var pvs = ee.List(current);
     prev = ee.Dictionary(prev);
@@ -126,16 +126,16 @@ function filter_ell(current,prev){
                                                                  'smap':result.get('smap'),
                                                                  'fmap':result.get('fmap'),
                                                                  'bmap':result.get('bmap')});
-}                                                                 
+}
 exports.omnibus = function(imList,significance,median){
-// return change maps for sequential omnibus change algorithm     
+// return change maps for sequential omnibus change algorithm
     imList = ee.List(imList).map(multbyenl);
     var p = ee.Image(imList.get(0)).bandNames().length();
     var k = imList.length();
-//  pre-calculate p-value array    
+//  pre-calculate p-value array
     var ells = ee.List.sequence(1,k.subtract(1));
     var first = ee.Dictionary({'k':k,'p':p,'median':median,'imList':imList,'pv_arr':ee.List([])});
-    var pv_arr = ee.List(ee.Dictionary(ells.iterate(ells_iter,first)).get('pv_arr'));          
+    var pv_arr = ee.List(ee.Dictionary(ells.iterate(ells_iter,first)).get('pv_arr'));
 //  filter p-values to generate cmap, smap, fmap and bmap
     var cmap = ee.Image(imList.get(0)).select(0).multiply(0.0);
     var smap = ee.Image(imList.get(0)).select(0).multiply(0.0);

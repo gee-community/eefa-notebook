@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -9,27 +9,11 @@ Map = geemap.Map()
 #  Author:       Jeff Howarth
 #  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-image = ee.Image('LANDSAT/LT05/C02/T1_L2/LT05_118038_20000606')
+image = ee.Image("LANDSAT/LT05/C02/T1_L2/LT05_118038_20000606")
 
-Map.addLayer(
-    image,
-    {
-        'bands': ['SR_B1'],
-        'min': 8000,
-        'max': 17000
-    },
-    'Layer 1'
-)
+Map.addLayer(image, {"bands": ["SR_B1"], "min": 8000, "max": 17000}, "Layer 1")
 
-Map.addLayer(
-    image.select('SR_B1'),
-    {
-        'min': 8000,
-        'max': 17000
-    },
-    'Layer 2'
-)
-
+Map.addLayer(image.select("SR_B1"), {"min": 8000, "max": 17000}, "Layer 2")
 
 
 Map

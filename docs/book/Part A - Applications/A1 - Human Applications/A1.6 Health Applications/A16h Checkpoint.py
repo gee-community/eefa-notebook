@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -14,13 +14,11 @@ Map = geemap.Map()
 # This is using *synthetic* malaria data.
 # For demonstration only, not to be used for epidemiological purposes.
 epidemiaResults = ee.FeatureCollection(
-    'projects/gee-book/assets/A1-6/amhara_pilot_synthetic_2018W32'
+    "projects/gee-book/assets/A1-6/amhara_pilot_synthetic_2018W32"
 )
 # Filter to only keep pilot woredas with forecasted values.
-pilot = epidemiaResults \
-    .filter(ee.Filter.neq('inc_n_fc', None))
-nonpilot = epidemiaResults \
-    .filter(ee.Filter.eq('inc_n_fc', None))
+pilot = epidemiaResults.filter(ee.Filter.neq("inc_n_fc", None))
+nonpilot = epidemiaResults.filter(ee.Filter.eq("inc_n_fc", None))
 
 Map.setCenter(38, 11.5, 7)
 
@@ -36,62 +34,37 @@ Map.setCenter(38, 11.5, 7)
 # 5 : > 1
 
 empty = ee.Image().byte()
-fill_fc = empty.paint({
-    'featureCollection': pilot,
-    'color': 'inc_n_fc',
-})
-palette = ['fee5d9', 'fcae91', 'fb6a4a', 'de2d26', 'a50f15']
-Map.addLayer(
-    fill_fc, {
-        'palette': palette,
-        'min': 1,
-        'max': 5
-    },
-    'Forecasted Incidence'
+fill_fc = empty.paint(
+    {
+        "featureCollection": pilot,
+        "color": "inc_n_fc",
+    }
 )
+palette = ["fee5d9", "fcae91", "fb6a4a", "de2d26", "a50f15"]
+Map.addLayer(fill_fc, {"palette": palette, "min": 1, "max": 5}, "Forecasted Incidence")
 
 # Paint the woredas with different colors for the observed* incidence.
 # * based on synthetic data for demonstration only
-fill_obs = empty.paint({
-    'featureCollection': pilot,
-    'color': 'inc_n_obs',
-})
-palette = ['fee5d9', 'fcae91', 'fb6a4a', 'de2d26', 'a50f15']
+fill_obs = empty.paint(
+    {
+        "featureCollection": pilot,
+        "color": "inc_n_obs",
+    }
+)
+palette = ["fee5d9", "fcae91", "fb6a4a", "de2d26", "a50f15"]
 # Layer is off by default, users change between the two in the map viewer.
 Map.addLayer(
-    fill_obs, {
-        'palette': palette,
-        'min': 1,
-        'max': 5
-    },
-    'Observed Incidence',
-    False
+    fill_obs, {"palette": palette, "min": 1, "max": 5}, "Observed Incidence", False
 )
 
 # Add gray fill for nonpilot woredas (not included in study).
-fill_na = empty.paint({
-    'featureCollection': nonpilot
-})
-Map.addLayer(
-    fill_na, {
-        'palette': 'a1a9a8'
-    },
-    'Non-study woredas'
-)
+fill_na = empty.paint({"featureCollection": nonpilot})
+Map.addLayer(fill_na, {"palette": "a1a9a8"}, "Non-study woredas")
 
 # Draw borders for ALL Amhara region woredas.
-outline = empty.paint({
-    'featureCollection': epidemiaResults,
-    'color': 1,
-    'width': 1
-})
+outline = empty.paint({"featureCollection": epidemiaResults, "color": 1, "width": 1})
 # Add woreda boundaries to map.
-Map.addLayer(
-    outline, {
-        'palette': '000000'
-    },
-    'Woredas'
-)
+Map.addLayer(outline, {"palette": "000000"}, "Woredas")
 
 #  -----------------------------------------------------------------------
 #  CHECKPOINT

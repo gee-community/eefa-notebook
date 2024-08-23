@@ -143,7 +143,7 @@ var independents = ee.List(['constant', 't']);
 // Name of the dependent variable.
 var dependent = ee.String('TWSa');
 
-// Compute a linear trend.  This will have two bands: 'residuals' and 
+// Compute a linear trend.  This will have two bands: 'residuals' and
 // a 2x1 band called coefficients (columns are for dependent variables).
 var trend = cvTWSa.select(independents.add(dependent))
     .reduce(ee.Reducer.linearRegression(independents.length(), 1));
@@ -155,7 +155,7 @@ var coefficients = trend.select('coefficients')
 
 // Create a layer of the TWSa slope to add to the map.
 var slope = coefficients.select('t');
-// Set visualization parameters to represent positive (blue) 
+// Set visualization parameters to represent positive (blue)
 // & negative (red) trends.
 var slopeParams = {
     min: -3.5,
@@ -400,13 +400,13 @@ var GWaChart = ui.Chart.image.series({
 print(GWaChart);
 
 // Now look at the values from the start of 2012 to the end of 2016 drought.
-// 2012 -3.874 cm --> 2016 -16.95 cm 
-// This is a ~13 cm / 100000 (cm/km) * Area 155407 km2 = 
+// 2012 -3.874 cm --> 2016 -16.95 cm
+// This is a ~13 cm / 100000 (cm/km) * Area 155407 km2 =
 var loss_km3 = ee.Number(-3.874).subtract(-16.95).divide(km_2_cm)
     .multiply(area_km2);
 print('During the 2012-2016 drought, CA lost ', loss_km3,
     'km3 in groundwater');
-    
+
 // -----------------------------------------------------------------------
 // CHECKPOINT
 // -----------------------------------------------------------------------

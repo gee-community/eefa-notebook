@@ -15,12 +15,12 @@ var SRcollectionMasked = ImageCollection.map(cloudmask.sr)
 
 INPUTS:
         - image: <ee.Image>
-                image for which clouds are masked 
+                image for which clouds are masked
 OUTPUTS:
         - <ee.Image>
           the input image with updated mask
 
-  11-07-2022: update to use collection 2          
+  11-07-2022: update to use collection 2
 */
 
 // cloudmask for TOA data

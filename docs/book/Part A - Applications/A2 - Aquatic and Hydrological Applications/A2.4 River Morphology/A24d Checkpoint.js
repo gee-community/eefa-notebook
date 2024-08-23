@@ -1,13 +1,13 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      A2.4 River Morphology 
+//  Chapter:      A2.4 River Morphology
 //  Checkpoint:   A24d
 //  Authors:      Xiao Yang, Theodore Langhorst, Tamlin M. Pavelsky
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// Include the helper function getUTMProj introduced at the beginning 
+// Include the helper function getUTMProj introduced at the beginning
 // of the chapter in Code Checkpoint A24a.
 var getUTMProj = function(lon, lat) {
-    // Given longitude and latitude in decimal degrees, 
+    // Given longitude and latitude in decimal degrees,
     // return EPSG string for the corresponding UTM projection. See:
     // https://apollomapping.com/blog/gtm-finding-a-utm-zone-number-easily
     // https://sis.apache.org/faq.html

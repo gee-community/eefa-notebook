@@ -1,6 +1,6 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var imageCollection = ee.ImageCollection("LANDSAT/MANGROVE_FORESTS"),
-    Mangrove = 
+    Mangrove =
     /* color: #01937c */
     /* shown: false */
     ee.FeatureCollection(
@@ -3733,7 +3733,7 @@ var imageCollection = ee.ImageCollection("LANDSAT/MANGROVE_FORESTS"),
               "landcover": 1,
               "system:index": "615"
             })]),
-    NonMangrove = 
+    NonMangrove =
     /* color: #b6c867 */
     /* shown: false */
     ee.FeatureCollection(
@@ -7382,7 +7382,7 @@ var imageCollection = ee.ImageCollection("LANDSAT/MANGROVE_FORESTS"),
               "landcover": 2,
               "system:index": "604"
             })]),
-    MangroveTraining = 
+    MangroveTraining =
     /* color: #cf11d6 */
     /* shown: false */
     /* displayProperties: [
@@ -8377,7 +8377,7 @@ var imageCollection = ee.ImageCollection("LANDSAT/MANGROVE_FORESTS"),
               "landcover": 1,
               "system:index": "81"
             })]),
-    NonMangroveTraining = 
+    NonMangroveTraining =
     /* color: #0d3bff */
     /* shown: false */
     ee.FeatureCollection(
@@ -8994,7 +8994,7 @@ var imageCollection = ee.ImageCollection("LANDSAT/MANGROVE_FORESTS"),
 //  Section:      Supplemental (Assignment 1)
 //  Author:       Celio de Sousa, David Lagomasino, and Lola Fatoyinbo
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 
+
  //****************************************
 //STEP 1 - TEMPORAL AND SPATIAL PARAMETERS
 //****************************************
@@ -9077,11 +9077,11 @@ var occurrence = globalwater.select('occurrence'); // Select the occurrence band
 
 // Masks are composed by zeros and non-zero values. When you set or apply a mask to an image, the output image will keep it's original values where the mask
 // has non zero values whereas the it will be masked where the mask has zero values.
-// For this example, we want to create a watermask. Thus Watermask has to have zero where there is water and non zero values 
+// For this example, we want to create a watermask. Thus Watermask has to have zero where there is water and non zero values
 // For our mask, we want to make sure we are selecting permanent water. We want to filter the dataset for water pixels that occurred more than 50% of the time over the 35 years time spam.
 
 var waterMask = occurrence.lt(50) // Selects lower than 50%. Automatically, values above 90% are set to 0
-                          .unmask(1); // Since the water dataset only includes water, set other areas to 1 
+                          .unmask(1); // Since the water dataset only includes water, set other areas to 1
 
 Map.addLayer(waterMask, {}, 'Water Mask');
 
@@ -9097,7 +9097,7 @@ var srtm = ee.Image('USGS/SRTMGL1_003');
 
 var elevation = srtm.select('elevation');
 
-// In this case, we want to create a mask where pixels that have higher altitude values are removed 
+// In this case, we want to create a mask where pixels that have higher altitude values are removed
 // Hence, we select everything that is UNDER 25 meters; everything else will be set to 0 automatically.
 var elevMask = elevation.lte(25);
 Map.addLayer(elevMask, {}, 'Elevation Mask');
@@ -9113,7 +9113,7 @@ var collection = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
     .map(maskL8sr)
     .map(addIndicesL8);
 
-    
+
 var composite = collection
                 .median()
                 .mask(waterMask)
@@ -9150,8 +9150,8 @@ var stratified = strata.addBands(ee.Image.pixelLonLat()).stratifiedSample({
       classBand: 'landcover',
       scale: 30,
       region: aoi,
-      classValues:[1,2],     // 
-      classPoints:[1000,1000]  // Insert the number of points per class. 
+      classValues:[1,2],     //
+      classPoints:[1000,1000]  // Insert the number of points per class.
     }).map(function(f) { // set these points to geometry and get their coordinates
        return f.setGeometry(ee.Geometry.Point([f.get('longitude'), f.get('latitude')]))
     });
@@ -9166,7 +9166,7 @@ var paletteSamples = ee.List([
 var features = stratified.map(function(f) {
   var landcover = f.get('landcover');
   return ee.Feature(ee.Geometry.Point([f.get('longitude'), f.get('latitude')]), f.toDictionary())
-      .set({style: {color: paletteSamples.get(landcover) }}); 
+      .set({style: {color: paletteSamples.get(landcover) }});
 });
 
 // Add the features / sample location into the map with the style set above
@@ -9191,8 +9191,8 @@ var samplesAutomatic = composite.select(bands).sampleRegions({
 // Create the sample set with the samples you selected manually via geometry
 var manualpoints = MangroveTraining.merge(NonMangroveTraining);
 var samplesManual = composite.select(bands).sampleRegions({
-  collection: manualpoints,       
-  properties: ['landcover'], 
+  collection: manualpoints,
+  properties: ['landcover'],
   scale: 30,
   geometries: true,
 });
@@ -9211,14 +9211,14 @@ var samplesgroundtruth = composite.select(bands).sampleRegions({
 
 // Train two classifiers: one with the samples collected automatically via stratification and one with the samples you selected manually
 var RandomForest1 = ee.Classifier.smileRandomForest(200,5).train({
-  features: samplesAutomatic, 
-  classProperty: 'landcover', 
+  features: samplesAutomatic,
+  classProperty: 'landcover',
   inputProperties: bands
 });
 
 var RandomForest2 = ee.Classifier.smileRandomForest(200,5).train({
-  features: samplesManual, 
-  classProperty: 'landcover', 
+  features: samplesManual,
+  classProperty: 'landcover',
   inputProperties: bands
 });
 
@@ -9269,7 +9269,7 @@ var makeRow = function(color, name) {
     style: {
       backgroundColor: '#' + color,
       // Use padding to give the label color box height and width.
-      padding: '8px', 
+      padding: '8px',
       margin: '0 0 4px 0'
     }
   });

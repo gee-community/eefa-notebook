@@ -1,5 +1,5 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      A2.5 Water Balance and Drought 
+//  Chapter:      A2.5 Water Balance and Drought
 //  Checkpoint:   A25s3
 //  Author:       Ate Poortinga, Quyen Nguyen, Nyein Soe Thwal, Andréa Puzzi Nicolau
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -159,8 +159,8 @@ var lcVis = {
 };
 Map.addLayer(landcover, lcVis, '2018 Land Cover');
 
-// We apply a nested loop where we first iterate over 
-// the relevant years and then iterate over the relevant 
+// We apply a nested loop where we first iterate over
+// the relevant years and then iterate over the relevant
 // months. The function returns an image with P - ET
 // for each month. A flatten is applied to convert an
 // collection of collections into a single collection.
@@ -213,7 +213,7 @@ var wbMonth = wbMonth.toBands()
             '10_wb', '11_wb', '12_wb'
         ]);
 
-// Select our classes of interest. 
+// Select our classes of interest.
 var classNumbers = ee.List([5, 7, 10, 11]);
 
 // Apply reducer per land cover category.

@@ -40,7 +40,7 @@ print(ccdImage);
 // Define bands to select.
 var SELECT_BANDS = ['RED', 'GREEN', 'BLUE', 'NIR'];
 
-// Define coefficients to select. 
+// Define coefficients to select.
 // This list contains all possible coefficients, and the RMSE
 var SELECT_COEFS = ['INTP', 'SLP', 'RMSE'];
 
@@ -76,6 +76,5 @@ var rgbVisParams = {
 Map.addLayer(coefs, rgbVisParams, 'RGB 2005-09-25');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
- 
