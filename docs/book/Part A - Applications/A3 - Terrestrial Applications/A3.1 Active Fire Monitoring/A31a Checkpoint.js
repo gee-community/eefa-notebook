@@ -5,7 +5,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 /*
   We will use the Bobcat Fire as an example in this practicum.
-  
+
   Bobcat Fire, Los Angeles County, CA
   Ignition: Sep 6, 2020
   Total burned area: 115796 acres
@@ -69,7 +69,7 @@ var mod14a1Img = mod14a1.filterDate(startDateAF, endDateAF);
 var myd14a1Img = myd14a1.filterDate(startDateAF, endDateAF);
 
 var getFireMask = function(image) {
-    // Fire Mask (FireMask): values ≥ 7 are active fire pixels 
+    // Fire Mask (FireMask): values ≥ 7 are active fire pixels
     return image.select('FireMask').gte(7);
 };
 

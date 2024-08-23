@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -9,12 +9,12 @@ Map = geemap.Map()
 #  Author:       Ujaval Gandhi
 #  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-chirps = ee.ImageCollection('UCSB-CHG/CHIRPS/PENTAD')
-startDate = '2019-01-01'
-endDate = '2020-01-01'
+chirps = ee.ImageCollection("UCSB-CHG/CHIRPS/PENTAD")
+startDate = "2019-01-01"
+endDate = "2020-01-01"
 yearFiltered = chirps.filter(ee.Filter.date(startDate, endDate))
 
-print(yearFiltered, 'Date-filtered CHIRPS images')
+print(yearFiltered, "Date-filtered CHIRPS images")
 
 
 #  -----------------------------------------------------------------------

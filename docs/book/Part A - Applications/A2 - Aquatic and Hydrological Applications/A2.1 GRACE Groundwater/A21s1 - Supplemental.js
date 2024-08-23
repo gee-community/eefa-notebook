@@ -5,7 +5,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // The basins feature is being used to subset GLDAS geographically
-// The first 7 lines are set for California. 
+// The first 7 lines are set for California.
 // A user will need to adjust the basin to reflect another region
 var basins = ee.FeatureCollection('USGS/WBD/2017/HUC04');
 // Extract the 3 HUC 04 basins for the Central Valley.

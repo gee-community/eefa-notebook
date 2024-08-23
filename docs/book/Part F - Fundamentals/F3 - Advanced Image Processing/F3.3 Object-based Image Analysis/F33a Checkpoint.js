@@ -6,15 +6,15 @@
 
 // 1.1 Unsupervised k-Means classification
 
-// This function does unsupervised clustering classification 
+// This function does unsupervised clustering classification
 // input = any image. All bands will be used for clustering.
-// numberOfUnsupervisedClusters = tunable parameter for how 
+// numberOfUnsupervisedClusters = tunable parameter for how
 //        many clusters to create.
 var afn_Kmeans = function(input, numberOfUnsupervisedClusters,
     defaultStudyArea, nativeScaleOfImage) {
 
-    // Make a new sample set on the input. Here the sample set is 
-    // randomly selected spatially. 
+    // Make a new sample set on the input. Here the sample set is
+    // randomly selected spatially.
     var training = input.sample({
         region: defaultStudyArea,
         scale: nativeScaleOfImage,
@@ -25,7 +25,7 @@ var afn_Kmeans = function(input, numberOfUnsupervisedClusters,
             numberOfUnsupervisedClusters)
         .train(training);
 
-    // Now apply that clusterer to the raw image that was also passed in. 
+    // Now apply that clusterer to the raw image that was also passed in.
     var toexport = input.cluster(cluster);
 
     // The first item is the unsupervised classification. Name the band.
@@ -47,13 +47,13 @@ var afn_addMeanToBandName = (function(i) {
 ////////////////////////////////////////////////////////////
 // 2. Parameters to function calls
 ////////////////////////////////////////////////////////////
- 
+
 // 2.1. Unsupervised KMeans Classification Parameters
 var numberOfUnsupervisedClusters = 4;
 
 ////////////////////////////////////////////////////////////
 // 2.2. Visualization and Saving parameters
-// For different images, you might want to change the min and max 
+// For different images, you might want to change the min and max
 // values to stretch. Useful for images 2 and 3, the normalized images.
 var centerObjectYN = true;
 
@@ -61,10 +61,10 @@ var centerObjectYN = true;
 // 3. Statements
 //////////////////////////////////////////////////////////
 
-// 3.1  Selecting Image to Classify 
+// 3.1  Selecting Image to Classify
 var whichImage = 1; // will be used to select among images
 if (whichImage == 1) {
-    // Image 1. 
+    // Image 1.
     // Puget Sound, WA: Forest Harvest
     // (April 21, 2016)
     // Harvested Parcels
@@ -107,7 +107,7 @@ Map.addLayer(originalImage.select(threeBandsToDraw), {
 
 
 ////////////////////////////////////////////////////////////
-// 4. Image Preprocessing 
+// 4. Image Preprocessing
 ////////////////////////////////////////////////////////////
 var clippedImageSelectedBands = originalImage.clip(defaultStudyArea)
     .select(bandsToUse);
@@ -119,7 +119,7 @@ Map.addLayer(ImageToUse.select(threeBandsToDraw), {
         max: 0.12
     },
     '4.3 Post-normalization image', true, 0);
-    
+
 ////////////////////////////////////////////////////////////
 // 6. Execute Classifications
 ////////////////////////////////////////////////////////////
@@ -141,5 +141,5 @@ if (centerObjectYN === true) {
 }
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

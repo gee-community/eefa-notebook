@@ -115,7 +115,7 @@ var annualList = years.map(function(year) {
 var annualCol = ee.ImageCollection.fromImages(annualList);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Define a year to visualize.
@@ -219,5 +219,5 @@ var chart = ui.Chart.feature.byFeature(annualAoiMean, 'year',
 print(chart);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

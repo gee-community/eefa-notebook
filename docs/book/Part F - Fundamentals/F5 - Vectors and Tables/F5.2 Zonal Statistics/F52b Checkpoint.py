@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -250,7 +250,7 @@ def maskScale(img):
         factorList = img.toDictionary().select(factorNames) \
             .values()
         return ee.Image.constant(factorList)
-    
+
     scaleImg = getFactorImg(['REFLECTANCE_MULT_BAND_.'])
     offsetImg = getFactorImg(['REFLECTANCE_ADD_BAND_.'])
     scaled = img.select('SR_B.').multiply(scaleImg).add(

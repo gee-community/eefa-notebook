@@ -44,11 +44,11 @@ var reqEndDate = ee.Date('2021-11-30');
 // 2.2 LST Dates
 // LST MODIS is every 8 days, and a user-requested date will likely not match.
 // We want to get the latest previous image date,
-//  i.e. the date the closest, but prior to, the requested date. 
-// We will filter later. 
+//  i.e. the date the closest, but prior to, the requested date.
+// We will filter later.
 // Get date of first image.
 var LSTEarliestDate = LSTTerra8.first().date();
-// Filter collection to dates from beginning to requested start date. 
+// Filter collection to dates from beginning to requested start date.
 var priorLstImgCol = LSTTerra8.filterDate(LSTEarliestDate,
     reqStartDate);
 // Get the latest (max) date of this collection of earlier images.
@@ -60,12 +60,12 @@ var LSTStartDate = ee.Date(LSTPrevMax.get('max'));
 print('LSTStartDate', LSTStartDate);
 
 // 2.3 Last available data dates
-// Different variables have different data lags. 
+// Different variables have different data lags.
 // Data may not be available in user range.
-// To prevent errors from stopping script, 
+// To prevent errors from stopping script,
 //  grab last available (if relevant) & filter at end.
 
-// 2.3.1 Precipitation 
+// 2.3.1 Precipitation
 // Calculate date of most recent measurement for gpm (of all time).
 var gpmAllMax = gpm.reduceColumns(ee.Reducer.max(), [
     'system:time_start'
@@ -84,7 +84,7 @@ var precipStartDate = ee.Date(gpmAllEndDate.millis()
     .min(reqStartDate.millis()));
 print('precipStartDate', precipStartDate);
 
-// 2.3.2 BRDF 
+// 2.3.2 BRDF
 // Calculate date of most recent measurement for brdf (of all time).
 var brdfAllMax = brdfReflect.reduceColumns({
     reducer: ee.Reducer.max(),
@@ -92,7 +92,7 @@ var brdfAllMax = brdfReflect.reduceColumns({
 });
 var brdfAllEndDate = ee.Date(brdfAllMax.get('max'));
 // If data ends before requested start, take last data date,
-// otherwise use the requested date. 
+// otherwise use the requested date.
 var brdfStartDate = ee.Date(brdfAllEndDate.millis()
     .min(reqStartDate.millis()));
 print('brdfStartDate', brdfStartDate);
@@ -112,7 +112,7 @@ var gpmFiltered = gpm
     .filterBounds(amhara)
     .select('precipitationCal');
 
-// Calculate date of most recent measurement for gpm 
+// Calculate date of most recent measurement for gpm
 // (in the modified requested window).
 var gpmMax = gpmFiltered.reduceColumns({
     reducer: ee.Reducer.max(),
@@ -167,7 +167,7 @@ var precipSummary = dailyPrecip
 
 // Function to calculate zonal statistics for precipitation by woreda.
 function sumZonalPrecip(image) {
-    // To get the doy and year, 
+    // To get the doy and year,
     // convert the metadata to grids and then summarize.
     var image2 = image.addBands([
         image.metadata('doy').int(),
@@ -197,7 +197,7 @@ var precipFlat = precipWoreda.flatten();
 
 // Filter Terra LST by altered LST start date.
 // Rarely, but at the end of the year if the last image is late in the year
-//  with only a few days in its period, it will sometimes not grab 
+//  with only a few days in its period, it will sometimes not grab
 //  the next image. Add extra padding to reqEndDate and
 //  it will be trimmed at the end.
 var LSTFiltered = LSTTerra8
@@ -259,7 +259,7 @@ function makeLstDates(n) {
 }
 var LSTDates = LSTDatesPrep.map(makeLstDates);
 
-// Function to calculate daily LST by assigning the 8-day composite summary 
+// Function to calculate daily LST by assigning the 8-day composite summary
 // to each day in the composite period:
 function calcDailyLst(curdate) {
     var curyear = ee.Date(curdate).get('year');
@@ -300,13 +300,13 @@ var dailyLst = dailyLstExtended
 
 // Section 4.3: Summarize daily LST by woreda
 
-// Filter LST data for zonal summaries. 
+// Filter LST data for zonal summaries.
 var LSTSummary = dailyLst
     .filterDate(reqStartDate, reqEndDate.advance(1, 'day'));
 // Function to calculate zonal statistics for LST by woreda:
 function sumZonalLst(image) {
-    // To get the doy and year, we convert the metadata to grids 
-    //  and then summarize. 
+    // To get the doy and year, we convert the metadata to grids
+    //  and then summarize.
     var image2 = image.addBands([
         image.metadata('doy').int(),
         image.metadata('year').int()

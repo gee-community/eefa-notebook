@@ -51,5 +51,5 @@ var eviExpression = sfoImage.expression({
 Map.addLayer(eviExpression, visParams, 'EVI Expression');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

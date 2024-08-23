@@ -87,7 +87,7 @@ function addVIs(img){
       nir: img.select('NIR'),
       green: img.select('GREEN')
   }).select([0], ['GCVI']);
-  
+
   return ee.Image.cat([img, gcvi]);
 }
 
@@ -105,7 +105,7 @@ var landsat8coll = landsat8
     .filterDate(start_date, end_date)
     .filterBounds(geometry)
     .map(renameL8);
-    
+
 // Merge Landsat 7 and 8 collections.
 var landsat = landsat7coll.merge(landsat8coll)
     .sort('system:time_start');
@@ -134,14 +134,14 @@ var cdl = ee.Image('USDA/NASS/CDL/2020').select(['cropland']);
 Map.addLayer(cdl.clip(geometry), {}, 'CDL 2020');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 ////////////////////////////////////////////////////////////
 // 2. Add bands for harmonics
 ////////////////////////////////////////////////////////////
 
-// Function that adds time band to an image. 
+// Function that adds time band to an image.
 function addTimeUnit(image, refdate) {
     var date = image.date();
 
@@ -177,9 +177,9 @@ var landsatPlus = landsat.map(
         return addHarmonics(image, omega, start_date);
     });
 print('Landsat collection with harmonic basis: ', landsatPlus);
- 
+
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 ////////////////////////////////////////////////////////////
@@ -246,7 +246,7 @@ var gcviHarmonicCoefficients = harmonics
     .select([
         '3_GCVI_constant', '3_GCVI_cos',
         '3_GCVI_sin', '3_GCVI_cos2', '3_GCVI_sin2'
-    ]) 
+    ])
     .divide(10000);
 
 var fittedHarmonic = landsatPlus.map(function(image) {
@@ -301,7 +301,7 @@ Map.addLayer(visImage, {
 }, 'Harmonic coefficient false color');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 ////////////////////////////////////////////////////////////
@@ -360,5 +360,5 @@ Map.addLayer(regionClassified.eq(cornSoyOther), {
 }, 'Classifier agreement');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

@@ -16,7 +16,7 @@ print(ccdResults);
 var change = ccdResults.select('tBreak');
 var changeProb = ccdResults.select('changeProb');
 
-// Set the time range we want to use and get as mask of 
+// Set the time range we want to use and get as mask of
 // places that meet the condition.
 var start = 2000;
 var end = 2021;
@@ -83,6 +83,5 @@ Map.addLayer(selectedMag, magVisParams, 'Max mag');
 Map.addLayer(selectedTbreak, timeVisParams, 'Time of max mag');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
- 

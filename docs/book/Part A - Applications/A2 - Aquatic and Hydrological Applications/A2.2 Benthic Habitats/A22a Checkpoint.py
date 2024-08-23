@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -11,22 +11,18 @@ Map = geemap.Map()
 
 # Section 1
 # Import and display satellite image.
-planet = ee.Image('projects/gee-book/assets/A2-2/20200505_N2000') \
-    .divide(10000)
+planet = ee.Image("projects/gee-book/assets/A2-2/20200505_N2000").divide(10000)
 
 Map.centerObject(planet, 12)
-visParams = {
-    'bands': ['b3', 'b2', 'b1'],
-    'min': 0.17,
-    'max': 0.68,
-    'gamma': 0.8
-}
-Map.addLayer({
-    'eeObject': planet,
-    'visParams': visParams,
-    'name': 'planet initial',
-    'shown': True
-})
+visParams = {"bands": ["b3", "b2", "b1"], "min": 0.17, "max": 0.68, "gamma": 0.8}
+Map.addLayer(
+    {
+        "eeObject": planet,
+        "visParams": visParams,
+        "name": "planet initial",
+        "shown": True,
+    }
+)
 
 # ------------------------------------------------------------------------------
 # CHECKPOINT

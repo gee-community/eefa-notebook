@@ -1,7 +1,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      F6.2 Scaling Up in Earth Engine
 //  Checkpoint:   F62c
-//  Authors:      Jillian M. Deines, Stefania Di Tommaso, Nicholas Clinton, Noel Gorelick    
+//  Authors:      Jillian M. Deines, Stefania Di Tommaso, Nicholas Clinton, Noel Gorelick
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // Set the Region of Interest:Seattle, Washington, United States
@@ -25,7 +25,7 @@ var s2Sr = ee.ImageCollection('COPERNICUS/S2_SR')
     .filterBounds(roi)
     .select(['B2', 'B3', 'B4', 'B5']);
 
-// Sentinel-2 Level 1C data (top-of-atmosphere).  
+// Sentinel-2 Level 1C data (top-of-atmosphere).
 // Bands B7, B8, B8A and B10 needed for CDI and the cloud mask function.
 var s2 = ee.ImageCollection('COPERNICUS/S2')
     .filterBounds(roi)
@@ -71,7 +71,7 @@ Map.addLayer(roi);
 Map.addLayer(median, viz, 'median');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 

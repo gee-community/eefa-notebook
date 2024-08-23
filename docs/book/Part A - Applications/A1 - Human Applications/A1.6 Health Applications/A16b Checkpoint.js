@@ -1,7 +1,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      A1.6 Health Applications
 //  Checkpoint:   A16b
-//  Author:       Dawn Nekorchuk 
+//  Author:       Dawn Nekorchuk
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // Section 1: Data Import
@@ -44,11 +44,11 @@ var reqEndDate = ee.Date('2021-11-30');
 // 2.2 LST Dates
 // LST MODIS is every 8 days, and a user-requested date will likely not match.
 // We want to get the latest previous image date,
-//  i.e. the date the closest, but prior to, the requested date. 
-// We will filter later. 
+//  i.e. the date the closest, but prior to, the requested date.
+// We will filter later.
 // Get date of first image.
 var LSTEarliestDate = LSTTerra8.first().date();
-// Filter collection to dates from beginning to requested start date. 
+// Filter collection to dates from beginning to requested start date.
 var priorLstImgCol = LSTTerra8.filterDate(LSTEarliestDate,
     reqStartDate);
 // Get the latest (max) date of this collection of earlier images.
@@ -60,12 +60,12 @@ var LSTStartDate = ee.Date(LSTPrevMax.get('max'));
 print('LSTStartDate', LSTStartDate);
 
 // 2.3 Last available data dates
-// Different variables have different data lags. 
+// Different variables have different data lags.
 // Data may not be available in user range.
-// To prevent errors from stopping script, 
+// To prevent errors from stopping script,
 //  grab last available (if relevant) & filter at end.
 
-// 2.3.1 Precipitation 
+// 2.3.1 Precipitation
 // Calculate date of most recent measurement for gpm (of all time).
 var gpmAllMax = gpm.reduceColumns(ee.Reducer.max(), [
     'system:time_start'
@@ -84,7 +84,7 @@ var precipStartDate = ee.Date(gpmAllEndDate.millis()
     .min(reqStartDate.millis()));
 print('precipStartDate', precipStartDate);
 
-// 2.3.2 BRDF 
+// 2.3.2 BRDF
 // Calculate date of most recent measurement for brdf (of all time).
 var brdfAllMax = brdfReflect.reduceColumns({
     reducer: ee.Reducer.max(),
@@ -92,7 +92,7 @@ var brdfAllMax = brdfReflect.reduceColumns({
 });
 var brdfAllEndDate = ee.Date(brdfAllMax.get('max'));
 // If data ends before requested start, take last data date,
-// otherwise use the requested date. 
+// otherwise use the requested date.
 var brdfStartDate = ee.Date(brdfAllEndDate.millis()
     .min(reqStartDate.millis()));
 print('brdfStartDate', brdfStartDate);

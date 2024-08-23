@@ -98,7 +98,7 @@ Map.addLayer(deforestationCentroids, {
     color: 'darkblue'
 }, 'Deforestation centroids');
 
-// Add a new property to the deforestation FeatureCollection 
+// Add a new property to the deforestation FeatureCollection
 // describing the area of the change polygon.
 deforestationVector = deforestationVector.map(function(feat) {
     return feat.set('area', feat.geometry().area({
@@ -124,5 +124,5 @@ Map.addLayer(deforestationLargeOutline, {
 }, 'Deforestation (>10 ha)');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

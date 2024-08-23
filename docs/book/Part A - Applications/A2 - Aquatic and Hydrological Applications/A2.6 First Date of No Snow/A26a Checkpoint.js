@@ -115,5 +115,5 @@ var annualList = years.map(function(year) {
 var annualCol = ee.ImageCollection.fromImages(annualList);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

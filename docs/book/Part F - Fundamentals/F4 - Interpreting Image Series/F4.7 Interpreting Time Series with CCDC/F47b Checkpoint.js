@@ -55,7 +55,7 @@ if (exportResults) {
     metadata['bands'] = bands.toString();
 
     // Export results, assigning the metadata as image properties.
-    // 
+    //
     Export.image.toAsset({
         image: ccdResults.set(metadata),
         region: studyRegion,
@@ -67,5 +67,5 @@ if (exportResults) {
 }
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

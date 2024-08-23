@@ -1,7 +1,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      F1.1 Exploring images
 //  Checkpoint:   F11c
-//  Author:       Jeff Howarth 
+//  Author:       Jeff Howarth
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // Load an image from its Earth Engine ID.
@@ -16,11 +16,11 @@ Map.addLayer(
     first_image, //  dataset to display
     {
         bands: ['SR_B1'], //  band to display
-        min: 8000, //  display range  
+        min: 8000, //  display range
         max: 17000
     },
     'Layer 1' //  name to show in Layer Manager
-);  
+);
 
 // Display band 2 as the second map layer.
 Map.addLayer(
@@ -49,7 +49,7 @@ Map.addLayer(
 );
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Add a natural color layer by using the first three sensor bands for RGB.
@@ -61,7 +61,7 @@ Map.addLayer(
         max: 17000
     },
     'Natural Color');
-    
+
 // Add a NIR false-color layer using NIR, red, green sensor bands for RGB.
 Map.addLayer(
     first_image,
@@ -83,7 +83,7 @@ Map.addLayer(
     'Short wave false color');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Load a 1993 nighttime lights dataset from its Earth Engine ID.
@@ -109,13 +109,13 @@ var lights03 = ee.Image('NOAA/DMSP-OLS/NIGHTTIME_LIGHTS/F152003')
 // Construct an image of stable lights for 2013.
 var lights13 = ee.Image('NOAA/DMSP-OLS/NIGHTTIME_LIGHTS/F182013')
     .select('stable_lights').rename('2013');
-    
+
 // Construct an image with three bands,
 // where each band represents stable lights for one year.
-    
+
 var changeImage = lights13.addBands(lights03)
     .addBands(lights93.select('stable_lights').rename('1993'));
- 
+
 // Print image metadata to the Console.
 print('change image', changeImage);
 
@@ -127,7 +127,7 @@ Map.addLayer(
         max: 63
     },
     'Change composite');
-    
+
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

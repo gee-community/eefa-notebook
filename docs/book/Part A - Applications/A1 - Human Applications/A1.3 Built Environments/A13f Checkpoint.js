@@ -7,7 +7,7 @@
 // Import Tsinghua FROM-GLC Year of Change to Impervious Surface
 var impervious = ee.Image('Tsinghua/FROM-GLC/GAIA/v10');
 
-// Use the change year values found in the band. 
+// Use the change year values found in the band.
 // The change year values is described here:
 // https://developers.google.com/earth-engine/datasets/catalog/Tsinghua_FROM-GLC_GAIA_v10#bands
 // Select only those areas which were impervious by 2000.
@@ -36,7 +36,7 @@ Map.addLayer(
         palette: ['014352', '1A492C']
     },
     'Impervious Surface 2018');
-    
+
 // Calculate the difference between impervious areas in 2000 and 2018.
 var imperviousDiff = impervious2018.subtract(impervious2000);
 
@@ -100,5 +100,5 @@ print('Impervious-flood change statistics for states in US',
     unitedStatesImperviousDiffFlood);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

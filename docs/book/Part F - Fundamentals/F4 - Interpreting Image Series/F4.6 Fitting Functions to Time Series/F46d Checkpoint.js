@@ -1,13 +1,13 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      F4.6 Fitting Functions to Time Series
 //  Checkpoint:   F46d
-//  Authors:      Andréa Puzzi Nicolau, Karen Dyson, Biplov Bhandari, David Saah, 
+//  Authors:      Andréa Puzzi Nicolau, Karen Dyson, Biplov Bhandari, David Saah,
 //                Nicholas Clinton
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ///////////////////// Sections 1 & 2 /////////////////////////////
 
-// Define function to mask clouds, scale, and add variables 
+// Define function to mask clouds, scale, and add variables
 // (NDVI, time and a constant) to Landsat 8 imagery.
 function maskScaleAndAddVariable(image) {
     // Bit 0 - Fill
@@ -88,7 +88,7 @@ var landsat8ChartTL = ui.Chart.image.series(landsat8sr.select('NDVI'), roi)
 print(landsat8ChartTL);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 ///////////////////// Section 3 /////////////////////////////
@@ -99,7 +99,7 @@ var independents = ee.List(['constant', 't']);
 // Name of the dependent variable.
 var dependent = ee.String('NDVI');
 
-// Compute a linear trend.  This will have two bands: 'residuals' and 
+// Compute a linear trend.  This will have two bands: 'residuals' and
 // a 2x1 (Array Image) band called 'coefficients'.
 // (Columns are for dependent variables)
 var trend = landsat8sr.select(independents.add(dependent))
@@ -137,9 +137,9 @@ var detrendedChart = ui.Chart.image.series(detrended, roi, null, 30)
 print(detrendedChart);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
- 
+
 ///////////////////// Section 4 /////////////////////////////
 
 // Use these independent variables in the harmonic regression.
@@ -184,7 +184,7 @@ print(ui.Chart.image.series(
         lineWidth: 1,
         pointSize: 3,
     }));
-    
+
 // Compute phase and amplitude.
 var phase = harmonicTrendCoefficients.select('sin')
     .atan2(harmonicTrendCoefficients.select('cos'))
@@ -209,7 +209,7 @@ var rgb = ee.Image.cat([
 Map.addLayer(rgb, {}, 'phase (hue), amplitude (sat), ndvi (val)');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 ///////////////////// Section 5 /////////////////////////////
@@ -233,7 +233,7 @@ Map.addLayer(anotherView,
         max: 0.03
     },
     'Another combination of fit characteristics');
-    
+
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

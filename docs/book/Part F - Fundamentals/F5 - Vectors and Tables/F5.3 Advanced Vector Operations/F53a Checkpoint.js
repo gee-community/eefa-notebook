@@ -1,5 +1,5 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      F5.3 Advanced Vector Operations 
+//  Chapter:      F5.3 Advanced Vector Operations
 //  Checkpoint:   F53a
 //  Author:       Ujaval Gandhi
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -108,5 +108,5 @@ var sfRoadsStyle = sfRoads.style({
 Map.addLayer(sfRoadsStyle.clip(geometry), {}, 'Roads (Style)');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

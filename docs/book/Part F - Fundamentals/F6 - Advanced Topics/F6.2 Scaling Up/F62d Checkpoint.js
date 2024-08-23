@@ -1,7 +1,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      F6.2 Scaling Up in Earth Engine
 //  Checkpoint:   F62d
-//  Authors:      Jillian M. Deines, Stefania Di Tommaso, Nicholas Clinton, Noel Gorelick    
+//  Authors:      Jillian M. Deines, Stefania Di Tommaso, Nicholas Clinton, Noel Gorelick
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // Specify helper functions.
@@ -33,7 +33,7 @@ Map.addLayer(grid, {}, 'grid');
 var assetCollection = 'path/to/your/asset/s2_composite_WA';
 var imageBaseName = 'S2_median_';
 
-// Get a list based on grid number. 
+// Get a list based on grid number.
 var gridSize = grid.size().getInfo();
 var gridList = grid.toList(gridSize);
 
@@ -81,8 +81,8 @@ for (var i = 0; i < gridSize; i++) {
 }
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 
- 
+

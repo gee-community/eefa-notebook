@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -58,7 +58,7 @@ def func_rsk(image):
       'tileScale': 1,
       'scale': scale
     }).filter(ee.Filter.NotNull(bandsWanted))  # remove rows without data \
-      .map(function(f) {                  
+      .map(function(f) {
         time_start = image.get('system:time_start')
         dte = ee.Date(time_start).format('YYYYMMdd')
         return f.set('date_ymd', dte)

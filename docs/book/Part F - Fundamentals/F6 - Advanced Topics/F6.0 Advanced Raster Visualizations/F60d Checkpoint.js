@@ -1,5 +1,5 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      F6.0 Advanced Raster Visualization 
+//  Chapter:      F6.0 Advanced Raster Visualization
 //  Checkpoint:   F60d
 //  Authors:      Gennadii Donchyts, Fedor Baart
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -38,5 +38,5 @@ var image = text.draw('Hello World!', pt, scale);
 Map.addLayer(image);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

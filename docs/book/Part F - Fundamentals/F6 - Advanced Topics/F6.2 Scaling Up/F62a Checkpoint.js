@@ -1,7 +1,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      F6.2 Scaling Up in Earth Engine
 //  Checkpoint:   F62a
-//  Authors:      Jillian M. Deines, Stefania Di Tommaso, Nicholas Clinton, Noel Gorelick    
+//  Authors:      Jillian M. Deines, Stefania Di Tommaso, Nicholas Clinton, Noel Gorelick
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // Load county dataset.
@@ -39,7 +39,7 @@ var imageCollection = ee.ImageCollection(imageCollectionName)
     .select(bandsWanted)
     .filterBounds(featColl)
     .filterDate(startDate, endDate);
-    
+
 // get values at features
 var sampledFeatures = imageCollection.map(function(image) {
     return image.reduceRegions({
@@ -48,7 +48,7 @@ var sampledFeatures = imageCollection.map(function(image) {
             scale: scale
         }).filter(ee.Filter.notNull(
         bandsWanted)) // drop rows with no data
-        .map(function(f) { // add date property 
+        .map(function(f) { // add date property
             var time_start = image.get(
                 'system:time_start');
             var dte = ee.Date(time_start).format(
@@ -77,7 +77,7 @@ Export.table.toDrive({
 });
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 

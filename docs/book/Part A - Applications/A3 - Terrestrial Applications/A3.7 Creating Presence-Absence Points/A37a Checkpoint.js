@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var roi = 
+var roi =
     /* color: #98ff00 */
     /* shown: false */
     /* displayProperties: [
@@ -12,7 +12,7 @@ var roi =
           [-108.01888227338851, 38.98931938880467],
           [-107.85031080122054, 38.98931938880467],
           [-107.85031080122054, 39.04480287274028]]], null, false),
-    sampleArea = 
+    sampleArea =
     /* color: #bf04c2 */
     /* shown: false */
     ee.Geometry.Polygon(

@@ -102,9 +102,9 @@ Map.addLayer(sharpened, {
 }, 'DoG edge enhancement');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
- 
+
 // Begin median example.
 // Pass a median neighborhood filter using our uniformKernel.
 var median = imageNAIP.reduceNeighborhood({
@@ -138,7 +138,7 @@ var mode = veg.reduceNeighborhood({
 Map.addLayer(mode, binaryVis, 'Mode Neighborhood Filter on Vegetation categorical image');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Begin Dilation example.
@@ -178,5 +178,5 @@ var closedVeg = max.reduceNeighborhood({
 Map.addLayer(closedVeg, binaryVis, 'Closed image');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

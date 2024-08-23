@@ -1,6 +1,6 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var jrcYearly = ee.ImageCollection("JRC/GSW1_3/YearlyHistory"),
-    aoi = 
+    aoi =
     /* color: #d63000 */
     /* shown: false */
     /* displayProperties: [
@@ -16,13 +16,13 @@ var jrcYearly = ee.ImageCollection("JRC/GSW1_3/YearlyHistory"),
     sword = ee.FeatureCollection("projects/gee-book/assets/A2-4/SWORD");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      A2.4 River Morphology 
+//  Chapter:      A2.4 River Morphology
 //  Checkpoint:   A24f
 //  Authors:      Xiao Yang, Theodore Langhorst, Tamlin M. Pavelsky
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 var getUTMProj = function(lon, lat) {
-    // Given longitude and latitude in decimal degrees, 
+    // Given longitude and latitude in decimal degrees,
     // return EPSG string for the corresponding UTM projection. See:
     // https://apollomapping.com/blog/gtm-finding-a-utm-zone-number-easily
     // https://sis.apache.org/faq.html
@@ -105,9 +105,9 @@ var makeChannelmask = function(year) {
 };
 
 /*
-  Isolate the river channel from the JRC data for two years and apply the bank morphology 
-  calculations from Section 1. Here we will simply compare two years with two explicit 
-  calls to the makeChannelmask() function, but you can also map this function over a list 
+  Isolate the river channel from the JRC data for two years and apply the bank morphology
+  calculations from Section 1. Here we will simply compare two years with two explicit
+  calls to the makeChannelmask() function, but you can also map this function over a list
   of years like follows:
 
   var masks = ee.List.sequence(2000,2020,5).map(makeChannelmask)
@@ -179,8 +179,8 @@ Map.addLayer(rpj(distance), {
 }, 'distance', false);
 Map.addLayer(rpj(concavityBounds), {}, 'bounds', false);
 
-// Reduce the pixels according to the concavity boundaries, 
-// and set the value to SWORD node ID.  Note that focalMode is used 
+// Reduce the pixels according to the concavity boundaries,
+// and set the value to SWORD node ID.  Note that focalMode is used
 // to fill in the empty pixels that were the boundaries.
 var swordImg = ee.Image(0).paint(sword, 'node_id').rename('node_id')
     .clip(aoi);

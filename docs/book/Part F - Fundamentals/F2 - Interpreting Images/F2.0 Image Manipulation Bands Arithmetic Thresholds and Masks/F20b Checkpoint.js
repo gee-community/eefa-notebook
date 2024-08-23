@@ -23,7 +23,7 @@ Map.addLayer(seaNDVI,
         palette: vegPalette
     },
     'NDVI Seattle');
-    
+
 // Implement a threshold.
 var seaVeg = seaNDVI.gt(0.5);
 
@@ -35,7 +35,7 @@ Map.addLayer(seaVeg,
         palette: ['white', 'green']
     },
     'Non-forest vs. Forest');
-    
+
 // Implement .where.
 // Create a starting image with all values = 1.
 var seaWhere = ee.Image(1)
@@ -56,7 +56,7 @@ Map.addLayer(seaWhere,
         palette: ['blue', 'white', 'green']
     },
     'Water, Non-forest, Forest');
-    
+
 // Implement masking.
 // View the seaVeg layer's current mask.
 Map.centerObject(seaPoint, 9);
@@ -77,7 +77,7 @@ Map.addLayer(maskedVeg,
     },
     'Masked Forest Layer');
 
-// Map the updated mask 
+// Map the updated mask
 Map.addLayer(maskedVeg.mask(), {}, 'maskedVeg Mask');
 
 // Implement remapping.
@@ -94,7 +94,7 @@ Map.addLayer(seaRemap,
     'Remapped Values');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 

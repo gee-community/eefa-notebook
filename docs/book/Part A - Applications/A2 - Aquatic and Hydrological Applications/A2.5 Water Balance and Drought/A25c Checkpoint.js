@@ -1,5 +1,5 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      A2.5 Water Balance and Drought 
+//  Chapter:      A2.5 Water Balance and Drought
 //  Checkpoint:   A25c
 //  Authors:      Ate Poortinga, Quyen Nguyen, Nyein Soe Thwal, Andréa Puzzi Nicolau
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -40,8 +40,8 @@ var mod16 = ee.ImageCollection('MODIS/006/MOD16A2').select('ET');
 // Filter for relevant time period.
 mod16 = mod16.filterDate(startDate, endDate);
 
-// We apply a nested loop where we first iterate over 
-// the relevant years and then iterate over the relevant 
+// We apply a nested loop where we first iterate over
+// the relevant years and then iterate over the relevant
 // months. The function returns an image with P - ET
 // for each month. A flatten is applied to convert an
 // collection of collections into a single collection.

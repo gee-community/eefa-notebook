@@ -11,7 +11,7 @@
 var epidemiaResults = ee.FeatureCollection(
     'projects/gee-book/assets/A1-6/amhara_pilot_synthetic_2018W32'
 );
-// Filter to only keep pilot woredas with forecasted values. 
+// Filter to only keep pilot woredas with forecasted values.
 var pilot = epidemiaResults
     .filter(ee.Filter.neq('inc_n_fc', null));
 var nonpilot = epidemiaResults
@@ -20,7 +20,7 @@ var nonpilot = epidemiaResults
 Map.setCenter(38, 11.5, 7);
 
 // Paint the pilot woredas with different colors for forecasted* incidence
-// fc_n_inc here is the forecasted incidence (cut into factors) 
+// fc_n_inc here is the forecasted incidence (cut into factors)
 // made on (historical) 2018W24 (i.e. 8 weeks in advance).
 // * based on synthetic data for demonstration only.
 // Incidence per 1000
@@ -45,7 +45,7 @@ Map.addLayer(
     'Forecasted Incidence'
 );
 
-// Paint the woredas with different colors for the observed* incidence. 
+// Paint the woredas with different colors for the observed* incidence.
 // * based on synthetic data for demonstration only
 var fill_obs = empty.paint({
     featureCollection: pilot,

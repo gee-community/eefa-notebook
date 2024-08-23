@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -122,7 +122,7 @@ Pchirps = chirps.filterDate(startdate, enddate) \
     .sort('system:time_start',
         False) # Sort chronologically in descending order. \
     .filterBounds(AOI) \
-    .select('precipitation'); 
+    .select('precipitation');
 
 # Calculate the precipitation per month.
 MonthlyRainfall = ee.ImageCollection.fromImages(
@@ -134,7 +134,7 @@ def func_fdw(m):
                     .calendarRange(y, y, 'year')) \
                 .filter(ee.Filter.calendarRange(m, m,
                     'month')) \
-                .sum(); 
+                .sum();
             return w.set('year', y) \
                 .set('month', m) \
                 .set('system:time_start', ee.Date \
@@ -172,7 +172,7 @@ monthlyRainfallChart =
             'precipitation'), # Select precipitation band
         'region': AOI,
         'reducer': ee.Reducer \
-            .mean(), 
+            .mean(),
         'scale': 500,
         'xProperty': 'system:time_start' # Use system time start for x-axis
     }) \

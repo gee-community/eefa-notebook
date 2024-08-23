@@ -209,7 +209,7 @@ Map.addLayer(globalWater.selfMask(),
         palette: 'blue'
     },
     'Water (global threshold)');
-    
+
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

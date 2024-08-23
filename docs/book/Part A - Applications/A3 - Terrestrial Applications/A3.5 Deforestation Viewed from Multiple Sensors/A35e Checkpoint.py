@@ -1,4 +1,4 @@
-import ee 
+import ee
 import math
 import geemap
 
@@ -238,7 +238,7 @@ def fitHarmonicModel(col, band):
                 'COS2', 'SIN2', 'COS3', 'SIN3'
             ])
         return img.addBands(dependents)
-    
+
 
     # Function to add dependent variable images to all images.
     def prepareData(col, band):
@@ -266,7 +266,7 @@ def func_lzm(img):
 
 
 ))
-    
+
 
     col2 = prepareData(col, band)
     # Fit model to data using robust linear regression.
@@ -343,7 +343,7 @@ def dearrayModel(model, band):
                     .cat(band).cat(coef)
                 ]
             ]))
-    
+
 
     # Function to extract harmonic coefficients.
     def genHarmImg(model, band):
@@ -361,7 +361,7 @@ def dearrayModel(model, band):
             .arrayFlatten([
                 [ee.String(band).cat('coef')], harms
             ]))
-    
+
 
     # Extract harmonic coefficients and rmse.
     rmse = genCoefImg(model, band, 'rmse')

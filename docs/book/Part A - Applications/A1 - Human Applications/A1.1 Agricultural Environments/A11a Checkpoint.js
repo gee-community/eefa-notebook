@@ -87,7 +87,7 @@ function addVIs(img){
       nir: img.select('NIR'),
       green: img.select('GREEN')
   }).select([0], ['GCVI']);
-  
+
   return ee.Image.cat([img, gcvi]);
 }
 
@@ -105,7 +105,7 @@ var landsat8coll = landsat8
     .filterDate(start_date, end_date)
     .filterBounds(geometry)
     .map(renameL8);
-    
+
 // Merge Landsat 7 and 8 collections.
 var landsat = landsat7coll.merge(landsat8coll)
     .sort('system:time_start');
@@ -134,5 +134,5 @@ var cdl = ee.Image('USDA/NASS/CDL/2020').select(['cropland']);
 Map.addLayer(cdl.clip(geometry), {}, 'CDL 2020');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

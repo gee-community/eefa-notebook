@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -12,7 +12,7 @@ Map = geemap.Map()
 #  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Define required parameters.
-targetDay = '06-01'
+targetDay = "06-01"
 daysRange = 75
 cloudsTh = 70
 SLCoffPenalty = 0.7
@@ -25,28 +25,33 @@ startYear = 2015
 endYear = 2017
 
 # Define study area.
-worldCountries = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017')
-colombia = worldCountries.filter(ee.Filter.eq('country_na',
-    'Colombia'))
+worldCountries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")
+colombia = worldCountries.filter(ee.Filter.eq("country_na", "Colombia"))
 
 # Load the bap library.
-library = require('users/sfrancini/bap:library')
+library = require("users/sfrancini/bap:library")
 
 # Calculate BAP.
-BAPCS = library.BAP(None, targetDay, daysRange, cloudsTh,
-    SLCoffPenalty, opacityScoreMin, opacityScoreMax, cloudDistMax)
+BAPCS = library.BAP(
+    None,
+    targetDay,
+    daysRange,
+    cloudsTh,
+    SLCoffPenalty,
+    opacityScoreMin,
+    opacityScoreMax,
+    cloudDistMax,
+)
 
 # Despike the collection.
-BAPCS = library.despikeCollection(despikeTh, despikeNbands, BAPCS,
-    1984, 2021, True)
+BAPCS = library.despikeCollection(despikeTh, despikeNbands, BAPCS, 1984, 2021, True)
 
 # Infill datagaps.
 BAPCS = library.infill(BAPCS, 1984, 2021, False, True)
 
 # Visualize the image.
 Map.centerObject(colombia, 5)
-library.ShowCollection(BAPCS, startYear, endYear, colombia, False,
-    None)
+library.ShowCollection(BAPCS, startYear, endYear, colombia, False, None)
 library.AddSLider(startYear, endYear)
 
 #  -----------------------------------------------------------------------

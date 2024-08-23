@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var aoi = 
+var aoi =
     /* color: #d63000 */
     /* shown: false */
     /* displayProperties: [
@@ -15,20 +15,20 @@ var aoi =
     sword = ee.FeatureCollection("projects/gee-book/assets/A2-4/SWORD");
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      A2.4 River Morphology 
+//  Chapter:      A2.4 River Morphology
 //  Checkpoint:   A24c
 //  Authors:      Xiao Yang, Theodore Langhorst, Tamlin M. Pavelsky
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// THIS SCRIPT IS DESIGNED AS A TUTORIAL TO SHOWCASE USING GOOGLE EARTH ENGINE TO ANALYSE 
-// RIVER PLANVIEW GEOMETRIES AND MORPHOLOGICAL DYNAMICS. THE ANALYSIS IS BUILT ON EXISTING 
+// THIS SCRIPT IS DESIGNED AS A TUTORIAL TO SHOWCASE USING GOOGLE EARTH ENGINE TO ANALYSE
+// RIVER PLANVIEW GEOMETRIES AND MORPHOLOGICAL DYNAMICS. THE ANALYSIS IS BUILT ON EXISTING
 // MONTHLY WATER CLASSIFICATIONS DATASETS AVAILABLE IN GOOGLE EARTH ENGINE. BY SHOWING
-// PREPROCESSING STEPS LIKE HOW TO IDENTIFY RIVERS FROM OTHER TYPES OF WATER BODIES, AND HOW 
-// TO USE MULTI TEMPORAL WATER LAYERS TO EXTRACT DYNAMICAL CHANGES IN RIVER MORPHOLOGY, IT PROVIDES 
+// PREPROCESSING STEPS LIKE HOW TO IDENTIFY RIVERS FROM OTHER TYPES OF WATER BODIES, AND HOW
+// TO USE MULTI TEMPORAL WATER LAYERS TO EXTRACT DYNAMICAL CHANGES IN RIVER MORPHOLOGY, IT PROVIDES
 // A GUIDE TO EXTRACT INFORMATIONS ON RIVERS USING GOOGLE EARTH ENGINE.
 
 // ==========================================================
 var getUTMProj = function(lon, lat) {
-    // given longitude and latitude (in degree decimals) return EPSG string for the 
+    // given longitude and latitude (in degree decimals) return EPSG string for the
     // corresponding UTM projection
     // see https://apollomapping.com/blog/gtm-finding-a-utm-zone-number-easily and
     // https://sis.apache.org/faq.html
@@ -120,7 +120,7 @@ Map.addLayer(rpj(channelmask), {}, 'channelmask', false);
 // ------------------------------------------------------------------------------
 
 // Import existing functions from RivWidthCloud.
-// Code repository for RivWidthCloud can be accessed at 
+// Code repository for RivWidthCloud can be accessed at
 // https://code.earthengine.google.com/?accept_repo=users/eeProject/RivWidthCloudPaper
 var riverFunctions = require(
     'users/eeProject/RivWidthCloudPaper:functions_river.js');
@@ -137,8 +137,8 @@ Map.addLayer(rpj(distance), {
 }, 'distance raster', false);
 
 // Calculate gradient of the distance raster.
-// There are three different ways (kernels) to calculate the gradient. 
-// By default, the function used the second approach. 
+// There are three different ways (kernels) to calculate the gradient.
+// By default, the function used the second approach.
 // For details on the kernels, please see the source code for this function.
 var gradient = clFunctions.CalcGradientMap(distance, 2, scale);
 Map.addLayer(rpj(gradient), {}, 'gradient raster', false);
@@ -154,8 +154,8 @@ Map.addLayer(raw1pxCenterline, {
 
 // Prune the centerline to remove spurious branches.
 var MAXDISTANCE_BRANCH_REMOVAL = 500;
-// Note: the last argument of the CleanCenterline function enables removal of the pixels 
-// so that the resulting centerline will have 1px width in an 8-connected way. 
+// Note: the last argument of the CleanCenterline function enables removal of the pixels
+// so that the resulting centerline will have 1px width in an 8-connected way.
 // Once it is done, it doesn’t need to be done the second time (thus it equals false)
 var cl1px = clFunctions
     .CleanCenterline(centerlineRaw, MAXDISTANCE_BRANCH_REMOVAL, true);

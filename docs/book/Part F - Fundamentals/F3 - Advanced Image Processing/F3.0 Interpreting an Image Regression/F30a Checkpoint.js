@@ -25,7 +25,7 @@ var mod44b = ee.ImageCollection('MODIS/006/MOD44B');
 /////
 
 // Put together the dependent variable by filtering the
-// ImageCollection to just the 2020 image near Turin and 
+// ImageCollection to just the 2020 image near Turin and
 // selecting the percent tree cover band.
 var percentTree2020 = mod44b
     .filterDate('2020-01-01', '2021-01-01')
@@ -97,7 +97,7 @@ Map.addLayer(predictedTree, {
 }, 'Predicted Percent Tree Cover');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
- 
+

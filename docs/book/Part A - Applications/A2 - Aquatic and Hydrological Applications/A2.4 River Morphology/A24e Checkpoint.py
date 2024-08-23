@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -74,7 +74,7 @@ def makeChannelmask(year):
             'scale': 30,
             'eightConnected': False
         }) \
-        .filter(ee.Filter.lte('count', 1E4)); 
+        .filter(ee.Filter.lte('count', 1E4));
 
     filled = watermask.paint(barPolys, 1).rename('filled')
 

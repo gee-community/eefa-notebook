@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var geometry = 
+var geometry =
     /* color: #d63000 */
     /* shown: false */
     ee.Geometry.Point([114.26732477622326, 30.57603159263821]);
@@ -18,7 +18,7 @@ var geometry =
 var adminUnits = ee.FeatureCollection(
     'FAO/GAUL_SIMPLIFIED_500m/2015/level1');
 
-// Filter for the administrative unit that intersects 
+// Filter for the administrative unit that intersects
 // the geometry located at the top of this script.
 var adminSelect = adminUnits.filterBounds(geometry);
 
@@ -90,10 +90,10 @@ var no2Viz = {
 Map.addLayer(no2MedianClipped, no2Viz, 'median no2 Mar 2021');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
-/* 
+/*
  * Section 2: quantifying and vizualizing change
  */
 
@@ -159,12 +159,12 @@ rightMap.layers().reset([no2LockdownLayer]);
 rightMap.add(makeMapLab('Lockdown 2020', 'top-right'));
 
 // Reset the map interface (ui.root) with the split panel widget.
-// Note that the Map.addLayer() calls earlier on in Section 1 
-// will no longer be shown because we have replaced the Map widget 
+// Note that the Map.addLayer() calls earlier on in Section 1
+// will no longer be shown because we have replaced the Map widget
 // with the sliderPanel widget.
 ui.root.widgets().reset([sliderPanel]);
 
-// Create a function to get the mean NO2 for the study region 
+// Create a function to get the mean NO2 for the study region
 // per image in the NO2 collection.
 function getConc(collectionLabel, img) {
     return function(img) {
@@ -187,7 +187,7 @@ function getConc(collectionLabel, img) {
     };
 }
 
-// Get the concentrations for a baseline and lockdown collection 
+// Get the concentrations for a baseline and lockdown collection
 // and merge for plotting.
 var no2AggChange_forPlotting = no2
     .filterDate('2020-03-01', '2020-04-01')
@@ -210,20 +210,20 @@ var chart1 = ui.Chart.feature.groups(
 print('Baseline vs lockdown NO2 for the study region by DOY', chart1);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
-/* 
+/*
  * Section 3: calculating population-weighted concentrations
  */
 
 // Define the spatial resolution of the population data.
 var scalePop = 927.67; // See details in GEE Catalogue.
 
-// Now we define a function that will map over the NO2 collection 
+// Now we define a function that will map over the NO2 collection
 // and calculate population-weighted concentrations.
 // We will use the formula Exp = SUM {(Pi/P)*Ci}.
-// We can calculate P outside of the function 
+// We can calculate P outside of the function
 // so that it is not computed multiple times for each NO2 image.
 var P = population.reduceRegion({
     reducer: ee.Reducer.sum(),
@@ -255,7 +255,7 @@ function getPopWeightedConc(P, region, regionName, img) {
             scale: scalePop
         }).get('population_count');
 
-        // Calculate the mean NO2 - the approach that would usually 
+        // Calculate the mean NO2 - the approach that would usually
         // be taken without population weighting.
         var no2Mean = Ci.reduceRegion({
             reducer: ee.Reducer.mean(),
@@ -295,7 +295,7 @@ no2Agg_popWeighted = no2Agg_popWeighted
 print('Population weighted no2 feature collection:',
     no2Agg_popWeighted);
 
-// Create a feature collection for plotting the mean [NO2] 
+// Create a feature collection for plotting the mean [NO2]
 // and the mean pop-weighted [NO2] on the same graph.
 var no2Agg_forPlotting = no2Agg_popWeighted.map(function(ft) {
     return ft.set('conc', ft.get('no2ConcPopWeighted'),
@@ -317,7 +317,7 @@ var chart2 = ui.Chart.feature.groups(
 print('Raw vs population-weighted NO2 for the study region', chart2);
 
 // Export population-weighted data for multiple regions.
-// First select the regions. This can also be done with 
+// First select the regions. This can also be done with
 // .filterBounds() as in Line 9 above.
 var regions = adminUnits
     .filter(ee.Filter.inList('ADM1_NAME', ['Chongqing Shi',
@@ -336,13 +336,13 @@ var No2AggMulti_popWeighted = regions.map(function(region) {
             'ADM1_NAME')));
     return innerTable;
 }).flatten();
-// Remember to filter out readings that have pixel percentage cover 
+// Remember to filter out readings that have pixel percentage cover
 // below your threshold
 No2AggMulti_popWeighted = No2AggMulti_popWeighted
     .filter(ee.Filter.greaterThanOrEquals('pixelCoverPerc',
         validPixelPerc));
 
-// Run the export under the 'Tasks' tab on the right 
+// Run the export under the 'Tasks' tab on the right
 // and find your CSV file in Google Drive later on.
 Export.table.toDrive({
     collection: No2AggMulti_popWeighted,
@@ -351,5 +351,5 @@ Export.table.toDrive({
 });
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

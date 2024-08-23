@@ -3,7 +3,7 @@
 //  Checkpoint:   F64f
 //  Authors:      Cesar Aybar, David Montero, Antony Barja, Fernando Herrera, Andrea Gonzales, and Wendy Espinoza
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-       
+
 var LandsatLST = require(
     'users/sofiaermida/landsat_smw_lst:modules/Landsat_LST.js');
 
@@ -32,7 +32,7 @@ Map.addLayer(exImage.select('LST'), {
 
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 

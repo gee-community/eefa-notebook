@@ -1,5 +1,5 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      A2.5 Water Balance and Drought 
+//  Chapter:      A2.5 Water Balance and Drought
 //  Checkpoint:   A25a
 //  Authors:      Ate Poortinga, Quyen Nguyen, Nyein Soe Thwal, Andréa Puzzi Nicolau
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -34,8 +34,8 @@ var CHIRPS = ee.ImageCollection('UCSB-CHG/CHIRPS/PENTAD');
 // Filter for the relevant time period.
 CHIRPS = CHIRPS.filterDate(startDate, endDate);
 
-// We apply a nested loop where we first map over 
-// the relevant years and then map over the relevant 
+// We apply a nested loop where we first map over
+// the relevant years and then map over the relevant
 // months. The function returns an image with the total (sum)
 // rainfall for each month. A flatten is applied to convert a
 // feature collection of features into a single feature collection.

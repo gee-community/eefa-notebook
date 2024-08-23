@@ -12,7 +12,7 @@ var mangrove2000 = ee.Image(
 var mangrove2020 = ee.Image(
     'projects/gee-book/assets/A3-3/MangroveGuinea2020_v2');
 
-Map.setCenter(-13.6007, 9.6295, 10); 
+Map.setCenter(-13.6007, 9.6295, 10);
 // Sets the map center to Conakry, Guinea
 Map.addLayer(areaOfstudy, {}, 'Area of Study');
 Map.addLayer(mangrove2000, {
@@ -81,7 +81,7 @@ Map.addLayer(loss.selfMask(), {
 
 // STEP 1 - SET THE BASELINE EXTENT AND BUFFER
 
-var buffer = 1000; // In meters 
+var buffer = 1000; // In meters
 var extentBuffer = mangrove2000.focal_max(buffer, 'circle', 'meters');
 Map.addLayer(mangrove2000, {
     palette: '#000000'
@@ -207,7 +207,7 @@ var reference = collectionL5L7L8
     .sort('system:time_start', true);
 print('Number of images in Reference Collection', reference.size());
 
-// 3.2 Compute the Mean value for the vegetation index 
+// 3.2 Compute the Mean value for the vegetation index
 // (and other stats) for the reference period.
 var mean = reference.mean().mask(extentBuffer);
 var median = reference.median().mask(extentBuffer);

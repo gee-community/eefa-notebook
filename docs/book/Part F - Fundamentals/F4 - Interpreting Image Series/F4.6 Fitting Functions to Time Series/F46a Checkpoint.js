@@ -1,13 +1,13 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      F4.6 Fitting Functions to Time Series
 //  Checkpoint:   F46a
-//  Authors:      Andréa Puzzi Nicolau, Karen Dyson, Biplov Bhandari, David Saah, 
+//  Authors:      Andréa Puzzi Nicolau, Karen Dyson, Biplov Bhandari, David Saah,
 //                Nicholas Clinton
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ///////////////////// Sections 1 & 2 /////////////////////////////
 
-// Define function to mask clouds, scale, and add variables 
+// Define function to mask clouds, scale, and add variables
 // (NDVI, time and a constant) to Landsat 8 imagery.
 function maskScaleAndAddVariable(image) {
     // Bit 0 - Fill
@@ -88,5 +88,5 @@ var landsat8ChartTL = ui.Chart.image.series(landsat8sr.select('NDVI'), roi)
 print(landsat8ChartTL);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

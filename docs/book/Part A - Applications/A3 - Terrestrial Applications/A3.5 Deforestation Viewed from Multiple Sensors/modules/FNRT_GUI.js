@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var testArea = 
+var testArea =
     /* color: #d63000 */
     /* displayProperties: [
       {
@@ -13,7 +13,7 @@ var testArea =
           [-66.44867083538912, -8.662236005089952]]], null, false);
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 // Fusion Near Real-time (GUI)
-// Near real-time monitoring of forest disturbance by fusion of 
+// Near real-time monitoring of forest disturbance by fusion of
 // multi-sensor data.  @author Xiaojing Tang (xjtang@bu.edu).
 
 // ---------------------------------------------------------------
@@ -25,22 +25,22 @@ var fullPeriod = ee.Dictionary({
      'end': monitorPeriod.get('end')});
 var nrtParam = {z: 2, n: 4, m: 5, maxZ: 10};
 var optParam = {
-  band: 'NDFI', 
+  band: 'NDFI',
   minRMSE: 0.05,
   strikeOnly: false,
   vis: {bands: ['SWIR1', 'NIR', 'Red'], min: 0, max: 5000}
 };
 var radParam = {
-  band: 'VV', 
+  band: 'VV',
   minRMSE: 0.01,
   strikeOnly: true,
   vis: {bands: ['VV', 'VH', 'ratio'], min: 10, max: 30}
 };
 var mskVisParam = {min: 0, max: 1, palette: ['blue', 'green']};
 var altVisParam = {min: 2020.4, max: 2021,
-                    palette: ['FF0080', 'EC1280', 'DA2480', 'C83680', 'B64880', 'A35B80', '916D80', 
+                    palette: ['FF0080', 'EC1280', 'DA2480', 'C83680', 'B64880', 'A35B80', '916D80',
                               '7F7F80', '6D9180', '5BA380', '48B680', '36C880', '24DA80', '12EC80',
-                              '00FF80', '00EB89', '00D793', '00C49D', '00B0A7', '009CB0', '0089BA', 
+                              '00FF80', '00EB89', '00D793', '00C49D', '00B0A7', '009CB0', '0089BA',
                               '0075C4', '0062CE', '004ED7', '003AE1', '0027EB', '0013F5', '0000FF']};
 
 // ---------------------------------------------------------------
@@ -160,8 +160,8 @@ var runAreaSensorNRT = function(area, sensor) {
   var ccdImg = ut.getCCDImage(ccdModel, param.band);
   var synthetics = ut.addSynthetic(monitorData, ccdImg, param.band, sensor);
   var monitorRes = ut.getResiduals(synthetics, param.band);
-  return ut.getChangeScores(monitorRes, ccdImg.select('.*rmse'), 
-                            synthetics.select(param.band).mean(), 
+  return ut.getChangeScores(monitorRes, ccdImg.select('.*rmse'),
+                            synthetics.select(param.band).mean(),
                             param.minRMSE, nrtParam.z, param.strikeOnly);
 };
 
@@ -183,7 +183,7 @@ var runNRT = function(area) {
   // add pixel location
 var addPixel = function(coords) {
   var pSize = 0.000135;
-  var pixel = ee.Geometry.Rectangle([coords.lon - pSize, coords.lat - pSize, 
+  var pixel = ee.Geometry.Rectangle([coords.lon - pSize, coords.lat - pSize,
                                       coords.lon + pSize, coords.lat + pSize]);
   mapPanel.addLayer(pixel, {color: '0000FF'}, 'Clicked');
 };
@@ -222,13 +222,13 @@ var ccdButton = ui.Button('Fit');
 var nrtButton = ui.Button('Monitor');
 var runButton = ui.Button('Run');
 var saveButton = ui.Button('Save');
-var menuSet = ui.Panel([ccdButton, nrtButton, runButton], 
+var menuSet = ui.Panel([ccdButton, nrtButton, runButton],
                         ui.Panel.Layout.Flow('vertical'));
 var ccdSelect = ui.Select(['Landsat', 'Sentinel-2', 'Sentinel-1'], 'Select sensor for CCD.', 'Landsat');
 var LSTCheck = ui.Checkbox('Landsat', true);
 var S2Check = ui.Checkbox('Sentinel-2', true);
 var S1Check = ui.Checkbox('Sentinel-1', false);
-var selectSet = ui.Panel([ccdSelect, LSTCheck, S2Check, S1Check], 
+var selectSet = ui.Panel([ccdSelect, LSTCheck, S2Check, S1Check],
                         ui.Panel.Layout.Flow('vertical'));
 var menuUISet = ui.Panel([menuSet, selectSet], ui.Panel.Layout.Flow('horizontal'));
 var menuPanel = ui.Panel({

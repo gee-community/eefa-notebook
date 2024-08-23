@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var land = 
+var land =
     /* color: #ff0000 */
     /* shown: false */
     ee.FeatureCollection(
@@ -34,7 +34,7 @@ var land =
               "class": 0,
               "system:index": "1"
             })]),
-    DIVsand = 
+    DIVsand =
     /* color: #fbff00 */
     /* shown: false */
     ee.Geometry.MultiPolygon(

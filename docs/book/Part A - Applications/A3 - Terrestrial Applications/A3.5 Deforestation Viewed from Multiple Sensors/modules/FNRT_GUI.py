@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -268,7 +268,7 @@ trainButton.onClick(function() {
           'maxPixels': 1e13,
           'pyramidingPolicy': {'.default': 'sample'}
     })
-  
+
   LST = ut.getData(testArea, trainPeriod, 'Landsat')
   saveCCD(ut.runCCD(LST, trainPeriod, 'NDFI').set({'region': 'test', 'sensor': 'Landsat'}), 'LST')
   S2 = ut.getData(testArea, trainPeriod, 'Sentinel-2')

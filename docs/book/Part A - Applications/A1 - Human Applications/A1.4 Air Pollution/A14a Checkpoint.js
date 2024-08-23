@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var geometry = 
+var geometry =
     /* color: #d63000 */
     /* shown: false */
     ee.Geometry.Point([114.26732477622326, 30.57603159263821]);
@@ -18,7 +18,7 @@ var geometry =
 var adminUnits = ee.FeatureCollection(
     'FAO/GAUL_SIMPLIFIED_500m/2015/level1');
 
-// Filter for the administrative unit that intersects 
+// Filter for the administrative unit that intersects
 // the geometry located at the top of this script.
 var adminSelect = adminUnits.filterBounds(geometry);
 
@@ -90,5 +90,5 @@ var no2Viz = {
 Map.addLayer(no2MedianClipped, no2Viz, 'median no2 Mar 2021');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -396,7 +396,7 @@ def func_zns(c):
             'cols': columns,
             'rows': rows
         })
-    
+
 
     dataTable = arrayToDatatable(classificationErrormatrixArray) \
         .evaluate(function(dataTable) {

@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -17,27 +17,24 @@ Map = geemap.Map()
 pointSF = ee.Geometry.Point([-122.44, 37.76])
 
 # Import the Landsat 8 Surface Reflectance collection.
-landsat8SR = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
+landsat8SR = ee.ImageCollection("LANDSAT/LC08/C02/T1_L2")
 
 # Filter the collection and select the first image.
-landsat8SRimage = landsat8SR.filterDate('2014-03-18',
-        '2014-03-19') \
-    .filterBounds(pointSF) \
-    .first()
+landsat8SRimage = (
+    landsat8SR.filterDate("2014-03-18", "2014-03-19").filterBounds(pointSF).first()
+)
 
-print('Landsat 8 Surface Reflectance image', landsat8SRimage)
+print("Landsat 8 Surface Reflectance image", landsat8SRimage)
 
 # Center map to the first image.
 Map.centerObject(landsat8SRimage, 8)
 
 # Add first image to the map.
-Map.addLayer(landsat8SRimage,
-    {
-        'bands': ['SR_B4', 'SR_B3', 'SR_B2'],
-        'min': 7000,
-        'max': 13000
-    },
-    'Landsat 8 SR')
+Map.addLayer(
+    landsat8SRimage,
+    {"bands": ["SR_B4", "SR_B3", "SR_B2"], "min": 7000, "max": 13000},
+    "Landsat 8 SR",
+)
 
 #  -----------------------------------------------------------------------
 #  CHECKPOINT

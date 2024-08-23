@@ -36,7 +36,7 @@ Map.addLayer(landsat8SRimage,
     'Landsat 8 SR');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 /////
@@ -72,5 +72,5 @@ var modisMonthlyRecent = modisMonthly.filterDate('2021-08-01');
 Map.addLayer(modisMonthlyRecent, {}, 'MODIS Monthly Burn');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

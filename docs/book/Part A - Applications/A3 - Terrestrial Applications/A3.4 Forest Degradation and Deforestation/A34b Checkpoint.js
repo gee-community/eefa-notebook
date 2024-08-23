@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var region = 
+var region =
     /* color: #0b4a8b */
     /* displayProperties: [
       {
@@ -15,7 +15,7 @@ var region =
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      A3.4 Forest Degradation and Deforestation
 //  Checkpoint:   A34b
-//  Author:       Carlos Souza Jr., Karis Tenneson, John Dilger, 
+//  Author:       Carlos Souza Jr., Karis Tenneson, John Dilger,
 //                Crystal Wespestad, Eric Bullock
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -43,7 +43,7 @@ Map.centerObject(image, 10);
 var bands = ['SR_B1', 'SR_B2', 'SR_B3', 'SR_B4', 'SR_B5', 'SR_B7'];
 image = image.select(bands);
 
-// Unmixing image using Singular Value Decomposition. 
+// Unmixing image using Singular Value Decomposition.
 var getSMAFractions = function(image, endmembers) {
     var unmixed = ee.Image(image)
         .select([0, 1, 2, 3, 4,
@@ -78,7 +78,7 @@ var GVs = sma.select('GV')
 // Add the new bands to the SMA image variable.
 sma = sma.addBands([Shade, GVs]);
 
-// Calculate the NDFI using image expression.	
+// Calculate the NDFI using image expression.
 var NDFI = sma.expression(
     '(GVs - (NPV + Soil))  / (GVs + NPV + Soil)', {
         'GVs': sma.select('GVs'),
@@ -161,7 +161,7 @@ Map.addLayer(maskedNDFI, {
 
 // Select two Landsat 5 scenes on which to apply the SMA model.
 
-// Select Landsat bands used for forest change detection. 
+// Select Landsat bands used for forest change detection.
 var imageTime0 = ee.Image(
         'LANDSAT/LT05/C02/T1_L2/LT05_226068_20000509')
     .multiply(0.0000275).add(-0.2);
@@ -198,7 +198,7 @@ Map.addLayer(smaTime0.select('GV'), fractionVis, 'GV Fraction');
 Map.addLayer(smaTime0.select('NPV'), fractionVis, 'NPV Fraction');
 
 function getNDFI(smaImage) {
-    // Calculate the Shade and GV shade-normalized (GVs) fractions 
+    // Calculate the Shade and GV shade-normalized (GVs) fractions
     // from the SMA bands.
     var Shade = smaImage.reduce(ee.Reducer.sum())
         .subtract(1.0)
@@ -291,7 +291,7 @@ var histNDFIChange = ui.Chart.image.histogram(
 
 print(histNDFIChange);
 
-// Classify the NDFI difference image based on thresholds 
+// Classify the NDFI difference image based on thresholds
 // obtained from its histogram.
 var changeClassification = ndfiChange.expression(
         '(b(0) >= -0.095 && b(0) <= 0.095) ? 1 :' +
@@ -302,7 +302,7 @@ var changeClassification = ndfiChange.expression(
     .updateMask(ndfi.select('NDFI_t0').gt(
         0.60)); // mask out no forest
 
-// Use a simple threshold to get forest in the first image date. 
+// Use a simple threshold to get forest in the first image date.
 var forest = ndfi.select('NDFI_t0').gt(0.60);
 
 // Add layers to map

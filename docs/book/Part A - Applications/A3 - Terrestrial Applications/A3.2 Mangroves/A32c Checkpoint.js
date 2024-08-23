@@ -64,15 +64,15 @@ print(data_stack);
 // CHECKPOINT
 // -----------------------------------------------------------------------
 
-/*** 
- * This script computes surface water mask using 
+/***
+ * This script computes surface water mask using
  * Canny Edge detector and Otsu thresholding.
- * See the following paper for details: 
+ * See the following paper for details:
  * http://www.mdpi.com/2072-4292/8/5/386
- * 
- * Author: Gennadii Donchyts 
- * Contributors: Nicholas Clinton 
- * 
+ *
+ * Author: Gennadii Donchyts
+ * Contributors: Nicholas Clinton
+ *
  */
 
 /***
@@ -191,7 +191,7 @@ var water_mask = ndwi_for_water.mask(ndwi_for_water.gt(th));
 
 th.evaluate(function(th) {
   Map.addLayer(water_mask, {palette: '0000ff'}, 'water mask (th=' + th + ')');
-});  
+});
 
 // Create land mask area.
 var land = water_mask.unmask();
@@ -235,7 +235,7 @@ Map.addLayer(image_to_classify,
     },
     'Masked Data Stack',
     false);
-    
+
 // -----------------------------------------------------------------------
 // CHECKPOINT
 // -----------------------------------------------------------------------
@@ -255,7 +255,7 @@ var notmang = ref_mangrove.eq(0);
 var notMangroveVis = {
     min: 0,
     max: 1,
-    palette: ['grey', 'red'] 
+    palette: ['grey', 'red']
 };
 Map.addLayer(notmang, notMangroveVis, 'not mangrove = 1', false);
 
@@ -350,7 +350,7 @@ print('Resubstitution error matrix: ', trainAccuracy);
 print('Training overall accuracy: ', trainAccuracy.accuracy());
 var testAccuracy = validated.errorMatrix('mangrove',
     'classification');
-    
+
 var dict = classifier.explain();
 print('Explain:', dict);
 
@@ -384,7 +384,7 @@ Map.addLayer(classified, classificationVis,
 
 // Clean up results to remove small patches/pixels.
 var mang_only = classified.eq(1);
-// Compute the number of pixels in each connected mangrove patch 
+// Compute the number of pixels in each connected mangrove patch
 // and apply the minimum mapping unit (number of pixels).
 var mang_patchsize = mang_only.connectedPixelCount();
 

@@ -4,7 +4,7 @@
 //  Author:       TC Chakraborty
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// Load feature collection of New Haven's census tracts from user assets. 
+// Load feature collection of New Haven's census tracts from user assets.
 var regionInt = ee.FeatureCollection(
     'projects/gee-book/assets/A1-5/TC_NewHaven');
 
@@ -54,5 +54,5 @@ Map.addLayer(lstNewHaven, {
     'LST_MODIS');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

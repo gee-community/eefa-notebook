@@ -17,11 +17,11 @@ print('The size of the Landsat 8 image collection is:', landsat8
 .size());
 
 // Try to print the image collection.
-// WARNING! Running the print code immediately below produces an error because 
+// WARNING! Running the print code immediately below produces an error because
 // the Console can not print more than 5000 elements.
 // print(landsat8);
 
-// Add the Landsat 8 dataset to the map as a mosaic. The collection is 
+// Add the Landsat 8 dataset to the map as a mosaic. The collection is
 // already chronologically sorted, so the most recent pixel is displayed.
 // Map.addLayer(landsat8,
 //     {
@@ -32,7 +32,7 @@ print('The size of the Landsat 8 image collection is:', landsat8
 //     'Landsat 8 Image Collection');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 /////
@@ -69,7 +69,7 @@ Map.addLayer(landsatMN,
 // Add the point to the map to see where it is.
 Map.addLayer(pointMN, {}, 'Point MN');
 
-print('The size of the Minneapolis Winter Landsat 8 image collection is: ', 
+print('The size of the Minneapolis Winter Landsat 8 image collection is: ',
       landsatMN.size());
 
 // Select the first image in the filtered collection.
@@ -84,7 +84,7 @@ Map.addLayer(landsatFirst,
         max: 15000
     },
     'First Landsat 8');
-    
+
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

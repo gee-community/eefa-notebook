@@ -76,7 +76,7 @@ dataTable.evaluate(function(dataTableClient) {
     var chart = ui.Chart(dataTableClient)
         .setChartType('AreaChart')
         .setOptions({
-            title: band + ' Global Histogram', 
+            title: band + ' Global Histogram',
             hAxis: {
                 title: 'Backscatter [dB]',
                 viewWindow: {
@@ -209,9 +209,9 @@ Map.addLayer(globalWater.selfMask(),
         palette: 'blue'
     },
     'Water (global threshold)');
-    
+
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // *** Section 2 ***
@@ -346,7 +346,7 @@ dataTable.evaluate(function(dataTableClient) {
     for (var i = 0; i < dataTableClient.length; i++) {
         if (dataTableClient[i][2] === '') {
             dataTableClient[i][2] = null;
-        } 
+        }
     }
     var chart = ui.Chart(dataTableClient)
         .setChartType('AreaChart')
@@ -379,9 +379,9 @@ Map.addLayer(localWater.selfMask(),
         palette: 'darkblue'
     },
     'Water (adaptive threshold)');
-    
+
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Get the previous 5 years of permanent water.
@@ -422,5 +422,5 @@ Map.addLayer(floodImage.selfMask(), {
 }, 'Flood areas');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

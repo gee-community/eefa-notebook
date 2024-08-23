@@ -1,7 +1,7 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //  Chapter:      A1.8 Monitoring Gold Mining Activity using SAR
 //  Checkpoint:   A18d
-//  Authors:      Lucio Villa, Sidney Novoa, Milagros Becerra, 
+//  Authors:      Lucio Villa, Sidney Novoa, Milagros Becerra,
 //                Andréa Puzzi Nicolau, Karen Dyson, Karis Tenneson, John Dilger
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -18,7 +18,7 @@ Map.centerObject(aoi, 9);
 // Create an empty image.
 var empty = ee.Image().byte();
 
-// Convert the area of study to an EE image object 
+// Convert the area of study to an EE image object
 // so we can visualize only the boundary.
 var aoiOutline = empty.paint({
     featureCollection: aoi,
@@ -34,7 +34,7 @@ Map.addLayer(aoiOutline, {
     palette: 'red'
 }, 'Area of Study');
 
-// Function to mask the SAR images acquired with an incidence angle 
+// Function to mask the SAR images acquired with an incidence angle
 // lower equal than 31 and greater equal than 45 degrees.
 function maskAngle(image) {
     var angleMask = image.select('angle');
@@ -115,9 +115,9 @@ Map.addLayer(image2, sarVis, 'Sentinel-1 | 2021-12-18');
 //////////////////////////////////////////////////////
 /// Section Three
 //////////////////////////////////////////////////////
-  
+
 // Libraries of SAR Change Detection (version modified).
-// The original version can be found in: 
+// The original version can be found in:
 // users/mortcanty/changedetection
 var omb = require(
     'projects/gee-edu/book:Part A - Applications/A1 - Human Applications/A1.8 Monitoring Gold Mining Activity Using SAR/modules/omnibusTest_v1.1'
@@ -136,7 +136,7 @@ var result = ee.Dictionary(omb.omnibus(getMosaicList, significance,
     median));
 print('result', result);
 
-// Change maps generated (cmap, smap, fmap and bmap) 
+// Change maps generated (cmap, smap, fmap and bmap)
 // are detailed in the next commented lines.
 
 // cmap: the interval in which the most recent significant change occurred (single-band).
@@ -144,7 +144,7 @@ print('result', result);
 // fmap: the frequency of significant changes (single-band).
 // bmap: the interval in which each significant change occurred ((k − 1)-band).
 
-// Extract and print the images result 
+// Extract and print the images result
 // (cmap, smap, fmap and bmap) from the ee.Dictionary.
 var cmap = ee.Image(result.get('cmap')).byte();
 var smap = ee.Image(result.get('smap')).byte();
@@ -162,13 +162,13 @@ print('Dates', datesMosaic);
 
 // Visualization parameters.
 var jet = ['black', 'blue', 'cyan', 'yellow', 'red'];
-var vis = { 
+var vis = {
     min: 0,
     max: countDates,
     palette: jet
 };
 
-// Add resulting images and legend to the map. 
+// Add resulting images and legend to the map.
 Map.add(util.makeLegend(vis));
 Map.addLayer(cmap, vis, 'cmap - recent change (unfiltered)');
 Map.addLayer(smap, vis, 'smap - first change (unfiltered)');

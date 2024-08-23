@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -158,7 +158,7 @@ print('ndviPerBlock', ndviPerBlock)
 ndviPerBlockSorted = ndviPerBlock.sort('mean', False)
 ndviPerBlockSortedFirst = ee.Feature(ndviPerBlock.sort('mean',
         False) # Sort by NDVI mean in descending order. \
-    .first()); 
+    .first());
 print('ndviPerBlockSortedFirst', ndviPerBlockSortedFirst)
 
 # Now filter by block and show on map!

@@ -79,7 +79,7 @@ var independents = ee.List(['constant', 't']);
 
 // Name of the dependent variable.
 var dependent = ee.String('lwe_thickness');
-// Compute a linear trend.  This will have two bands: 'residuals' and 
+// Compute a linear trend.  This will have two bands: 'residuals' and
 // a 2x1 band called coefficients (columns are for dependent variables).
 var trend = cvTWSa.select(independents.add(dependent))
     .reduce(ee.Reducer.linearRegression(independents.length(), 1));

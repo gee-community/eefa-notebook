@@ -26,7 +26,7 @@ Map.addLayer(distance, {
 }, 'Distance');
 
 Map.centerObject(protectedArea);
- 
+
 // Produce a raster of inside/outside the protected area.
 var protectedAreaRaster = protectedArea.map(function(feat) {
     return feat.set('protected', 1);
@@ -74,12 +74,12 @@ Map.addLayer(deforestation5km, {
 var deforestation1kmOutside = deforestation1km
     .updateMask(protectedAreaRaster.unmask().not());
 
-// Get the value of each pixel in square meters 
+// Get the value of each pixel in square meters
 // and divide by 10000 to convert to hectares.
 var deforestation1kmOutsideArea = deforestation1kmOutside.eq(1)
     .multiply(ee.Image.pixelArea()).divide(10000);
 
-// We need to set a larger geometry than the protected area 
+// We need to set a larger geometry than the protected area
 // for the geometry parameter in reduceRegion().
 var deforestationEstimate = deforestation1kmOutsideArea
     .reduceRegion({
@@ -90,7 +90,7 @@ var deforestationEstimate = deforestation1kmOutsideArea
 
 print('Deforestation within a 1km buffer outside the protected area (ha)',
     deforestationEstimate);
-    
+
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

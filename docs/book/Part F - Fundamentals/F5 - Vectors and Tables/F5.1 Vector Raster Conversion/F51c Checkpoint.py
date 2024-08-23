@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -71,7 +71,7 @@ wdpaSubset = wdpaSubset.map(
             ee.Number(feat.get('deforestation_area')) \
             .divide(feat.area().divide(10000)) \
             .divide(20) \
-            .multiply(100)); 
+            .multiply(100));
     )
 
 # Print to identify rates of change per protected area.

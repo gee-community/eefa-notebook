@@ -1,5 +1,5 @@
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//  Chapter:      F6.0 Advanced Raster Visualization 
+//  Chapter:      F6.0 Advanced Raster Visualization
 //  Checkpoint:   F60a
 //  Authors:      Gennadii Donchyts, Fedor Baart
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -42,5 +42,5 @@ Map.addLayer(era5_diff, {
 }, 'Balance palette');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

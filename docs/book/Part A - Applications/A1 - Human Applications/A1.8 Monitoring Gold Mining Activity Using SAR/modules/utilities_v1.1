@@ -1,9 +1,9 @@
 //*********************************************************************************
-// Utilities for change detection   
+// Utilities for change detection
 //*********************************************************************************
 // References:
 //
-// Updated April 4, 2020 : Modified from 'users/mortcanty/changedetection:utilities' 
+// Updated April 4, 2020 : Modified from 'users/mortcanty/changedetection:utilities'
 //
 //*********************************************************************************
 exports.chi2cdf = function(chi2,df){
@@ -11,7 +11,7 @@ exports.chi2cdf = function(chi2,df){
   return ee.Image(chi2.divide(2)).gammainc(ee.Number(df).divide(2));
 };
 exports.makefeature = function(data){
-// for exporting as CSV to Drive 
+// for exporting as CSV to Drive
   return ee.Feature(null, {'data': data});};
 exports.makeLegend = function(vis) {
   var lon = ee.Image.pixelLonLat().select('longitude');
@@ -19,14 +19,14 @@ exports.makeLegend = function(vis) {
   var legendImage = gradient.visualize(vis);
 // Add legend to a panel
   var thumb = ui.Thumbnail({
-    image: legendImage, 
-    params: {bbox:'0,0,100,8', dimensions:'256x15'}, 
+    image: legendImage,
+    params: {bbox:'0,0,100,8', dimensions:'256x15'},
     style: {padding: '1px', position: 'top-center'}
   });
   var panel = ui.Panel({
     widgets: [
-      ui.Label(String(vis['min'])), 
-      ui.Label({style: {stretch: 'horizontal'}}), 
+      ui.Label(String(vis['min'])),
+      ui.Label({style: {stretch: 'horizontal'}}),
       ui.Label(vis['max'])
     ],
     layout: ui.Panel.Layout.flow('horizontal'),
@@ -35,7 +35,7 @@ exports.makeLegend = function(vis) {
   return ui.Panel().add(panel).add(thumb);
 };
 exports.rcut = function(image,geometry,k,title,max){
-// generate time axis chart  
+// generate time axis chart
        var bmap = image.select(ee.List.sequence(3,k+2));
        var zeroes = bmap.multiply(0)
        var ones = zeroes.add(1);
@@ -45,20 +45,20 @@ exports.rcut = function(image,geometry,k,title,max){
        var bmappos = zeroes.where(bmap.eq(ones),ones);
        var bmapneg = zeroes.where(bmap.eq(twos),ones);
        var bmapind = zeroes.where(bmap.eq(threes),ones);
-       
+
        var cutall = ee.Dictionary(bmapall.reduceRegion(ee.Reducer.mean(),geometry,null,null,null,false,1e11));
        var keys = cutall.keys().map( function(x) {return ee.String(x).slice(1,9)});
        var chartall = ui.Chart.array.values(cutall.toArray(),0,keys).setChartType('ColumnChart');
-       
+
        var cutpos = ee.Dictionary(bmappos.reduceRegion(ee.Reducer.mean(),geometry,null,null,null,false,1e11));
        var chartpos = ui.Chart.array.values(cutpos.toArray(),0,keys).setChartType('ColumnChart');
-       
+
        var cutneg = ee.Dictionary(bmapneg.reduceRegion(ee.Reducer.mean(),geometry,null,null,null,false,1e11));
        var chartneg = ui.Chart.array.values(cutneg.toArray(),0,keys).setChartType('ColumnChart');
-       
+
        var cutind = ee.Dictionary(bmapind.reduceRegion(ee.Reducer.mean(),geometry,null,null,null,false,1e11));
        var chartind = ui.Chart.array.values(cutind.toArray(),0,keys).setChartType('ColumnChart');
-       
+
        chartall.setOptions({
        title: title,
        hAxis: {
@@ -118,11 +118,11 @@ exports.rcut = function(image,geometry,k,title,max){
           textStyle : {
             fontSize: 16
         }
-          }});    
+          }});
        return([chartall,chartpos,chartneg,chartind]);
 };
 exports.makevideo = function(current,prev){
-// iterator function to generate video frames  
+// iterator function to generate video frames
   var n = ee.Number(current);
   prev = ee.Dictionary(prev);
   var bmap = ee.Image(prev.get('bmap'));
@@ -132,10 +132,10 @@ exports.makevideo = function(current,prev){
   var framelist = ee.List(prev.get('framelist'));
   var bmapband = bmap.select(n);
   var zeroes = bmapband.multiply(0);
-  var ones = zeroes.add(1); 
+  var ones = zeroes.add(1);
   var twos = zeroes.add(2);
   var threes = zeroes.add(3)
-  var idxr = bmapband.eq(ones); 
+  var idxr = bmapband.eq(ones);
   var idxg = bmapband.eq(twos);
   var idxy = bmapband.eq(threes);
   var imager = background.where(idxr,ones);
@@ -147,9 +147,9 @@ exports.makevideo = function(current,prev){
   var imageb = imageb.where(idxy,zeroes);
   var imager = imager.where(idxy,ones);
   var imageg = imageg.where(idxy,ones);
-  var frame = imager.addBands(imageg).addBands(imageb) 
-              .multiply(256) 
-              .uint8() 
+  var frame = imager.addBands(imageg).addBands(imageb)
+              .multiply(256)
+              .uint8()
               .rename(['r','g','b'])
               .set({label:label});
   return ee.Dictionary({'bmap':bmap,'background':background,'framelist':framelist.add(frame)});

@@ -1,4 +1,4 @@
-import ee 
+import ee
 import math
 import geemap
 

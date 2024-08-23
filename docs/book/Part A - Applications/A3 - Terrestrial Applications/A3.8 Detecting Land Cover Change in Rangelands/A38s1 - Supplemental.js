@@ -13,16 +13,16 @@ var aoi = ee.FeatureCollection(
 // Load the multi-band Image of fitted residual greenness values.
 var fittedStack = ee.Image('projects/gee-book/assets/A3-8/FR_stack');
 
-var startYear_Num = 1985; 
-var endYear_Num   = 2019; 
+var startYear_Num = 1985;
+var endYear_Num   = 2019;
 var numYears = endYear_Num - startYear_Num;
-var startMonth = '-01-01';  
-var endMonth = '-12-31';  
+var startMonth = '-01-01';
+var endMonth = '-12-31';
 
 // Convert the multi-band Image to a List
 
 var fittedStackList = ee.List([]);
-  for (var year = startYear_Num; year <= endYear_Num ; year++) {  
+  for (var year = startYear_Num; year <= endYear_Num ; year++) {
   var selBand = (fittedStack.select('fittedResidual_' + year.toString()).rename('FR'));
   var selImg = ee.Image(selBand);
   var nextYear = year + 1;

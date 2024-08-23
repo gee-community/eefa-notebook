@@ -13,10 +13,10 @@
 
 
 // for more advanced work, you could  dig into the script-based
-// application of these same concepts by exploring the more 
-// expansive set of manuals on the https://emapr.github.io/LT-GEE/site. 
-  
+// application of these same concepts by exploring the more
+// expansive set of manuals on the https://emapr.github.io/LT-GEE/site.
+
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

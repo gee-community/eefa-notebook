@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -54,7 +54,7 @@ def func_kck(f):
 
         return ee.Feature(widths.sort('dist2cl', True) \
             .first())
-    
+
     return temp
 
 getNearestCl = GetNearestClGen(poi)

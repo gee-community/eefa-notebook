@@ -25,7 +25,7 @@ var mod44b = ee.ImageCollection('MODIS/006/MOD44B');
 /////
 
 // Put together the dependent variable by filtering the
-// ImageCollection to just the 2020 image near Turin and 
+// ImageCollection to just the 2020 image near Turin and
 // selecting the percent tree cover band.
 var percentTree2020 = mod44b
     .filterDate('2020-01-01', '2021-01-01')
@@ -97,7 +97,7 @@ Map.addLayer(predictedTree, {
 }, 'Predicted Percent Tree Cover');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 //////
@@ -113,10 +113,10 @@ var predictionBands = ['B1', 'B2', 'B3', 'B4', 'B5', 'B6', 'B7',
 var trainingImageLR = ee.Image(1)
     .addBands(landsat8filtered.select(predictionBands))
     .addBands(percentTree2020);
-    
+
 print('Linear Regression training image:', trainingImageLR);
 
-// Compute ordinary least squares regression coefficients using 
+// Compute ordinary least squares regression coefficients using
 // the linearRegression reducer.
 var linearRegression = trainingImageLR.reduceRegion({
     reducer: ee.Reducer.linearRegression({
@@ -152,7 +152,7 @@ Map.addLayer(predictedTreeLR, {
 }, 'LR prediction');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 /////
@@ -257,6 +257,6 @@ var rmse = ee.List([ee.Number(
 print('RMSE', rmse);
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 

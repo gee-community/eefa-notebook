@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -14,41 +14,38 @@ Map = geemap.Map()
 ##/
 
 # Import the ESA WorldCover dataset.
-worldCover = ee.ImageCollection('ESA/WorldCover/v100').first()
+worldCover = ee.ImageCollection("ESA/WorldCover/v100").first()
 
 # Center the Map.
 Map.centerObject(worldCover, 3)
 
 # Add the worldCover layer to the map.
-Map.addLayer(worldCover, {
-    'bands': ['Map']
-}, 'WorldCover')
+Map.addLayer(worldCover, {"bands": ["Map"]}, "WorldCover")
 
 # Import the Hansen Global Forest Change dataset.
-globalForest = ee.Image(
-    'UMD/hansen/global_forest_change_2020_v1_8')
+globalForest = ee.Image("UMD/hansen/global_forest_change_2020_v1_8")
 
 # Create a visualization for tree cover in 2000.
 treeCoverViz = {
-    'bands': ['treecover2000'],
-    'min': 0,
-    'max': 100,
-    'palette': ['black', 'green']
+    "bands": ["treecover2000"],
+    "min": 0,
+    "max": 100,
+    "palette": ["black", "green"],
 }
 
 # Add the 2000 tree cover image to the map.
-Map.addLayer(globalForest, treeCoverViz, 'Hansen 2000 Tree Cover')
+Map.addLayer(globalForest, treeCoverViz, "Hansen 2000 Tree Cover")
 
 # Create a visualization for the year of tree loss over the past 20 years.
 treeLossYearViz = {
-    'bands': ['lossyear'],
-    'min': 0,
-    'max': 20,
-    'palette': ['yellow', 'red']
+    "bands": ["lossyear"],
+    "min": 0,
+    "max": 20,
+    "palette": ["yellow", "red"],
 }
 
 # Add the 2000-2020 tree cover loss image to the map.
-Map.addLayer(globalForest, treeLossYearViz, '2000-2020 Year of Loss')
+Map.addLayer(globalForest, treeLossYearViz, "2000-2020 Year of Loss")
 
 #  -----------------------------------------------------------------------
 #  CHECKPOINT

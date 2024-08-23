@@ -43,22 +43,22 @@ Map.addLayer(imageL5, trueColor, 'L5 true color');
 var bands = ['B1', 'B2', 'B3', 'B4', 'B5', 'B7'];
 
 // Make an Array Image, with a one dimensional array per pixel.
-// This is essentially a list of values of length 6, 
+// This is essentially a list of values of length 6,
 // one from each band in variable 'bands.'
 var arrayImage1D = imageL5.select(bands).toArray();
 
 // Make an Array Image with a two dimensional array per pixel,
 // of dimensions 6x1. This is essentially a one column matrix with
-// six rows, with one value from each band in 'bands.' 
+// six rows, with one value from each band in 'bands.'
 // This step is needed for matrix multiplication (p0).
 var arrayImage2D = arrayImage1D.toArray(1);
 
 //Multiply RT by p0.
 var tasselCapImage = ee.Image(landsat5RT)
-    // Multiply the tasseled cap coefficients by the array 
+    // Multiply the tasseled cap coefficients by the array
     // made from the 6 bands for each pixel.
     .matrixMultiply(arrayImage2D)
-    // Get rid of the extra dimensions. 
+    // Get rid of the extra dimensions.
     .arrayProject([0])
     // Get a multi-band image with TC-named bands.
     .arrayFlatten(
@@ -94,7 +94,7 @@ Map.addLayer(imageL8, trueColorL8, 'L8 true color');
 // Select which bands to use for the PCA.
 var PCAbands = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B10', 'B11'];
 
-// Convert the Landsat 8 image to a 2D array for the later matrix 
+// Convert the Landsat 8 image to a 2D array for the later matrix
 // computations.
 var arrayImage = imageL8.select(PCAbands).toArray();
 
@@ -178,7 +178,7 @@ var bare = /* color: #d63000 */ ee.Geometry.Polygon(
             ]
         ]);
 
-//Print a chart. 
+//Print a chart.
 var lcfeatures = ee.FeatureCollection([
     ee.Feature(bare, {
         label: 'bare'
@@ -219,7 +219,7 @@ var waterMean = unmixImage
 var vegMean = unmixImage
     .reduceRegion(ee.Reducer.mean(), veg, 30).values();
 
-// Stack these mean vectors to create an Array.              
+// Stack these mean vectors to create an Array.
 var endmembers = ee.Array.cat([bareMean, vegMean, waterMean], 1);
 print(endmembers);
 
@@ -259,5 +259,5 @@ Map.addLayer(rgb, {
 }, 'Pan-sharpened');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT  
+//  CHECKPOINT
 //  -----------------------------------------------------------------------

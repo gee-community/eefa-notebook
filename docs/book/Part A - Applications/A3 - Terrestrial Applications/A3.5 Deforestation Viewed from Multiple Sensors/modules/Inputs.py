@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -17,7 +17,7 @@ def loadLandsatData(region, period):
       'names': img.bandNames(),
       'overwrite': True
     })
-  
+
 
   def maskL8(img):
     bands = ['SR_B2', 'SR_B3', 'SR_B4', 'SR_B5', 'SR_B6', 'SR_B7']
@@ -29,7 +29,7 @@ def loadLandsatData(region, period):
     mask2 = sr.reduce(ee.Reducer.min()).gt(0)
     mask3 = sr.reduce(ee.Reducer.max()).lt(10000)
     return sr.updateMask(mask1.And(mask2).And(mask3))
-  
+
 
   def maskL7(img):
     bands = ['SR_B1', 'SR_B2', 'SR_B3', 'SR_B4', 'SR_B5', 'SR_B7']
@@ -41,7 +41,7 @@ def loadLandsatData(region, period):
     mask2 = sr.reduce(ee.Reducer.min()).gt(0)
     mask3 = sr.reduce(ee.Reducer.max()).lt(10000)
     return sr.updateMask(mask1.And(mask2).And(mask3))
-  
+
 
   collection7 = ee.ImageCollection('LANDSAT/LE07/C02/T1_L2') \
       .filterBounds(region) \
@@ -68,7 +68,7 @@ def loadS2Data(region, period):
     return img.select(['B2', 'B3', 'B4', 'B8', 'B11', 'B12']) \
         .rename(['Blue', 'Green', 'Red', 'NIR', 'SWIR1', 'SWIR2']) \
         .updateMask(mask)
-  
+
 
   S2 = ee.ImageCollection('COPERNICUS/S2') \
       .filterBounds(region) \
@@ -106,7 +106,7 @@ def loadS1Data(region, period):
     fmean = fmean.focal_mean(3, 'circle')
     ratio = fmean.select('VH').divide(fmean.select('VV')).rename('ratio').multiply(30)
     return img.select().addBands(fmean).addBands(ratio).addBands(angle).set('timeStamp', st)
-  
+
 
   S1 = ee.ImageCollection('COPERNICUS/S1_GRD') \
       .filterBounds(region).filterDate(period.get('start'), period.get('end')) \

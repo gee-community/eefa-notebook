@@ -1,4 +1,4 @@
-// Snapshot of users/andreasvollrath/radar:slope_correction_lib.js 
+// Snapshot of users/andreasvollrath/radar:slope_correction_lib.js
 // on 11/4/2020 (reformated)
 
 var slope_correction = function (collection, options) {
@@ -7,12 +7,12 @@ var slope_correction = function (collection, options) {
   var model = options.model || 'volume';
   var elevation = options.elevation || ee.Image('USGS/SRTMGL1_003');
   var buffer = options.buffer || 0;
- 
-  // We need a 90 degree in radians 
+
+  // We need a 90 degree in radians
   // image for a couple of calculations.
   var ninetyRad = ee.Image.constant(90)
     .multiply(Math.PI/180);
-  
+
   // Volumetric model Hoekman 1990.
   function _volume_model(theta_iRad, alpha_rRad) {
     var nominator = (ninetyRad.subtract(theta_iRad).add(alpha_rRad))
@@ -21,7 +21,7 @@ var slope_correction = function (collection, options) {
       .tan();
     return nominator.divide(denominator);
   }
-  
+
   // Surface model Ulander et al. 1996.
   function _surface_model(theta_iRad, alpha_rRad, alpha_azRad) {
     var nominator = (ninetyRad.subtract(theta_iRad))
@@ -35,7 +35,7 @@ var slope_correction = function (collection, options) {
       );
     return nominator.divide(denominator);
   }
-  
+
   // Buffer function (thanks Noel).
   function _erode(img, distance) {
     var d = img
@@ -45,8 +45,8 @@ var slope_correction = function (collection, options) {
       .sqrt()
       .multiply(ee.Image.pixelArea().sqrt());
     return img.updateMask(d.gt(distance));
-  }    
-  
+  }
+
   // Calculate masks.
   function _masking(alpha_rRad, theta_iRad, proj, buffer) {
     // Layover, where slope > radar viewing angle.
@@ -72,12 +72,12 @@ var slope_correction = function (collection, options) {
     var heading = ee.Terrain.aspect(image.select('angle'))
       .reduceRegion(ee.Reducer.mean(), geom, 1000)
       .get('aspect');
-    
+
     // The numbering follows the article chapters.
     // Sigma0 to Power of input image.
     var sigma0Pow = ee.Image.constant(10)
       .pow(image.divide(10.0));
-   
+
     // 2.1.1 radar geometry.
     var theta_iRad = image
       .select('angle')
@@ -85,7 +85,7 @@ var slope_correction = function (collection, options) {
       .clip(geom);
     var phi_iRad = ee.Image.constant(heading)
       .multiply(Math.PI/180);
-    
+
     // 2.1.2 terrain geometry.
     var alpha_sRad = ee.Terrain.slope(elevation)
       .select('slope')
@@ -97,7 +97,7 @@ var slope_correction = function (collection, options) {
       .multiply(Math.PI/180)
       .setDefaultProjection(proj)
       .clip(geom);
-    
+
     // 2.1.3 model geometry.
     // Reduce to 3 angle.
     var phi_rRad = phi_iRad.subtract(phi_sRad);
@@ -112,7 +112,7 @@ var slope_correction = function (collection, options) {
 
     // 2.2 gamma_nought.
     var gamma0 = sigma0Pow.divide(theta_iRad.cos());
-      
+
     // Models.
     if (model == 'volume') {
       var corrModel = _volume_model(theta_iRad, alpha_rRad);
@@ -152,12 +152,12 @@ var slope_correction_image = function (image, options) {
   var model = options.model || 'volume';
   var elevation = options.elevation || ee.Image('USGS/SRTMGL1_003');
   var buffer = options.buffer || 0;
- 
-  // We need a 90 degree in radians 
+
+  // We need a 90 degree in radians
   // image for a couple of calculations.
   var ninetyRad = ee.Image.constant(90)
     .multiply(Math.PI/180);
-  
+
   // Volumetric Model Hoekman 1990
   function _volume_model(theta_iRad, alpha_rRad) {
     var nominator = (ninetyRad.subtract(theta_iRad).add(alpha_rRad))
@@ -166,7 +166,7 @@ var slope_correction_image = function (image, options) {
       .tan();
     return nominator.divide(denominator);
   }
-  
+
   // Surface model Ulander et al. 1996.
   function _surface_model(theta_iRad, alpha_rRad, alpha_azRad) {
     var nominator = (ninetyRad.subtract(theta_iRad))
@@ -180,7 +180,7 @@ var slope_correction_image = function (image, options) {
       );
     return nominator.divide(denominator);
   }
-  
+
   // Buffer function (thanks Noel).
   function _erode(img, distance) {
     var d = img
@@ -190,8 +190,8 @@ var slope_correction_image = function (image, options) {
       .sqrt()
       .multiply(ee.Image.pixelArea().sqrt());
     return img.updateMask(d.gt(distance));
-  }    
-  
+  }
+
   // Calculate masks.
   function _masking(alpha_rRad, theta_iRad, proj, buffer) {
     // Layover where slope > radar viewing angle.
@@ -213,7 +213,7 @@ var slope_correction_image = function (image, options) {
     // Get image geometry and projection.
     var geom = image.geometry();
     var proj = image.select(1).projection();
-    
+
     // Get look direction angle.
     var heading = ee.Terrain.aspect(image.select('angle'))
       .reduceRegion(ee.Reducer.mean(), geom, 1000)
@@ -239,7 +239,7 @@ var slope_correction_image = function (image, options) {
       .multiply(Math.PI/180)
       .setDefaultProjection(proj)
       .clip(geom);
-    
+
     // 2.1.3 model geometry.
     // Reduce to 3 angle.
     var phi_rRad = phi_iRad.subtract(phi_sRad);
@@ -254,7 +254,7 @@ var slope_correction_image = function (image, options) {
 
     // 2.2 gamma_nought.
     var gamma0 = image.divide(theta_iRad.cos());
-      
+
     // Models
     if (model == 'volume') {
       var corrModel = _volume_model(theta_iRad, alpha_rRad);

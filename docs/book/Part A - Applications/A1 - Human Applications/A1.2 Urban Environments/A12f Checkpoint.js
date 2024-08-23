@@ -1,5 +1,5 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
-var nbu = 
+var nbu =
     /* color: #28d659 */
     /* shown: false */
     /* displayProperties: [
@@ -655,7 +655,7 @@ var nbu =
               "class": 0,
               "system:index": "49"
             })]),
-    bu = 
+    bu =
     /* color: #ff2b10 */
     /* displayProperties: [
       {

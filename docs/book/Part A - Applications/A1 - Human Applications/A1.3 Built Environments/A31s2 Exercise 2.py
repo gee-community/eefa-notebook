@@ -1,20 +1,20 @@
-import ee 
+import ee
 import math
 import geemap
 
 Map = geemap.Map()
 
 # Import roads.
-grip4_africa = ee.FeatureCollection(
-  'projects/sat-io/open-datasets/GRIP4/Africa')
-grip4_europe = ee.FeatureCollection(
-  'projects/sat-io/open-datasets/GRIP4/Europe')
+grip4_africa = ee.FeatureCollection("projects/sat-io/open-datasets/GRIP4/Africa")
+grip4_europe = ee.FeatureCollection("projects/sat-io/open-datasets/GRIP4/Europe")
 grip4_north_america = ee.FeatureCollection(
-  'projects/sat-io/open-datasets/GRIP4/North-America')
+    "projects/sat-io/open-datasets/GRIP4/North-America"
+)
+
 
 # Function to add line length in km
 def addLength(feature):
-  return feature.set({'lengthKm': feature.length().divide(1000)}) # km
+    return feature.set({"lengthKm": feature.length().divide(1000)})  # km
 
 
 # Calculate line lengths for all roads in Africa
@@ -23,20 +23,20 @@ grip4_africaLength = grip4_africa.map(addLength)
 # Convert to roads to raster
 empty = ee.Image().float()
 
-grip4_africaRaster = empty.paint({
-  'featureCollection': grip4_africaLength,
-  'color': 'lengthKm'
-})
+grip4_africaRaster = empty.paint(
+    {"featureCollection": grip4_africaLength, "color": "lengthKm"}
+)
 
 # Import simplified countries
-countries = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017')
+countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")
 
 # Filter to Africa
-Africa = countries.filter(ee.Filter.eq('wld_rgn', 'Africa'))
+Africa = countries.filter(ee.Filter.eq("wld_rgn", "Africa"))
 
 # Import global power transmission lines
 transmission = ee.FeatureCollection(
-  'projects/sat-io/open-datasets/predictive-global-power-system/distribution-transmission-lines')
+    "projects/sat-io/open-datasets/predictive-global-power-system/distribution-transmission-lines"
+)
 
 # Filter transmission lines to Africa
 transmissionAfrica = transmission.filterBounds(Africa)
@@ -45,17 +45,17 @@ transmissionAfrica = transmission.filterBounds(Africa)
 transmissionAfricaLength = transmissionAfrica.map(addLength)
 
 # Convert to transmission lines to raster
-transmissionAfricaRaster = empty.paint({
-  'featureCollection': transmissionAfricaLength,
-  'color': 'lengthKm'
-})
+transmissionAfricaRaster = empty.paint(
+    {"featureCollection": transmissionAfricaLength, "color": "lengthKm"}
+)
 
 # Add roads and transmission lines together into one image
 # Clip to Africa feature collection
-stack = grip4_africaRaster \
-  .addBands(transmissionAfricaRaster) \
-  .rename(['roads', 'transmission']) \
-  .clipToCollection(Africa)
+stack = (
+    grip4_africaRaster.addBands(transmissionAfricaRaster)
+    .rename(["roads", "transmission"])
+    .clipToCollection(Africa)
+)
 
 # Calculate spatial statistics: local Geary's C
 # Create a list of weights for a 9x9 kernel.
@@ -81,8 +81,9 @@ neighs = maxBands.neighborhoodToBands(kernel)
 # – 0 indicates perfect positive autocorrelation/clustered
 # – 1 indicates no autocorrelation/random
 # – 2 indicates perfect negative autocorrelation/dispersed
-gearys = maxBands.subtract(neighs).pow(2).reduce(ee.Reducer.sum()) \
-             .divide(math.pow(9, 2))
+gearys = (
+    maxBands.subtract(neighs).pow(2).reduce(ee.Reducer.sum()).divide(math.pow(9, 2))
+)
 
 # Convert to a -/+1 scale by: calculating C* = 1 – C
 # – 1 indicates perfect positive autocorrelation/clustered
@@ -91,25 +92,23 @@ gearys = maxBands.subtract(neighs).pow(2).reduce(ee.Reducer.sum()) \
 gearysStar = ee.Image(1).subtract(gearys)
 
 # Import palettes
-palettes = require('users/gena/packages:palettes')
+palettes = require("users/gena/packages:palettes")
 
 # Create custom palette, blue is negative while red is positive autocorrelation/clustered
 palette = palettes.colorbrewer.Spectral[7].reverse()
 
 # Normalize the image and add it to the map.
-visParams = {'min': -1, 'max': 1, 'palette': palette}
+visParams = {"min": -1, "max": 1, "palette": palette}
 
 # Import custom basemap
-basemap = require('users/erintrochim/GEE_workshops:backgroundMaps')
+basemap = require("users/erintrochim/GEE_workshops:backgroundMaps")
 
 # Add basemap
-basemap.addCustomBasemap('BlackAndWhite')
+basemap.addCustomBasemap("BlackAndWhite")
 
 # Display
 Map.setCenter(3.6, 32.5, 11)
-Map.addLayer(gearysStar.focalMax(1),
-             visParams,
-             'local Gearys C*')
+Map.addLayer(gearysStar.focalMax(1), visParams, "local Gearys C*")
 
 # LGTM (nclinton)
 Map

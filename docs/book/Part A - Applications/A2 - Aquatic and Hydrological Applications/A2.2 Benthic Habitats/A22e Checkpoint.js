@@ -459,7 +459,7 @@ function rfbathymetry(img) {
 
     var sdbEstimate = bathyClass.clip(depthV);
 
-    // Prepare data by putting SDB estimated data and in situ data 
+    // Prepare data by putting SDB estimated data and in situ data
     // in one image to compare them afterwards.
     var imageI = ee.Image.cat([sdbEstimate, depthVImage]);
     // Calculate covariance.

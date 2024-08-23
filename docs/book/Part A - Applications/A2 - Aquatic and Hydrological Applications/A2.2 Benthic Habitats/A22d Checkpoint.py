@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -396,7 +396,7 @@ def func_gsk(c):
             'cols': columns,
             'rows': rows
         })
-    
+
 
     dataTable = arrayToDatatable(classificationErrormatrixArray) \
         .evaluate(function(dataTable) {

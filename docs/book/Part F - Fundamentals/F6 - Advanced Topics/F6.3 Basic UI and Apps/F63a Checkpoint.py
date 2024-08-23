@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -176,7 +176,7 @@ def addCategoricalLegend(panel, dict, title):
             'widgets': [colorBox, description],
             'layout': ui.Panel.Layout.Flow('horizontal')
         })
-    
+
 
     # Get the list of palette colors and class names from the image.
     palette = dict.colors

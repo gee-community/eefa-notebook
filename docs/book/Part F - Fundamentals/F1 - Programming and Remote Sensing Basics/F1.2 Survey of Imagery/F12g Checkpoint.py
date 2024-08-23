@@ -1,4 +1,4 @@
-import ee 
+import ee
 import geemap
 
 Map = geemap.Map()
@@ -14,41 +14,26 @@ Map = geemap.Map()
 ##/
 
 # Import and filter a gridded population dataset.
-griddedPopulation = ee.ImageCollection(
-        'CIESIN/GPWv411/GPW_Population_Count') \
-    .first()
+griddedPopulation = ee.ImageCollection("CIESIN/GPWv411/GPW_Population_Count").first()
 
 # Predefined palette.
-populationPalette = [
-   'ffffe7',
-   '86a192',
-   '509791',
-   '307296',
-   '2c4484',
-   '000066'
-]
+populationPalette = ["ffffe7", "86a192", "509791", "307296", "2c4484", "000066"]
 
 # Center the Map.
 Map.centerObject(griddedPopulation, 3)
 
 # Add the population data to the map.
-Map.addLayer(griddedPopulation,
-    {
-        'min': 0,
-        'max': 1200,
-        'palette': populationPalette
-    },
-    'Gridded Population')
+Map.addLayer(
+    griddedPopulation,
+    {"min": 0, "max": 1200, "palette": populationPalette},
+    "Gridded Population",
+)
 
 # Import the NASA DEM Dataset.
-nasaDEM = ee.Image('NASA/NASADEM_HGT/001')
+nasaDEM = ee.Image("NASA/NASADEM_HGT/001")
 
 # Add the elevation layer to the map.
-Map.addLayer(nasaDEM, {
-    'bands': ['elevation'],
-    'min': 0,
-    'max': 3000
-}, 'NASA DEM')
+Map.addLayer(nasaDEM, {"bands": ["elevation"], "min": 0, "max": 3000}, "NASA DEM")
 
 #  -----------------------------------------------------------------------
 #  CHECKPOINT

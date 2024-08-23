@@ -4,7 +4,7 @@
 //  Author:       TC Chakraborty
 //  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// Load feature collection of New Haven's census tracts from user assets. 
+// Load feature collection of New Haven's census tracts from user assets.
 var regionInt = ee.FeatureCollection(
     'projects/gee-book/assets/A1-5/TC_NewHaven');
 
@@ -54,7 +54,7 @@ Map.addLayer(lstNewHaven, {
     'LST_MODIS');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Function to filter out cloudy pixels.
@@ -93,7 +93,7 @@ Map.addLayer(thermal, {
     },
     'Landsat_BT');
 
-// Calculate Normalized Difference Vegetation Index (NDVI) 
+// Calculate Normalized Difference Vegetation Index (NDVI)
 // from Landsat surface reflectance.
 var ndvi = ee.ImageCollection('LANDSAT/LC08/C02/T1_L2')
     .filterBounds(regionInt)
@@ -162,7 +162,7 @@ Map.addLayer(lstLandsat, {
     'LST_Landsat');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
 // Link to the module that computes the Landsat LST.
@@ -197,10 +197,10 @@ Map.addLayer(landsatComp, {
     'LST_SMW');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
-// Function to subtract the original urban cluster from the buffered cluster 
+// Function to subtract the original urban cluster from the buffered cluster
 // to generate rural references.
 function bufferSubtract(feature) {
     return ee.Feature(feature.geometry()
@@ -278,14 +278,14 @@ Map.addLayer(urbanNonUrban.clip(regionInt), {
 }, 'Non-urban pixels');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
 
-// Define function to reduce regions and summarize pixel values 
+// Define function to reduce regions and summarize pixel values
 // to get mean LST for different cases.
 function polygonMean(feature) {
 
-    // Calculate spatial mean value of LST for each case 
+    // Calculate spatial mean value of LST for each case
     // making sure the pixel values are converted to °C from Kelvin.
     var reducedLstUrb = lstFinal.subtract(273.15).updateMask(notWater)
         .reduceRegion({
@@ -348,14 +348,14 @@ function polygonMean(feature) {
     });
 }
 
-// Map the function over the urban boundary to get mean urban and rural LST 
+// Map the function over the urban boundary to get mean urban and rural LST
 // for cases without any explicit buffer-based boundaries.
 var reduced = regionInt.map(polygonMean);
 
-// Define a function to reduce region and summarize pixel values 
+// Define a function to reduce region and summarize pixel values
 // to get mean LST for different cases.
 function refMean(feature) {
-    // Calculate spatial mean value of LST for each case 
+    // Calculate spatial mean value of LST for each case
     // making sure the pixel values are converted to °C from Kelvin.
     var reducedLstRur = lstFinal.subtract(273.15).updateMask(notWater)
         .reduceRegion({
@@ -401,5 +401,5 @@ Map.addLayer(suhi, {
 }, 'SUHI');
 
 //  -----------------------------------------------------------------------
-//  CHECKPOINT 
+//  CHECKPOINT
 //  -----------------------------------------------------------------------
