@@ -1,0 +1,5961 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Python scripts and Jupyter notebooks for the EEFA book">
+      
+      
+        <meta name="author" content="EEFA Authors">
+      
+      
+      
+      
+      
+      <link rel="icon" href="/eefa-notebook/assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
+    
+    
+      
+        <title>EEFA Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="/eefa-notebook/assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="/eefa-notebook/assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:300,300i,400,400i,700,700i%7CRegular:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Google Sans";--md-code-font:"Regular"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="/eefa-notebook/assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("/eefa-notebook/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="/eefa-notebook/." title="EEFA Notebook" class="md-header__button md-logo" aria-label="EEFA Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EEFA Notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/gee-community/eefa-notebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="/eefa-notebook/." title="EEFA Notebook" class="md-nav__button md-logo" aria-label="EEFA Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    EEFA Notebook
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/gee-community/eefa-notebook" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://github.com/gee-community/eefa-notebook/issues" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Report Issues
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    F1 - Programming and Remote Sensing Basics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            F1 - Programming and Remote Sensing Basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.0%20Javascript%20and%20the%20Earth%20Engine%20API/F10a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F10a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.0%20Javascript%20and%20the%20Earth%20Engine%20API/F10b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F10b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.1%20Exploring%20Images/F11a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F11a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.1%20Exploring%20Images/F11b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F11b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.1%20Exploring%20Images/F11c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F11c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.1%20Exploring%20Images/F11s1%20Assignment%204/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F11s1 Assignment 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.1%20Exploring%20Images/F11s2%20Assignment%205/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F11s2 Assignment 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.2%20Survey%20of%20Imagery/F12a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F12a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.2%20Survey%20of%20Imagery/F12b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F12b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.2%20Survey%20of%20Imagery/F12c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F12c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.2%20Survey%20of%20Imagery/F12d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F12d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.2%20Survey%20of%20Imagery/F12e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F12e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.2%20Survey%20of%20Imagery/F12f%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F12f Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.2%20Survey%20of%20Imagery/F12g%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F12g Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.3%20The%20Remote%20Sensing%20Vocabulary/F13a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F13a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.3%20The%20Remote%20Sensing%20Vocabulary/F13b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F13b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.3%20The%20Remote%20Sensing%20Vocabulary/F13c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F13c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.3%20The%20Remote%20Sensing%20Vocabulary/F13d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F13d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F1%20-%20Programming%20and%20Remote%20Sensing%20Basics/F1.3%20The%20Remote%20Sensing%20Vocabulary/F13e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F13e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    F2 - Interpreting Images
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            F2 - Interpreting Images
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F2%20-%20Interpreting%20Images/F2.0%20Image%20Manipulation%20Bands%20Arithmetic%20Thresholds%20and%20Masks/F20a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F20a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F2%20-%20Interpreting%20Images/F2.0%20Image%20Manipulation%20Bands%20Arithmetic%20Thresholds%20and%20Masks/F20b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F20b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F2%20-%20Interpreting%20Images/F2.1%20Interpreting%20an%20Image%20-%20Classification/F21a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F21a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F2%20-%20Interpreting%20Images/F2.1%20Interpreting%20an%20Image%20-%20Classification/F21b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F21b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F2%20-%20Interpreting%20Images/F2.1%20Interpreting%20an%20Image%20-%20Classification/F21c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F21c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F2%20-%20Interpreting%20Images/F2.1%20Interpreting%20an%20Image%20-%20Classification/F21s1%20Assignment%206/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F21s1 Assignment 6
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F2%20-%20Interpreting%20Images/F2.2%20Accuracy%20Assessment/F22a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F22a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F2%20-%20Interpreting%20Images/F2.2%20Accuracy%20Assessment/F22b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F22b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F2%20-%20Interpreting%20Images/F2.2%20Accuracy%20Assessment/F22c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F22c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    F3 - Advanced Image Processing
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            F3 - Advanced Image Processing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F3%20-%20Advanced%20Image%20Processing/F3.0%20Interpreting%20an%20Image%20Regression/F30a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F30a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F3%20-%20Advanced%20Image%20Processing/F3.0%20Interpreting%20an%20Image%20Regression/F30b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F30b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F3%20-%20Advanced%20Image%20Processing/F3.0%20Interpreting%20an%20Image%20Regression/F30c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F30c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F3%20-%20Advanced%20Image%20Processing/F3.1%20Advanced%20Pixel-Based%20Image%20Transformations/F31a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F31a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F3%20-%20Advanced%20Image%20Processing/F3.1%20Advanced%20Pixel-Based%20Image%20Transformations/F31b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F31b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F3%20-%20Advanced%20Image%20Processing/F3.1%20Advanced%20Pixel-Based%20Image%20Transformations/F31c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F31c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F3%20-%20Advanced%20Image%20Processing/F3.2%20Neighborhood%20based%20Image%20Transformation/F32a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F32a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F3%20-%20Advanced%20Image%20Processing/F3.2%20Neighborhood%20based%20Image%20Transformation/F32b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F32b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F3%20-%20Advanced%20Image%20Processing/F3.2%20Neighborhood%20based%20Image%20Transformation/F32c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F32c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F3%20-%20Advanced%20Image%20Processing/F3.2%20Neighborhood%20based%20Image%20Transformation/F32d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F32d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    F4 - Interpreting Image Series
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            F4 - Interpreting Image Series
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.0%20Functional%20Programming%20Concepts/F40a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F40a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.0%20Functional%20Programming%20Concepts/F40b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F40b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.0%20Functional%20Programming%20Concepts/F40c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F40c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.1%20Exploring%20Image%20Collections/F41a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F41a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.1%20Exploring%20Image%20Collections/F41b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F41b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.1%20Exploring%20Image%20Collections/F41c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F41c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.1%20Exploring%20Image%20Collections/F41d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F41d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.2%20Aggregating%20Time%20Series/F42a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F42a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.2%20Aggregating%20Time%20Series/F42b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F42b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.2%20Aggregating%20Time%20Series/F42c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F42c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.2%20Aggregating%20Time%20Series/F42d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F42d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.3%20Clouds%20and%20Image%20Compositing/F43a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F43a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.3%20Clouds%20and%20Image%20Compositing/F43b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F43b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.3%20Clouds%20and%20Image%20Compositing/F43c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F43c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.3%20Clouds%20and%20Image%20Compositing/F43d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F43d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.4%20Change%20Detection/F44a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F44a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.4%20Change%20Detection/F44b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F44b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.4%20Change%20Detection/vis/incheon/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Incheon
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.4%20Change%20Detection/vis/mining/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mining
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.4%20Change%20Detection/vis/mtStHelen/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    mtStHelen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.4%20Change%20Detection/vis/paradise/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Paradise
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.5%20LandTrendr/F45a%20LandTrendr%20Links%20and%20info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F45a LandTrendr Links and info
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.6%20Fitting%20Functions%20to%20Time%20Series/F46a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F46a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.6%20Fitting%20Functions%20to%20Time%20Series/F46b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F46b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.6%20Fitting%20Functions%20to%20Time%20Series/F46c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F46c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.6%20Fitting%20Functions%20to%20Time%20Series/F46d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F46d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.6%20Fitting%20Functions%20to%20Time%20Series/F46e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F46e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.6%20Fitting%20Functions%20to%20Time%20Series/F46s1%20Synthesis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F46s1 Synthesis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.6%20Fitting%20Functions%20to%20Time%20Series/F46s2%20Synthesis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F46s2 Synthesis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.7%20Interpreting%20Time%20Series%20with%20CCDC/F47a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F47a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.7%20Interpreting%20Time%20Series%20with%20CCDC/F47b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F47b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.7%20Interpreting%20Time%20Series%20with%20CCDC/F47c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F47c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.7%20Interpreting%20Time%20Series%20with%20CCDC/F47d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F47d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.7%20Interpreting%20Time%20Series%20with%20CCDC/F47e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F47e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.8%20Data%20Fusion-%20Merging%20Classification%20Streams/F48a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F48a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.8%20Data%20Fusion-%20Merging%20Classification%20Streams/F48b%20Checkpoint%20-%20BULC%20interface%20link/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F48b Checkpoint   BULC interface link
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.8%20Data%20Fusion-%20Merging%20Classification%20Streams/F48c%20Checkpoint%20-%20BULC-D%20Interface%20Link/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F48c Checkpoint   BULC D Interface Link
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.8%20Data%20Fusion-%20Merging%20Classification%20Streams/F48s1%20-%20Supplemental%20-%20BULC%20explainer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F48s1   Supplemental   BULC explainer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.9%20Exploring%20Lagged%20Effects%20in%20Time%20Series/F49a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F49a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.9%20Exploring%20Lagged%20Effects%20in%20Time%20Series/F49b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F49b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.9%20Exploring%20Lagged%20Effects%20in%20Time%20Series/F49c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F49c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F4%20-%20Interpreting%20Image%20Series/F4.9%20Exploring%20Lagged%20Effects%20in%20Time%20Series/F49d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F49d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    F5 - Vectors and Tables
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            F5 - Vectors and Tables
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.0%20Exploring%20Vectors/F50a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F50a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.0%20Exploring%20Vectors/F50b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F50b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.0%20Exploring%20Vectors/F50c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F50c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.0%20Exploring%20Vectors/F50d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F50d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.0%20Exploring%20Vectors/F50e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F50e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.1%20Vector%20Raster%20Conversion/F51a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F51a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.1%20Vector%20Raster%20Conversion/F51b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F51b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.1%20Vector%20Raster%20Conversion/F51c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F51c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.1%20Vector%20Raster%20Conversion/F51d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F51d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.1%20Vector%20Raster%20Conversion/F51e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F51e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.2%20Zonal%20Statistics/F52a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F52a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.2%20Zonal%20Statistics/F52b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F52b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.2%20Zonal%20Statistics/F52c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F52c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.3%20Advanced%20Vector%20Operations/F53a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F53a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.3%20Advanced%20Vector%20Operations/F53b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F53b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F5%20-%20Vectors%20and%20Tables/F5.4%20GEEDiT/F54a%20Checkpoint%20Links%20and%20Info/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F54a Checkpoint Links and Info
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    F6 - Advanced Topics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            F6 - Advanced Topics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.0%20Advanced%20Raster%20Visualizations/F60a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F60a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.0%20Advanced%20Raster%20Visualizations/F60b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F60b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.0%20Advanced%20Raster%20Visualizations/F60c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F60c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.0%20Advanced%20Raster%20Visualizations/F60d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F60d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.0%20Advanced%20Raster%20Visualizations/F60e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F60e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.0%20Advanced%20Raster%20Visualizations/F60f%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F60f Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.0%20Advanced%20Raster%20Visualizations/F60g%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F60g Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.0%20Advanced%20Raster%20Visualizations/F60h%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F60h Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.0%20Advanced%20Raster%20Visualizations/F60i%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F60i Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.0%20Advanced%20Raster%20Visualizations/F60j%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F60j Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.0%20Advanced%20Raster%20Visualizations/F60s1%20-%20Supplemental%20-%20Gallery%20View/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F60s1   Supplemental   Gallery View
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.2%20Scaling%20Up/F62a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F62a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.2%20Scaling%20Up/F62b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F62b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.2%20Scaling%20Up/F62c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F62c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.2%20Scaling%20Up/F62d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F62d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.2%20Scaling%20Up/F62e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F62e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.2%20Scaling%20Up/modules/s2cloudmask/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    S2cloudmask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.3%20Basic%20UI%20and%20Apps/A38s1%20-%20Supplemental/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A38s1   Supplemental
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.3%20Basic%20UI%20and%20Apps/F63a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F63a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.3%20Basic%20UI%20and%20Apps/F63b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F63b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.3%20Basic%20UI%20and%20Apps/F63c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F63c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.3%20Basic%20UI%20and%20Apps/F63d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F63d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.4%20Combining%20R%20and%20Earth%20Engine/F64a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F64a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.4%20Combining%20R%20and%20Earth%20Engine/F64b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F64b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.4%20Combining%20R%20and%20Earth%20Engine/F64c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F64c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.4%20Combining%20R%20and%20Earth%20Engine/F64d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F64d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.4%20Combining%20R%20and%20Earth%20Engine/F64e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F64e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.4%20Combining%20R%20and%20Earth%20Engine/F64f%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F64f Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20F%20-%20Fundamentals/F6%20-%20Advanced%20Topics/F6.4%20Combining%20R%20and%20Earth%20Engine/F64g%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    F64g Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    A1 - Human Applications
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            A1 - Human Applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.1%20Agricultural%20Environments/A11a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A11a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.1%20Agricultural%20Environments/A11b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A11b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.1%20Agricultural%20Environments/A11c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A11c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.1%20Agricultural%20Environments/A11d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A11d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.2%20Urban%20Environments/A12a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A12a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.2%20Urban%20Environments/A12b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A12b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.2%20Urban%20Environments/A12c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A12c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.2%20Urban%20Environments/A12d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A12d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.2%20Urban%20Environments/A12e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A12e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.2%20Urban%20Environments/A12f%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A12f Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.2%20Urban%20Environments/A12g%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A12g Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.2%20Urban%20Environments/A12h%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A12h Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.3%20Built%20Environments/A13a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A13a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.3%20Built%20Environments/A13b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A13b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.3%20Built%20Environments/A13c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A13c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.3%20Built%20Environments/A13d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A13d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.3%20Built%20Environments/A13e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A13e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.3%20Built%20Environments/A13f%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A13f Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.3%20Built%20Environments/A31s1%20Exercise%201/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A31s1 Exercise 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.3%20Built%20Environments/A31s2%20Exercise%202/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A31s2 Exercise 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.4%20Air%20Pollution/A14a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A14a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.4%20Air%20Pollution/A14b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A14b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.4%20Air%20Pollution/A14c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A14c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.5%20Heat%20Islands/A15a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A15a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.5%20Heat%20Islands/A15b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A15b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.5%20Heat%20Islands/A15c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A15c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.5%20Heat%20Islands/A15d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A15d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.5%20Heat%20Islands/A15e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A15e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.5%20Heat%20Islands/modules/ASTER_bare_emiss/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ASTER bare emiss
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.5%20Heat%20Islands/modules/Landsat_LST/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Landsat LST
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.5%20Heat%20Islands/modules/NCEP_TPW/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    NCEP TPW
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.5%20Heat%20Islands/modules/SMW_coefficients/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SMW coefficients
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.5%20Heat%20Islands/modules/SMWalgorithm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SMWalgorithm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.5%20Heat%20Islands/modules/broadband_emiss/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Broadband emiss
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.5%20Heat%20Islands/modules/cloudmask/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloudmask
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.5%20Heat%20Islands/modules/compute_FVC/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    compute FVC
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.5%20Heat%20Islands/modules/compute_NDVI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    compute NDVI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.5%20Heat%20Islands/modules/compute_emissivity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Compute emissivity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.6%20Health%20Applications/A16a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A16a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.6%20Health%20Applications/A16b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A16b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.6%20Health%20Applications/A16c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A16c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.6%20Health%20Applications/A16d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A16d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.6%20Health%20Applications/A16e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A16e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.6%20Health%20Applications/A16f%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A16f Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.6%20Health%20Applications/A16g%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A16g Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.6%20Health%20Applications/A16h%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A16h Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.7%20Humanitarian%20Applications/A17a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A17a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.7%20Humanitarian%20Applications/A17b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A17b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.7%20Humanitarian%20Applications/A17c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A17c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.7%20Humanitarian%20Applications/A17d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A17d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.8%20Monitoring%20Gold%20Mining%20Activity%20Using%20SAR/A18a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A18a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.8%20Monitoring%20Gold%20Mining%20Activity%20Using%20SAR/A18b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A18b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.8%20Monitoring%20Gold%20Mining%20Activity%20Using%20SAR/A18c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A18c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.8%20Monitoring%20Gold%20Mining%20Activity%20Using%20SAR/A18d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A18d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A1%20-%20Human%20Applications/A1.8%20Monitoring%20Gold%20Mining%20Activity%20Using%20SAR/A18e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A18e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    A2 - Aquatic and Hydrological Applications
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            A2 - Aquatic and Hydrological Applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.1%20GRACE%20Groundwater/A21a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A21a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.1%20GRACE%20Groundwater/A21b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A21b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.1%20GRACE%20Groundwater/A21c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A21c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.1%20GRACE%20Groundwater/A21d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A21d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.1%20GRACE%20Groundwater/A21e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A21e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.1%20GRACE%20Groundwater/A21f%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A21f Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.1%20GRACE%20Groundwater/A21s1%20-%20Supplemental/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A21s1   Supplemental
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.2%20Benthic%20Habitats/A22a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A22a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.2%20Benthic%20Habitats/A22b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A22b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.2%20Benthic%20Habitats/A22c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A22c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.2%20Benthic%20Habitats/A22d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A22d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.2%20Benthic%20Habitats/A22e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A22e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.3%20Surface%20Water%20Mapping/A23a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A23a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.3%20Surface%20Water%20Mapping/A23b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A23b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.3%20Surface%20Water%20Mapping/A23c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A23c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.4%20River%20Morphology/A24a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A24a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.4%20River%20Morphology/A24b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A24b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.4%20River%20Morphology/A24c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A24c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.4%20River%20Morphology/A24d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A24d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.4%20River%20Morphology/A24e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A24e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.4%20River%20Morphology/A24f%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A24f Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.5%20Water%20Balance%20and%20Drought/A25a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A25a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.5%20Water%20Balance%20and%20Drought/A25b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A25b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.5%20Water%20Balance%20and%20Drought/A25c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A25c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.5%20Water%20Balance%20and%20Drought/A25d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A25d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.5%20Water%20Balance%20and%20Drought/A25s1%20-%20Annual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A25s1   Annual
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.5%20Water%20Balance%20and%20Drought/A25s2%20-%20PET/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A25s2   PET
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.5%20Water%20Balance%20and%20Drought/A25s3%20-%20Monthly/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A25s3   Monthly
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.5%20Water%20Balance%20and%20Drought/A25s4%20-%20Per%20Class%20Balance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A25s4   Per Class Balance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.6%20First%20Date%20of%20No%20Snow/A26a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A26a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A2%20-%20Aquatic%20and%20Hydrological%20Applications/A2.6%20First%20Date%20of%20No%20Snow/A26b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A26b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    A3 - Terrestrial Applications
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            A3 - Terrestrial Applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.1%20Active%20Fire%20Monitoring/A31a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A31a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.1%20Active%20Fire%20Monitoring/A31b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A31b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.1%20Active%20Fire%20Monitoring/A31c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A31c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.1%20Active%20Fire%20Monitoring/A31d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A31d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.10%20Conservation%20II%20-%20Mapping%20and%20Assessing%20Agricultural%20Intensification%20in%20Production%20Landscapes%20outside%20Protected%20Areas/A310a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A310a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.10%20Conservation%20II%20-%20Mapping%20and%20Assessing%20Agricultural%20Intensification%20in%20Production%20Landscapes%20outside%20Protected%20Areas/A310b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A310b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.10%20Conservation%20II%20-%20Mapping%20and%20Assessing%20Agricultural%20Intensification%20in%20Production%20Landscapes%20outside%20Protected%20Areas/A310c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A310c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.2%20Mangroves/A32a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A32a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.2%20Mangroves/A32s1%20-%20Supplemental/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A32s1   Supplemental
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.3%20Mangroves%20II%20-%20Change/A33a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A33a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.3%20Mangroves%20II%20-%20Change/A33s1%20-%20Supplemental/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A33s1   Supplemental
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.4%20Forest%20Degradation%20and%20Deforestation/A34a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A34a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.4%20Forest%20Degradation%20and%20Deforestation/A34b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A34b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.4%20Forest%20Degradation%20and%20Deforestation/A34c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A34c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.4%20Forest%20Degradation%20and%20Deforestation/A34d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A34d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.4%20Forest%20Degradation%20and%20Deforestation/A34e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A34e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.4%20Forest%20Degradation%20and%20Deforestation/modules/palettes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Palettes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.5%20Deforestation%20Viewed%20from%20Multiple%20Sensors/A35a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A35a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.5%20Deforestation%20Viewed%20from%20Multiple%20Sensors/A35b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A35b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.5%20Deforestation%20Viewed%20from%20Multiple%20Sensors/A35c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A35c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.5%20Deforestation%20Viewed%20from%20Multiple%20Sensors/A35d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A35d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.5%20Deforestation%20Viewed%20from%20Multiple%20Sensors/A35e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A35e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.5%20Deforestation%20Viewed%20from%20Multiple%20Sensors/modules/FNRT_GUI/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FNRT GUI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.5%20Deforestation%20Viewed%20from%20Multiple%20Sensors/modules/Inputs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inputs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.5%20Deforestation%20Viewed%20from%20Multiple%20Sensors/modules/slope_correction_lib/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Slope correction lib
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.6%20Working%20With%20GPS%20%26%20Weather%20Data/A36a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A36a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.6%20Working%20With%20GPS%20%26%20Weather%20Data/A36b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A36b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.7%20Creating%20Presence-Absence%20Points/A37a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A37a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.7%20Creating%20Presence-Absence%20Points/A37b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A37b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.8%20Detecting%20Land%20Cover%20Change%20in%20Rangelands/A38a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A38a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.8%20Detecting%20Land%20Cover%20Change%20in%20Rangelands/A38b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A38b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.8%20Detecting%20Land%20Cover%20Change%20in%20Rangelands/A38c%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A38c Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.8%20Detecting%20Land%20Cover%20Change%20in%20Rangelands/A38d%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A38d Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.8%20Detecting%20Land%20Cover%20Change%20in%20Rangelands/A38e%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A38e Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.8%20Detecting%20Land%20Cover%20Change%20in%20Rangelands/A38s1%20-%20Supplemental/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A38s1   Supplemental
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.8%20Detecting%20Land%20Cover%20Change%20in%20Rangelands/modules/calcResid/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    calcResid
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.9%20Conservation%20Applications/A39a%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A39a Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/eefa-notebook/book/Part%20A%20-%20Applications/A3%20-%20Terrestrial%20Applications/A3.9%20Conservation%20Applications/A39b%20Checkpoint/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    A39b Checkpoint
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  <h1>404 - Not found</h1>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "/eefa-notebook/", "features": ["navigation.instant", "search.highlight"], "search": "/eefa-notebook/assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="/eefa-notebook/assets/javascripts/bundle.af256bd8.min.js"></script>
+      
+    
+  </body>
+</html>
